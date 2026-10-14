@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<!--
+  Joel Ebenka | DevOps & Cloud Engineer — portfolio
+  ONE file: index.html (plus the assets/ folder for logos, badges and the CV).
+
+  WHERE TO EDIT
+  1. The CONFIG and I18N blocks in the <script> near the bottom ("EDIT HERE").
+     Everything on the page is generated from them.
+  2. Nothing else needs touching. The ENGINE section below the config is the code that runs the page.
+
+  Libraries (pinned versions, integrity-checked): Tailwind CSS 4 browser build, GSAP 3, Google Fonts.
+-->
+<html lang="en" data-intro="play">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- EDIT HERE: search and social preview text (also keep it in sync with I18N 'meta.*') -->
+  <title>Joel Ebenka | DevOps &amp; Cloud Engineer</title>
+  <meta name="description" content="Joel Ebenka is a DevOps and Cloud Engineer in Yaoundé, Cameroon, working remotely worldwide on AWS, Azure and GCP: Terraform, Kubernetes, CI/CD and automation.">
+  <meta name="author" content="Joel Ebenka">
+  <meta name="theme-color" content="#09090b">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://chrisjoel.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Joel Ebenka | DevOps &amp; Cloud Engineer">
+  <meta property="og:description" content="I build the cloud. Then I teach it. AWS, Azure and GCP, Terraform, Kubernetes, CI/CD. Remote worldwide, from Yaoundé.">
+  <meta property="og:url" content="https://chrisjoel.github.io/">
+  <meta property="og:image" content="https://chrisjoel.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Joel Ebenka, DevOps and Cloud Engineer. I build the cloud. Then I teach it.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Content Security Policy: only this site, the two pinned CDNs and Google Fonts may load. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+
+  <!-- Favicon: inline SVG (a terminal prompt) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2309090b'/%3E%3Cpath d='M8 10l7 6-7 6' fill='none' stroke='%2334d399' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17 22h8' stroke='%2322d3ee' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+
+  <!-- Decides BEFORE first paint whether the intro plays (once per session, never with reduced motion). -->
+  <script>
+    (function () {
+      var d = document.documentElement, play = true;
+      d.classList.add('js');
+      try { if (sessionStorage.getItem('je-intro-seen') === '1') play = false; } catch (e) {}
+      try { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) play = false; } catch (e) {}
+      d.setAttribute('data-intro', play ? 'play' : 'skip');
+      // Failsafe: if the main script has not started after 4 s, never leave a visitor stuck on the intro.
+      setTimeout(function () {
+        if (!window.__portfolioBooted && d.getAttribute('data-intro') === 'play') d.setAttribute('data-intro', 'skip');
+        if (document.body) document.body.classList.add('ready');
+      }, 4000);
+    })();
+  </script>
+
+  <!-- Tailwind CSS 4 (browser build), pinned and integrity-checked -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js"
+          integrity="sha384-2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB"
+          crossorigin="anonymous"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+  </style>
+
+  <style>
+    /* ---------- Base ---------- */
+    :root{
+      --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      --sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      --em:var(--color-emerald-400,#34d399);
+      --cy:var(--color-cyan-400,#22d3ee);
+      --bg:var(--color-zinc-950,#09090b);
+    }
+    html{background:var(--bg);color-scheme:dark;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{margin:0;opacity:0}
+    body.ready{opacity:1;transition:opacity .25s ease}
+    :focus-visible{outline:2px solid var(--em);outline-offset:3px;border-radius:6px}
+    main:focus{outline:none}
+    ::selection{background:color-mix(in srgb,var(--em) 35%,transparent)}
+    .skip-link{position:absolute;left:-9999px;top:8px;z-index:100;padding:.5rem .9rem;border-radius:.5rem;background:var(--em);color:#09090b;font:600 .875rem var(--sans)}
+    .skip-link:focus{left:12px}
+
+    /* ---------- Ambient background: grid, scanlines, glows ---------- */
+    .ambient{position:fixed;inset:0;z-index:0;pointer-events:none}
+    .bg-grid{background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse 85% 70% at 50% 25%,#000 25%,transparent 100%);mask-image:radial-gradient(ellipse 85% 70% at 50% 25%,#000 25%,transparent 100%)}
+    .scanlines{background:repeating-linear-gradient(to bottom,rgba(255,255,255,.022) 0,rgba(255,255,255,.022) 1px,transparent 1px,transparent 3px)}
+    .glow-a,.glow-b{position:absolute;border-radius:9999px;width:min(70vw,640px);aspect-ratio:1}
+    .glow-a{top:-18%;left:-12%;background:radial-gradient(closest-side,color-mix(in srgb,var(--em) 16%,transparent),transparent)}
+    .glow-b{bottom:-22%;right:-14%;background:radial-gradient(closest-side,color-mix(in srgb,var(--cy) 14%,transparent),transparent)}
+    #site{position:relative;z-index:10}
+
+    /* ---------- Glass cards ---------- */
+    .glass{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:1rem;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+
+    /* ---------- Buttons and chips ---------- */
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.15rem;border-radius:.75rem;font:600 .9rem/1 var(--sans);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+    .btn svg{width:1rem;height:1rem;transition:transform .2s ease}
+    .btn:hover svg{transform:translateX(3px)}
+    .btn-primary{background:linear-gradient(135deg,var(--em),var(--cy));color:#09090b}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px -8px color-mix(in srgb,var(--em) 60%,transparent)}
+    .btn-ghost{color:#e4e4e7;border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.03)}
+    .btn-ghost:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
+    .chip{font:500 .8rem/1 var(--sans);padding:.5rem .9rem;border-radius:9999px;border:1px solid rgba(255,255,255,.14);background:transparent;color:#d4d4d8;cursor:pointer;transition:background-color .2s ease,border-color .2s ease,color .2s ease}
+    .chip:hover{border-color:var(--em);color:#fff}
+    .chip[aria-pressed="true"]{background:var(--em);border-color:var(--em);color:#09090b}
+    .pill{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .8rem;border-radius:9999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);font:500 .78rem/1.2 var(--mono);color:#d4d4d8}
+    .dot{width:.5rem;height:.5rem;border-radius:9999px;background:var(--em);box-shadow:0 0 10px var(--em);animation:pulse 2.4s ease-in-out infinite}
+    @keyframes pulse{50%{opacity:.35}}
+    @keyframes blink{50%{opacity:0}}
+
+    /* ---------- Stack tiles ---------- */
+    .tiles{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
+    .tile{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .65rem .4rem .45rem;border-radius:.65rem;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);font:500 .78rem/1 var(--mono);color:#e4e4e7}
+    .tile img,.tile .ico{width:1.35rem;height:1.35rem;flex:none;border-radius:.35rem;background:#fff;padding:2px;object-fit:contain}
+    .tile .ico{color:#065f46;display:block}
+    .tick{width:.95rem;height:.95rem;flex:none;color:var(--em)}
+
+    /* ---------- Language switch, menu ---------- */
+    .lang{display:inline-flex;border:1px solid rgba(255,255,255,.14);border-radius:9999px;padding:2px;background:rgba(255,255,255,.04)}
+    .lang button{font:600 .75rem/1 var(--mono);padding:.4rem .65rem;border-radius:9999px;border:0;background:transparent;color:#d4d4d8;cursor:pointer}
+    .lang button[aria-pressed="true"]{background:var(--em);color:#09090b}
+    .navlink{color:#d4d4d8;text-decoration:none;font:500 .875rem var(--sans);padding:.35rem 0;border-bottom:2px solid transparent;transition:color .2s ease,border-color .2s ease}
+    .navlink:hover{color:#fff;border-color:var(--em)}
+
+    /* ---------- Skill cards ---------- */
+    .skillcard{padding:1.25rem}
+    .skillcard h3{margin:0 0 .85rem;font:600 .8rem/1.2 var(--mono);color:var(--cy)}
+
+    /* ---------- Project cards ---------- */
+    .pgrid{display:grid;gap:1rem;grid-template-columns:1fr}
+    .pcard{display:flex;flex-direction:column;gap:.5rem;padding:1.4rem;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+    .pcard:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--em) 55%,transparent);box-shadow:0 16px 40px -18px color-mix(in srgb,var(--em) 45%,transparent)}
+    .pcard h3{margin:0;font:700 1.05rem/1.3 var(--mono);color:#fafafa}
+    .pcard p{margin:0;color:#a1a1aa;font-size:.92rem;line-height:1.6}
+    .plogos{display:flex;gap:.4rem;min-height:1.9rem;margin-bottom:.25rem}
+    .plogos img{width:1.9rem;height:1.9rem;padding:3px;border-radius:.45rem;background:#fff;object-fit:contain}
+    .pfacts{display:flex;flex-wrap:wrap;gap:.25rem .9rem;font:500 .78rem/1.4 var(--mono);color:#a1a1aa}
+    .plinks{margin-top:auto;display:flex;flex-wrap:wrap;gap:.6rem;padding-top:.9rem}
+    .plinks .btn{padding:.55rem .9rem;font-size:.82rem}
+    .soon{margin-top:auto;padding-top:.9rem;font-size:.85rem;color:#a1a1aa}
+    .syncnote{margin:1.5rem 0 0;font-size:.8rem;color:#a1a1aa}
+
+    /* ---------- Experience ---------- */
+    .jobs{list-style:none;margin:0;padding:0;display:grid;gap:1.25rem}
+    .job{padding:1.4rem}
+    .job h3{margin:0;font:700 1.05rem/1.35 var(--mono);color:#fafafa}
+    .job .co{margin:.15rem 0 0;color:var(--em);font:600 .9rem var(--sans)}
+    .job .meta{margin:.15rem 0 .8rem;color:#a1a1aa;font:500 .8rem/1.5 var(--mono)}
+    .job ul{margin:0;padding-left:1.1rem;display:grid;gap:.4rem;color:#d4d4d8;font-size:.92rem;line-height:1.6}
+    .job li::marker{color:var(--em)}
+    .edu{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+    .edu strong{display:block;color:#fafafa;font:600 .92rem/1.4 var(--sans)}
+    .edu span{display:block;color:#a1a1aa;font-size:.85rem;line-height:1.5}
+
+    /* ---------- Certifications ---------- */
+    .certs-panel{padding:1.5rem;border-radius:1.5rem;background:radial-gradient(60% 80% at 10% 10%,color-mix(in srgb,var(--em) 22%,transparent),transparent 62%),radial-gradient(60% 80% at 95% 95%,color-mix(in srgb,var(--cy) 20%,transparent),transparent 62%),rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09)}
+    .cgrid{display:grid;gap:.85rem;grid-template-columns:repeat(2,1fr)}
+    .ccard{display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center;padding:1.1rem .8rem;border-radius:1rem;border:1px solid rgba(255,255,255,.1);background:rgba(9,9,11,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#f4f4f5;cursor:pointer;font:inherit;transition:transform .25s ease,border-color .25s ease,background-color .25s ease}
+    .ccard:hover{transform:translateY(-4px);border-color:var(--em);background:rgba(9,9,11,.65)}
+    .ccard strong{font:600 .85rem/1.35 var(--sans)}
+    .ccard .issuer{font-size:.75rem;color:#a1a1aa}
+    .cmark{display:grid;place-items:center;width:4rem;height:4rem;flex:none}
+    .cmark img{width:100%;height:100%;object-fit:contain}
+    .cmark.logo{background:#fff;border-radius:.9rem;padding:.7rem}
+    dialog.cdialog{margin:auto;border:1px solid rgba(255,255,255,.14);border-radius:1.25rem;padding:0;max-width:30rem;width:calc(100% - 2rem);background:#111114;color:#e4e4e7;box-shadow:0 30px 80px -20px rgba(0,0,0,.8)}
+    dialog.cdialog::backdrop{background:rgba(3,7,10,.72);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+    html:has(dialog[open]){overflow:hidden}
+    .dlg{position:relative;padding:1.75rem 1.5rem 1.5rem}
+    .dlg h3{margin:.9rem 0 .15rem;font:700 1.15rem/1.35 var(--mono);color:#fafafa}
+    .dlg .by{margin:0;color:#a1a1aa;font-size:.9rem}
+    .dlg dl{display:grid;gap:.9rem;margin:1.1rem 0}
+    .dlg dt{font:500 .75rem/1.2 var(--mono);color:#a1a1aa}
+    .dlg dd{margin:.2rem 0 0;font-weight:600;word-break:break-all}
+    .dlg .desc{margin:0 0 1rem;color:#d4d4d8;font-size:.92rem;line-height:1.6}
+    .dlg .xbtn{position:absolute;top:.7rem;right:.8rem;width:2.2rem;height:2.2rem;display:grid;place-items:center;border:0;border-radius:9999px;background:rgba(255,255,255,.06);color:#e4e4e7;cursor:pointer}
+    .dlg .xbtn:hover{background:rgba(255,255,255,.14)}
+    .dlg .xbtn svg{width:1.1rem;height:1.1rem}
+    .dlg .tiles{margin-bottom:1.1rem}
+
+    /* ---------- Contact ---------- */
+    .social{display:flex;flex-wrap:wrap;gap:.9rem;margin:1.5rem 0}
+    .social a{display:flex;flex-direction:column;align-items:center;gap:.6rem;width:7rem;padding:1.1rem 0;border-radius:1rem;color:#f4f4f5;text-decoration:none;font:600 .85rem var(--sans);transition:transform .2s ease,border-color .2s ease}
+    .social a:hover{transform:translateY(-4px);border-color:var(--em)}
+    .social .mark{display:grid;place-items:center;width:2.5rem;height:2.5rem;border-radius:.7rem;background:#fff;color:#065f46}
+    .social .mark img{width:1.6rem;height:1.6rem}
+    .social .mark svg{width:1.5rem;height:1.5rem}
+
+    /* ---------- Hero stats ---------- */
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;max-width:34rem;margin:2.5rem 0 0}
+    .stats>div{display:flex;flex-direction:column-reverse;gap:.15rem;padding:.9rem 1rem;border-radius:.9rem;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04)}
+    .stats dd{margin:0;font:700 1.6rem/1.1 var(--mono);color:var(--em);font-variant-numeric:tabular-nums}
+    .stats dt{font-size:.75rem;line-height:1.35;color:#a1a1aa}
+
+    /* ---------- Scroll reveals (only when JS runs) ---------- */
+    .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .js .reveal.in{opacity:1;transform:none}
+
+    /* ---------- Intro ---------- */
+    #intro{position:fixed;inset:0;z-index:50;display:none;overflow:hidden}
+    html[data-intro="play"] #intro{display:block}
+    html[data-intro="play"]{overflow:hidden}
+    html[data-intro="play"] #site{visibility:hidden}
+    #skip{position:absolute;top:max(1rem,env(safe-area-inset-top));right:max(1rem,env(safe-area-inset-right));z-index:5;display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:9999px;border:1px solid rgba(255,255,255,.2);background:rgba(9,9,11,.7);color:#f4f4f5;font:600 .8rem/1 var(--mono);cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+    #skip:hover{background:rgba(255,255,255,.12)}
+    #skip svg{width:.9rem;height:.9rem}
+    .scene{position:absolute;inset:0;display:flex;overflow-y:auto;padding:4.5rem 1rem 1.5rem;opacity:0;visibility:hidden}
+    .scene>*{margin:auto;width:100%}
+    html[data-intro="play"] .scene{will-change:opacity,transform}
+
+    /* scene 1: terminal */
+    #term{max-width:42rem;border-radius:1rem;border:1px solid rgba(255,255,255,.12);background:rgba(24,24,27,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 0 70px -20px color-mix(in srgb,var(--em) 45%,transparent);opacity:0}
+    .term-bar{display:flex;align-items:center;gap:.4rem;padding:.7rem .9rem;border-bottom:1px solid rgba(255,255,255,.09)}
+    .term-bar i{width:.65rem;height:.65rem;border-radius:9999px;background:#3f3f46}
+    .term-bar span{margin-left:.6rem;font:500 .75rem var(--mono);color:#a1a1aa}
+    .term-body{padding:1rem 1.1rem 1.1rem;font:400 .75rem/1.55rem var(--mono);color:#d4d4d8}
+    .cmd{margin:0;color:#fafafa;word-break:break-all}
+    .cmd .pr{color:var(--em);margin-right:.5rem}
+    .ch{opacity:0;white-space:pre}
+    .caret{display:inline-block;width:.55em;height:1.05em;margin-left:2px;vertical-align:-.15em;background:var(--em);animation:blink 1s steps(1) infinite}
+    #logview{position:relative;margin-top:.6rem;height:11rem;overflow:hidden}
+    #loglist{list-style:none;margin:0;padding:0 0 .6rem}
+    .logline{opacity:0;word-break:break-word}
+    .logline.ok{color:var(--em)}.logline.info{color:var(--cy)}.logline.dim{color:#a1a1aa}
+    .logline.done{color:var(--em);font-weight:700;text-shadow:0 0 18px color-mix(in srgb,var(--em) 80%,transparent)}
+    @media (min-width:640px){.term-body{font-size:.875rem}#logview{height:13rem}}
+
+    /* scene 2: identity */
+    #sc2 .wrap{position:relative;text-align:center;max-width:56rem}
+    #id-glow{position:absolute;left:50%;top:38%;width:min(90vw,560px);aspect-ratio:2/1;transform:translate(-50%,-50%);background:radial-gradient(closest-side,color-mix(in srgb,var(--cy) 38%,transparent),transparent);opacity:0;pointer-events:none}
+    #id-name{position:relative;margin:0;font:700 clamp(2.1rem,9vw,5.2rem)/1.1 var(--mono);color:#fafafa;letter-spacing:-.02em;text-shadow:0 0 28px color-mix(in srgb,var(--cy) 45%,transparent)}
+    .letter{display:inline-block;opacity:0}
+    #id-role{position:relative;margin:1rem 0 0;font:500 clamp(.9rem,3.4vw,1.4rem) var(--mono);color:var(--em);opacity:0}
+    #id-tagwrap{position:relative;display:inline-block;margin:1.6rem 0 0;font:500 clamp(1.05rem,4.4vw,1.9rem)/1.3 var(--sans);color:#e4e4e7;opacity:0}
+    #id-underline{position:absolute;left:0;bottom:-6px;height:2px;width:100%;background:linear-gradient(90deg,var(--em),var(--cy));transform:scaleX(0);transform-origin:left}
+
+    /* scene 3: pipeline */
+    #pl-head{display:flex;justify-content:space-between;gap:1rem;margin-bottom:1rem;font:500 .75rem/1.2 var(--mono);color:#a1a1aa;opacity:0}
+    #pl-state{position:relative;display:inline-block;min-width:5rem;text-align:right}
+    #pl-state span{display:inline-block}
+    #pl-ok{position:absolute;right:0;top:0;color:var(--em);opacity:0}
+    #pl-run{color:var(--cy)}
+    #pipeline{position:relative;display:grid;gap:.75rem;list-style:none;margin:0;padding:0}
+    .stage{position:relative;display:flex;gap:.75rem;opacity:0}
+    .node{position:relative;z-index:1;display:grid;place-items:center;flex:none;width:2rem;height:2rem;border-radius:9999px;border:1px solid rgba(255,255,255,.18);background:#18181b;font:600 .75rem var(--mono);color:#a1a1aa}
+    .node-ok{position:absolute;inset:-1px;display:grid;place-items:center;border-radius:inherit;border:1px solid var(--em);background:color-mix(in srgb,var(--em) 18%,#18181b);color:var(--em);opacity:0}
+    .node-ok svg{width:.95rem;height:.95rem}
+    .conn{position:absolute;left:15px;top:32px;bottom:-12px;width:2px;background:rgba(255,255,255,.1)}
+    .stage:last-child .conn{display:none}
+    .fill{position:absolute;inset:0;background:linear-gradient(to bottom,var(--em),var(--cy));transform:scaleY(0);transform-origin:50% 0}
+    .scard{flex:1;min-width:0;padding:.7rem .8rem;border-radius:.85rem;border:1px solid rgba(255,255,255,.1);background:rgba(24,24,27,.6)}
+    .scard h3{margin:0 0 .5rem;font:600 .75rem/1.2 var(--mono);color:#e4e4e7}
+    #pipeline .tile,#pipeline .tick{opacity:0}
+    #pipeline .tile{padding:.3rem .5rem .3rem .35rem;font-size:.72rem}
+    #pipeline .tile img,#pipeline .tile .ico{width:1.15rem;height:1.15rem}
+    #stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:1.1rem}
+    #stats-row .stat{padding:.7rem .5rem;text-align:center;border-radius:.85rem;border:1px solid rgba(255,255,255,.1);background:rgba(24,24,27,.6);opacity:0}
+    #stats-row .num{margin:0;font:700 clamp(1.4rem,6vw,2.2rem)/1.1 var(--mono);color:var(--em);font-variant-numeric:tabular-nums}
+    #stats-row .lab{margin:.2rem 0 0;font-size:clamp(.62rem,2.4vw,.78rem);line-height:1.3;color:#a1a1aa}
+    @media (min-width:768px){
+      #pipeline{grid-template-columns:repeat(5,1fr);gap:1rem}
+      .stage{flex-direction:column;align-items:center}
+      .conn{left:calc(50% + 16px);top:15px;bottom:auto;width:calc(100% - 16px);height:2px}
+      .fill{background:linear-gradient(to right,var(--em),var(--cy));transform:scaleX(0);transform-origin:0 50%}
+      .scard{width:100%;flex:none}
+      #pipeline .tiles{justify-content:center}
+    }
+    @media (min-width:640px){.skip-link{font-size:.9rem}}
+    @media (min-width:640px){.pgrid{grid-template-columns:repeat(2,1fr)}.cgrid{grid-template-columns:repeat(3,1fr)}}
+    @media (min-width:1024px){.pgrid{grid-template-columns:repeat(3,1fr)}.cgrid{grid-template-columns:repeat(4,1fr)}.certs-panel{padding:2rem}}
+
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .dot,.caret{animation:none}
+      .js .reveal{opacity:1;transform:none;transition:none}
+      .btn,.pcard,.ccard,.social a{transition:none}
+      .btn-primary:hover,.btn-ghost:hover,.pcard:hover,.ccard:hover,.social a:hover{transform:none}
+    }
+  </style>
+  <noscript>
+    <style>
+      body{opacity:1!important}
+      #intro{display:none!important}
+      html[data-intro="play"]{overflow:auto!important}
+      html[data-intro="play"] #site{visibility:visible!important}
+      .reveal{opacity:1!important;transform:none!important}
+    </style>
+  </noscript>
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Joel Ebenka","jobTitle":"DevOps & Cloud Engineer","url":"https://chrisjoel.github.io/","address":{"@type":"PostalAddress","addressLocality":"Yaoundé","addressCountry":"CM"},"knowsLanguage":["en","fr"],"sameAs":["https://github.com/chrisjoel","https://www.linkedin.com/in/joel-ebenka-b810651b5"]}
+  </script>
+</head>
+
+<body class="bg-zinc-950 font-sans text-zinc-300 antialiased">
+
+  <!-- Ambient layers: faint grid, scanlines, soft glows -->
+  <div class="ambient" aria-hidden="true">
+    <div class="glow-a"></div><div class="glow-b"></div>
+    <div class="ambient bg-grid"></div>
+    <div class="ambient scanlines"></div>
+  </div>
+
+  <!-- =====================================================================
+       INTRO (about 13 s, one GSAP timeline). Content is generated from CONFIG.
+       ===================================================================== -->
+  <div id="intro" role="region" aria-label="Intro animation">
+    <button id="skip" type="button"><span data-i18n="intro.skip">Skip intro</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 6 6-6 6"/><path d="m13 6 6 6-6 6"/></svg></button>
+    <p class="sr-only" data-i18n="intro.status">Intro animation playing. Press Escape or use the Skip intro button to go to the portfolio.</p>
+
+    <section id="sc1" class="scene" aria-hidden="true">
+      <div id="term">
+        <div class="term-bar"><i></i><i></i><i></i><span>joel@cloud:~/portfolio</span></div>
+        <div class="term-body">
+          <p class="cmd"><span class="pr">$</span><span id="cmd-text"></span><span class="caret" id="caret"></span></p>
+          <div id="logview"><ul id="loglist"></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sc2" class="scene" aria-hidden="true">
+      <div class="wrap">
+        <div id="id-glow"></div>
+        <h2 id="id-name"></h2>
+        <p id="id-role"></p>
+        <p id="id-tagwrap"><span id="id-tag"></span><span id="id-underline"></span></p>
+      </div>
+    </section>
+
+    <section id="sc3" class="scene" aria-hidden="true">
+      <div style="max-width:72rem">
+        <div id="pl-head"><span data-i18n="intro.pipeline">pipeline: stack-validation</span><span id="pl-state"><span id="pl-run" data-i18n="intro.running">running</span><span id="pl-ok" data-i18n="intro.passed">passed</span></span></div>
+        <ol id="pipeline"></ol>
+        <div id="stats-row"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- =====================================================================
+       SITE (landing page)
+       ===================================================================== -->
+  <div id="site">
+    <a class="skip-link" href="#main" data-i18n="skip.content">Skip to content</a>
+
+    <header class="sticky top-0 z-40 border-b border-white/10 bg-zinc-950/70 backdrop-blur-md">
+      <div class="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+        <a href="#top" class="font-mono text-sm font-semibold text-zinc-100 no-underline"><span class="text-emerald-400">~/</span>joel-ebenka</a>
+        <nav class="hidden items-center gap-6 lg:flex" aria-label="Primary" id="nav-main"></nav>
+        <div class="flex items-center gap-2">
+          <div class="lang" role="group" data-i18n-label="nav.lang" aria-label="Language">
+            <button type="button" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+          </div>
+          <button id="menu-btn" type="button" class="grid size-9 place-items-center rounded-lg border border-white/15 text-zinc-200 lg:hidden" aria-expanded="false" aria-controls="mobile-nav" data-i18n-label="nav.menu" aria-label="Menu"></button>
+        </div>
+      </div>
+      <nav id="mobile-nav" class="border-t border-white/10 bg-zinc-950/95 px-4 py-3 lg:hidden" aria-label="Primary mobile" hidden></nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+
+      <!-- HERO -->
+      <section id="top" class="relative" aria-labelledby="hero-title">
+        <div class="mx-auto max-w-6xl px-4 pb-16 pt-14 sm:px-6 sm:pb-24 sm:pt-24">
+          <p class="hero-item pill"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.status">Open to remote roles</span></p>
+          <h1 id="hero-title" class="hero-item mt-6 font-mono text-4xl font-bold tracking-tight text-zinc-50 sm:text-6xl lg:text-7xl"></h1>
+          <p class="hero-item mt-4 font-mono text-lg text-emerald-400 sm:text-2xl" data-i18n="hero.role"></p>
+          <p class="hero-item mt-6 max-w-3xl text-2xl font-semibold leading-tight text-zinc-100 sm:text-4xl" data-i18n="hero.tagline"></p>
+          <p class="hero-item mt-4 max-w-2xl leading-relaxed text-zinc-400" data-i18n="hero.sub"></p>
+          <p class="hero-item mt-5 flex flex-wrap gap-2"><span class="pill" data-i18n="hero.location"></span><span class="pill" data-i18n="hero.remote"></span></p>
+          <div class="hero-item mt-8 flex flex-wrap gap-3">
+            <a class="btn btn-primary" href="#projects"><span data-i18n="hero.cta.projects"></span><span id="ico-arrow"></span></a>
+            <a class="btn btn-ghost" href="#contact" data-i18n="hero.cta.contact"></a>
+            <a class="btn btn-ghost" id="cv-link" href="assets/Joel-Ebenka-CV.pdf" download><span data-i18n="hero.cta.cv"></span></a>
+          </div>
+          <dl class="hero-item stats" id="hero-stats"></dl>
+        </div>
+      </section>
+
+      <!-- SKILLS (5 categories, edit CONFIG.SKILLS) -->
+      <section id="skills" class="scroll-mt-16 py-14 sm:py-20" aria-labelledby="skills-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal mb-8 max-w-2xl">
+            <h2 id="skills-title" class="font-mono text-2xl font-bold text-zinc-50 sm:text-3xl" data-i18n="skills.title"></h2>
+            <p class="mt-2 text-zinc-400" data-i18n="skills.sub"></p>
+          </div>
+          <div id="skills-grid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+        </div>
+      </section>
+
+      <!-- PROJECTS (edit CONFIG.PROJECTS; tagged GitHub repos are added automatically) -->
+      <section id="projects" class="scroll-mt-16 py-14 sm:py-20" aria-labelledby="projects-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal mb-6 max-w-2xl">
+            <h2 id="projects-title" class="font-mono text-2xl font-bold text-zinc-50 sm:text-3xl" data-i18n="projects.title"></h2>
+            <p class="mt-2 text-zinc-400" data-i18n="projects.sub"></p>
+          </div>
+          <div id="proj-filters" class="reveal mb-6 flex flex-wrap gap-2" role="group" data-i18n-label="projects.filter" aria-label="Filter projects"></div>
+          <div id="proj-grid" class="pgrid"></div>
+          <p id="sync-note" class="syncnote" hidden></p>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE (edit CONFIG.EXPERIENCE and CONFIG.EDUCATION) -->
+      <section id="experience" class="scroll-mt-16 py-14 sm:py-20" aria-labelledby="exp-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal mb-8 max-w-2xl">
+            <h2 id="exp-title" class="font-mono text-2xl font-bold text-zinc-50 sm:text-3xl" data-i18n="exp.title"></h2>
+            <p class="mt-2 text-zinc-400" data-i18n="exp.sub"></p>
+          </div>
+          <div class="grid gap-8 lg:grid-cols-[1fr_20rem]">
+            <ol id="exp-list" class="jobs"></ol>
+            <aside class="reveal glass h-fit p-5" aria-labelledby="edu-title">
+              <h3 id="edu-title" class="mb-4 font-mono text-sm font-semibold text-cyan-400" data-i18n="exp.education"></h3>
+              <ul id="edu-list" class="edu"></ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS & BADGES (edit CONFIG.CERTIFICATIONS) -->
+      <section id="certifications" class="scroll-mt-16 py-14 sm:py-20" aria-labelledby="certs-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal mb-8 max-w-2xl">
+            <h2 id="certs-title" class="font-mono text-2xl font-bold text-zinc-50 sm:text-3xl" data-i18n="certs.title"></h2>
+            <p class="mt-2 text-zinc-400" data-i18n="certs.sub"></p>
+          </div>
+          <div class="certs-panel reveal"><div id="cert-grid" class="cgrid"></div></div>
+        </div>
+      </section>
+
+      <!-- ABOUT (edit I18N 'about.*') -->
+      <section id="about" class="scroll-mt-16 py-14 sm:py-20" aria-labelledby="about-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal grid gap-8 lg:grid-cols-[1.4fr_1fr]">
+            <div>
+              <h2 id="about-title" class="font-mono text-2xl font-bold text-zinc-50 sm:text-3xl" data-i18n="about.title"></h2>
+              <p class="mt-4 max-w-2xl leading-relaxed text-zinc-300" data-i18n="about.p1"></p>
+              <p class="mt-4 max-w-2xl leading-relaxed text-zinc-300" data-i18n="about.p2"></p>
+            </div>
+            <div class="glass h-fit p-6">
+              <h3 class="font-mono text-sm font-semibold text-cyan-400" data-i18n="about.teach.title"></h3>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-300" data-i18n="about.teach.text"></p>
+              <h3 class="mt-6 font-mono text-sm font-semibold text-cyan-400" data-i18n="about.lang.title"></h3>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-300" data-i18n="about.lang.text"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT (edit CONFIG.EMAIL / LINKEDIN / GITHUB) -->
+      <section id="contact" class="scroll-mt-16 py-14 sm:py-20" aria-labelledby="contact-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal max-w-2xl">
+            <h2 id="contact-title" class="font-mono text-2xl font-bold text-zinc-50 sm:text-3xl" data-i18n="contact.title"></h2>
+            <p class="mt-3 leading-relaxed text-zinc-300" data-i18n="contact.text"></p>
+            <div class="social" id="social"></div>
+            <p class="text-sm text-zinc-400"><span data-i18n="contact.email"></span>: <a id="email-text" class="text-emerald-400 underline underline-offset-4"></a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 py-8">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 text-sm text-zinc-400 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <p><span id="year"></span> Joel Ebenka. <span data-i18n="footer.rights"></span></p>
+        <p data-i18n="footer.built"></p>
+        <button id="replay" type="button" class="w-fit rounded-md text-left font-mono text-emerald-400 underline underline-offset-4" data-i18n="footer.replay">Replay intro</button>
+      </div>
+    </footer>
+  </div>
+
+  <noscript>
+    <div style="position:relative;z-index:20;max-width:42rem;margin:0 auto;padding:2rem 1rem;color:#d4d4d8;font-family:system-ui,sans-serif">
+      <h1 style="color:#fafafa">Joel Ebenka</h1>
+      <p>DevOps &amp; Cloud Engineer in Yaoundé, Cameroon, working remotely worldwide on AWS, Azure and GCP. I build the cloud. Then I teach it.</p>
+      <p>This page needs JavaScript for its full layout. You can still reach me here:</p>
+      <ul>
+        <li><a style="color:#34d399" href="mailto:joelebenka45@yahoo.com">joelebenka45@yahoo.com</a></li>
+        <li><a style="color:#34d399" href="https://www.linkedin.com/in/joel-ebenka-b810651b5">LinkedIn</a></li>
+        <li><a style="color:#34d399" href="https://github.com/chrisjoel">GitHub</a></li>
+        <li><a style="color:#34d399" href="assets/Joel-Ebenka-CV.pdf">Download CV (PDF)</a></li>
+      </ul>
+    </div>
+  </noscript>
+
+  <!-- GSAP 3, pinned and integrity-checked -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"
+          integrity="sha384-XmJ9SoHtVOHoQUcKvFAzVXwdkKo1Ie3bhmSoIAkcdsHGaIrVJIkmozyq0FJeb/Ly"
+          crossorigin="anonymous"></script>
+
+  <script>
+  'use strict';
+
+  /* ====================================================================
+     EDIT HERE: CONFIG (content that is not language-specific) and I18N (all text, EN + FR).
+     Run `node scripts/check-site.mjs` after editing to catch typos and missing translations.
+     ==================================================================== */
+  /* CONFIG:START */
+  const CONFIG = {
+    // ---- Identity -------------------------------------------------------
+    NAME: 'Joel Ebenka',
+    EMAIL: 'joelebenka45@yahoo.com',
+    LINKEDIN: 'https://www.linkedin.com/in/joel-ebenka-b810651b5',
+    GITHUB: 'https://github.com/chrisjoel',
+    CV_FILE: 'assets/Joel-Ebenka-CV.pdf',   // public copy of the CV (no phone number)
+
+    // ---- Colors (Tailwind palette values; they override zinc-950, emerald-400, cyan-400) ----
+    COLORS: { background: '#09090b', accent1: '#34d399', accent2: '#22d3ee' },
+
+    // ---- Stats (hero strip and intro counters). Labels live in I18N 'stats.*' ----
+    STATS: [
+      { value: 5,   suffix: '+', labelKey: 'stats.years' },
+      { value: 3,   suffix: '',  labelKey: 'stats.platforms' },
+      { value: 300, suffix: '+', labelKey: 'stats.learners' }
+    ],
+
+    // ---- Skills: 5 categories. 'logo' = file name in assets/logos (without .svg); 'icon' = built-in icon ----
+    SKILLS: [
+      { key: 'clouds',     items: [{ name: 'AWS', logo: 'amazonwebservices' }, { name: 'Azure', logo: 'azure' }, { name: 'GCP', logo: 'googlecloud' }] },
+      { key: 'containers', items: [{ name: 'Docker', logo: 'docker' }, { name: 'Kubernetes', logo: 'kubernetes' }] },
+      { key: 'iac',        items: [{ name: 'Terraform', logo: 'terraform' }, { name: 'Ansible', logo: 'ansible' }] },
+      { key: 'cicd',       items: [{ name: 'Jenkins', logo: 'jenkins' }, { name: 'GitHub Actions', logo: 'githubactions' }] },
+      { key: 'systems',    items: [{ name: 'Linux', logo: 'linux' }, { name: 'IAM', icon: 'shield' }] }
+    ],
+    ALSO: ['Python', 'Bash', 'Java', 'SQL', 'Git', 'Maven', 'SonarQube', 'Artifactory', 'Grafana', 'Prometheus', 'New Relic', 'Nginx'],
+
+    // ---- Intro terminal (scene 1). tone: plain | dim | ok | info | done ----
+    INTRO: {
+      command: 'terraform apply -auto-approve',
+      logs: [
+        { text: 'Initializing the backend...', tone: 'dim' },
+        { text: 'Initializing provider plugins...', tone: 'dim' },
+        { text: '- Reusing previous version of hashicorp/aws', tone: 'dim' },
+        { text: '- Using previously-installed hashicorp/aws', tone: 'dim' },
+        { text: 'Terraform has been successfully initialized!', tone: 'ok' },
+        { text: 'Terraform used the selected providers to generate the following execution plan.', tone: 'plain' },
+        { text: '  + resource "portfolio" "joel_ebenka" {', tone: 'info' },
+        { text: 'Plan: 1 to add, 0 to change, 0 to destroy.', tone: 'plain' },
+        { text: 'portfolio.joel_ebenka: Creating...', tone: 'plain' },
+        { text: 'portfolio.joel_ebenka: Creation complete after 2s', tone: 'ok' },
+        { text: 'Apply complete! 1 portfolio deployed.', tone: 'done' }
+      ]
+    },
+
+    // ---- Projects. logos: files in assets/logos; cats: filter chips. A card whose link points to a GitHub
+    //      repo tagged with the SYNC topic also shows live facts (language, last update, stars, demo link). ----
+    PROJECTS: [
+      { title: 'Highly available web app on AWS', logos: ['terraform', 'amazonwebservices'], cats: ['Terraform', 'AWS'],
+        link: 'https://github.com/chrisjoel/HA_Webapp_terraform',
+        description: { en: 'Terraform for a load-balanced, auto-scaling EC2 web fleet with security groups.',
+                       fr: 'Terraform pour une flotte web EC2 avec répartition de charge, auto-scaling et groupes de sécurité.' } },
+      { title: 'Jenkins server on AWS', logos: ['terraform', 'jenkins', 'bash', 'amazonwebservices'], cats: ['Terraform', 'AWS', 'CI/CD'],
+        link: 'https://github.com/chrisjoel/jenkins_terraform_ec2_install',
+        description: { en: 'Terraform provisions an EC2 instance and a shell script installs Jenkins automatically.',
+                       fr: 'Terraform provisionne une instance EC2 et un script shell installe Jenkins automatiquement.' } },
+      { title: 'EKS infrastructure with Terraform', logos: ['terraform', 'kubernetes', 'amazonwebservices'], cats: ['Terraform', 'AWS', 'Kubernetes'],
+        link: 'https://github.com/chrisjoel/full-devops-terraform-eks-infra',
+        description: { en: 'Infrastructure as code for an Amazon EKS Kubernetes environment.',
+                       fr: 'Infrastructure as code pour un environnement Kubernetes sur Amazon EKS.' } },
+      { title: '30-Day Terraform Challenge', logos: ['terraform'], cats: ['Terraform'],
+        link: 'https://github.com/chrisjoel/30-Day-Terraform-challenge-',
+        description: { en: 'Hands-on exercises from the 30-day challenge run by the HashiCorp User Group Yaoundé.',
+                       fr: 'Exercices pratiques du défi de 30 jours organisé par le HashiCorp User Group Yaoundé.' } },
+      { title: 'KiloShare', logos: [], cats: [], link: '',
+        description: { en: 'Marketplace linking travellers with spare luggage allowance to people sending parcels between Cameroon and Russia.',
+                       fr: 'Place de marché qui relie les voyageurs disposant de bagages libres aux personnes qui envoient des colis entre le Cameroun et la Russie.' } },
+      { title: 'Pediatric health records platform', logos: [], cats: [], link: '',
+        description: { en: 'Offline-first microservices record system for pediatric care in Yaoundé.',
+                       fr: 'Système de dossiers pédiatriques en microservices, conçu pour fonctionner hors ligne, pour Yaoundé.' } }
+    ],
+
+    // ---- GitHub sync. The deploy workflow writes projects.json from repos tagged TOPIC (see README) ----
+    SYNC: {
+      FILE: 'projects.json',
+      TOPIC_MAP: {                       // GitHub topic -> filter chip and logo (for cards added automatically)
+        terraform: { cat: 'Terraform', logo: 'terraform' }, aws: { cat: 'AWS', logo: 'amazonwebservices' },
+        eks: { cat: 'Kubernetes', logo: 'kubernetes' }, kubernetes: { cat: 'Kubernetes', logo: 'kubernetes' },
+        k8s: { cat: 'Kubernetes', logo: 'kubernetes' }, helm: { cat: 'Kubernetes' },
+        argocd: { cat: 'GitOps' }, gitops: { cat: 'GitOps' },
+        jenkins: { cat: 'CI/CD', logo: 'jenkins' }, 'github-actions': { cat: 'CI/CD', logo: 'githubactions' },
+        'ci-cd': { cat: 'CI/CD' }, cicd: { cat: 'CI/CD' },
+        docker: { cat: 'Containers', logo: 'docker' }, ansible: { cat: 'Automation', logo: 'ansible' },
+        python: { cat: 'Automation', logo: 'python' }, bash: { logo: 'bash' },
+        grafana: { cat: 'Monitoring', logo: 'grafana' }, prometheus: { cat: 'Monitoring', logo: 'prometheus' },
+        nginx: { logo: 'nginx' }, sonarqube: { cat: 'DevSecOps', logo: 'sonarqube' },
+        devsecops: { cat: 'DevSecOps' }, security: { cat: 'DevSecOps' }, finops: { cat: 'FinOps' },
+        azure: { cat: 'Azure', logo: 'azure' }, gcp: { cat: 'GCP', logo: 'googlecloud' },
+        'google-cloud': { cat: 'GCP', logo: 'googlecloud' }, linux: { logo: 'linux' }
+      },
+      LANGUAGE_LOGOS: { HCL: 'terraform', Python: 'python', Java: 'java', Shell: 'bash', Dockerfile: 'docker' },
+      CATEGORY_ORDER: ['Terraform', 'AWS', 'Kubernetes', 'CI/CD', 'Containers', 'Automation', 'Monitoring', 'GitOps', 'DevSecOps', 'FinOps', 'Azure', 'GCP']
+    },
+
+    // ---- Experience (dates as YYYY-MM; the page formats them per language) ----
+    EXPERIENCE: [
+      { role: { en: 'Cloud Support & DevOps Engineer', fr: 'Ingénieur Cloud Support & DevOps' },
+        company: 'MBOA Digital (Propellerhead)', start: '2025-03', end: '2026-03',
+        place: { en: 'Yaoundé, Cameroon. Remote client in New Zealand', fr: 'Yaoundé, Cameroun. Client à distance en Nouvelle-Zélande' },
+        bullets: {
+          en: ['Set up and maintained production monitoring with New Relic, PaperTrail and OpsGenie, cutting P1/P2 incident response time by 60%.',
+               'Managed pre-prod, test and production environments: file and software distribution via Azure Blob Storage, Artifactory and WinSCP.',
+               'Monitored and remediated Azure Service Bus dead-letter queues to keep card and concession processing flowing.',
+               'Administered identity lifecycles (Azure AD B2C, MS Dynamics 365, SQL IDM) and fixed sync failures with SQL patches, reducing escalations by 40%.',
+               'Improved uptime by 30% through proactive cloud infrastructure management and automated alerting.'],
+          fr: ['Mise en place et maintenance de la supervision de production (New Relic, PaperTrail, OpsGenie) : temps de réponse aux incidents P1/P2 réduit de 60 %.',
+               'Gestion des environnements de préproduction, de test et de production : distribution de fichiers et de logiciels via Azure Blob Storage, Artifactory et WinSCP.',
+               'Surveillance et traitement des files de lettres mortes Azure Service Bus pour assurer la continuité des flux de cartes et de concessions.',
+               'Administration du cycle de vie des identités (Azure AD B2C, MS Dynamics 365, bases SQL IDM) et correction des échecs de synchronisation par correctifs SQL : escalades réduites de 40 %.',
+               'Disponibilité améliorée de 30 % grâce à une gestion proactive de l’infrastructure cloud et à des alertes automatisées.'] } },
+      { role: { en: 'DevOps Engineer', fr: 'Ingénieur DevOps' },
+        company: 'DR Financial Services', start: '2022-05', end: '2024-03',
+        place: { en: 'Houston, Texas, USA. Fully remote', fr: 'Houston, Texas, États-Unis. Télétravail complet' },
+        bullets: {
+          en: ['Designed and operated end-to-end CI/CD pipelines on Jenkins (AWS EC2) with Maven, SonarQube and Git, fully automating build, test and deployment.',
+               'Deployed a serverless architecture on AWS (API Gateway, Lambda, DynamoDB, static S3 hosting) for a regulated financial services platform.',
+               'Monitored EC2 performance with Grafana and Prometheus and documented the root cause of every incident.',
+               'Containerized a Python Flask application with Docker Compose for consistent deployments from source to production.',
+               'Automated multi-server patching with Ansible playbooks, standardizing configurations and reducing manual work.'],
+          fr: ['Conception et exploitation de pipelines CI/CD de bout en bout sur Jenkins (AWS EC2) avec Maven, SonarQube et Git : build, tests et déploiement entièrement automatisés.',
+               'Déploiement d’une architecture serverless sur AWS (API Gateway, Lambda, DynamoDB, hébergement statique S3) pour une plateforme de services financiers réglementée.',
+               'Supervision des performances EC2 avec Grafana et Prometheus, avec documentation de la cause racine de chaque incident.',
+               'Conteneurisation d’une application Python Flask avec Docker Compose pour des déploiements cohérents de la source à la production.',
+               'Automatisation de la mise à jour de plusieurs serveurs avec des playbooks Ansible : configurations standardisées et moins d’interventions manuelles.'] } },
+      { role: { en: 'DevOps & Cloud Support Engineer', fr: 'Ingénieur DevOps & Cloud Support' },
+        company: 'Data Service Group', start: '2020-04', end: '2022-02',
+        place: { en: 'Delaware, USA. Fully remote', fr: 'Delaware, États-Unis. Télétravail complet' },
+        bullets: {
+          en: ['Architected complete AWS infrastructure for client web applications (VPC, EC2, ELB, RDS, S3, CloudWatch, IAM, EFS), fully provisioned with Terraform and cutting infrastructure incidents by 30%.',
+               'Created Ansible playbooks to automate LAMP stack provisioning, significantly reducing environment setup time.',
+               'Integrated Maven and SonarCloud into Jenkins pipelines for code-quality analysis on a health geolocation platform in a highly regulated environment.',
+               'Built Docker images in Jenkins pipelines and deployed them to AWS ECR.',
+               'Secured static site hosting with S3, CloudFront and Route 53 for global availability and resilient DNS routing.'],
+          fr: ['Architecture d’une infrastructure AWS complète pour des applications web clientes (VPC, EC2, ELB, RDS, S3, CloudWatch, IAM, EFS), entièrement provisionnée avec Terraform : incidents d’infrastructure réduits de 30 %.',
+               'Création de playbooks Ansible pour automatiser le provisionnement de piles LAMP et réduire nettement le temps de mise en place des environnements.',
+               'Intégration de Maven et SonarCloud dans les pipelines Jenkins pour l’analyse de la qualité du code d’une plateforme de géolocalisation en santé, dans un environnement très réglementé.',
+               'Construction d’images Docker dans des pipelines Jenkins et déploiement vers AWS ECR.',
+               'Sécurisation de l’hébergement de sites statiques avec S3, CloudFront et Route 53 pour une disponibilité mondiale et un routage DNS résilient.'] } }
+    ],
+    EDUCATION: [
+      { name: { en: 'Master’s in Network & Information Security', fr: 'Master en réseaux et sécurité de l’information' }, school: 'EST LaSalle, Cameroon', start: '2020-10', end: '2022-11' },
+      { name: { en: 'Cloud Architect Apprenticeship, Google Cloud track', fr: 'Apprentissage Cloud Architect, parcours Google Cloud' }, school: 'JFN Institute of Technology, Douala', start: '2024-07', end: '2024-12' },
+      { name: { en: 'AWS re/Start Cloud Practitioner', fr: 'AWS re/Start Cloud Practitioner' }, school: 'Orange Digital Center, Cameroon', start: '2022-05', end: '2022-09' }
+    ],
+
+    // ---- Certifications. issued: 'YYYY' or 'YYYY-MM'. badge: image in assets/badges (optional). ----
+    CERTIFICATIONS: [
+      { id: 'gcp-ace', name: 'Google Cloud Associate Cloud Engineer', issuer: 'Google Cloud', logo: 'googlecloud', badge: 'gcp-ace.png', issued: '2024',
+        credentialId: '3c897d4b-f664-46f2-8929-fbfb1893d1e1', url: 'https://www.credly.com/badges/3c897d4b-f664-46f2-8929-fbfb1893d1e1/public_url',
+        description: { en: 'Deploys applications, monitors operations and manages enterprise solutions on Google Cloud.', fr: 'Déploie des applications, supervise les opérations et gère des solutions d’entreprise sur Google Cloud.' },
+        skills: ['GKE', 'App Engine', 'Cloud Run'] },
+      { id: 'aws-restart', name: 'AWS re/Start Graduate', issuer: 'Amazon Web Services', logo: 'amazonwebservices', issued: '2022',
+        description: { en: 'Cloud Practitioner program completed through Orange Digital Center, Cameroon.', fr: 'Programme Cloud Practitioner suivi auprès d’Orange Digital Center, Cameroun.' },
+        skills: ['AWS', 'Linux', 'Networking'] },
+      { id: 'lfc102', name: 'Inclusive Open Source Community Orientation (LFC102)', issuer: 'The Linux Foundation', logo: 'linux', badge: 'lfc102.png',
+        credentialId: 'c51e0de1-2d6c-42a4-a03f-a153615233d7', url: 'https://www.credly.com/badges/c51e0de1-2d6c-42a4-a03f-a153615233d7/public_url',
+        description: { en: 'Open source best practice: unconscious bias and building inclusive open source communities.', fr: 'Bonnes pratiques open source : biais inconscients et construction de communautés open source inclusives.' },
+        skills: ['Open source', 'Inclusion'] },
+      { id: 'jenkins-iac', name: 'Jenkins Pipeline: Declarative and IaC Approaches for DevOps', issuer: 'Coursera', logo: 'coursera', issued: '2024-05',
+        credentialId: 'AL7TJSQ7RNS2', url: 'https://coursera.org/verify/AL7TJSQ7RNS2', skills: ['Jenkins', 'CI/CD', 'IaC'] },
+      { id: 'jenkins-delivery', name: 'Jenkins: Automating Your Delivery Pipeline', issuer: 'Coursera', logo: 'coursera', issued: '2025-02',
+        credentialId: 'PM6YLEQ147RN', url: 'https://coursera.org/verify/PM6YLEQ147RN', skills: ['Jenkins', 'CI/CD'] },
+      { id: 'python-devops', name: 'Python Scripting for DevOps', issuer: 'Coursera', logo: 'coursera', issued: '2025-02',
+        credentialId: '6C9CGPA3KX2W', url: 'https://coursera.org/verify/6C9CGPA3KX2W', skills: ['Python', 'Automation'] },
+      { id: 'jenkins-udemy', name: 'Jenkins Pipeline: Declarative Approaches and IaC', issuer: 'Udemy', logo: 'udemy', issued: '2022', skills: ['Jenkins', 'CI/CD', 'IaC'] },
+      { id: 'cisco-cyber', name: 'Introduction to Cybersecurity', issuer: 'Cisco Networking Academy', logo: 'cisco', issued: '2021', skills: ['Security'] }
+    ]
+  };
+
+  const I18N = {
+    en: {
+      'meta.title': 'Joel Ebenka | DevOps & Cloud Engineer',
+      'meta.description': 'Joel Ebenka is a DevOps and Cloud Engineer in Yaoundé, Cameroon, working remotely worldwide on AWS, Azure and GCP: Terraform, Kubernetes, CI/CD and automation.',
+      'skip.content': 'Skip to content',
+      'intro.skip': 'Skip intro',
+      'intro.status': 'Intro animation playing. Press Escape or use the Skip intro button to go to the portfolio.',
+      'intro.pipeline': 'pipeline: stack-validation',
+      'intro.running': 'running',
+      'intro.passed': 'passed',
+      'nav.skills': 'Skills', 'nav.projects': 'Projects', 'nav.experience': 'Experience', 'nav.certifications': 'Certifications',
+      'nav.about': 'About', 'nav.contact': 'Contact', 'nav.menu': 'Menu', 'nav.lang': 'Language',
+      'hero.status': 'Open to remote roles',
+      'hero.role': 'DevOps & Cloud Engineer',
+      'hero.tagline': 'I build the cloud. Then I teach it.',
+      'hero.sub': 'I automate infrastructure, ship reliable pipelines on AWS, Azure and GCP, and train teams to run them.',
+      'hero.location': 'Yaoundé, Cameroon',
+      'hero.remote': 'Working remotely worldwide',
+      'hero.cta.projects': 'View projects', 'hero.cta.contact': 'Contact', 'hero.cta.cv': 'Download CV',
+      'stats.years': 'Years Experience', 'stats.platforms': 'Cloud Platforms', 'stats.learners': 'Learners Trained',
+      'skills.title': 'Skills',
+      'skills.sub': 'The tools I use to design, ship and run infrastructure.',
+      'skills.clouds': 'Clouds', 'skills.containers': 'Containers & Orchestration', 'skills.iac': 'IaC & Config Management',
+      'skills.cicd': 'CI/CD', 'skills.systems': 'Systems & Security', 'skills.also': 'Also work with',
+      'projects.title': 'Projects',
+      'projects.sub': 'Infrastructure as code, pipelines and platforms. Each card links to the source.',
+      'projects.filter': 'Filter projects', 'projects.all': 'All', 'projects.view': 'View on GitHub', 'projects.demo': 'Live demo',
+      'projects.soon': 'Repository link coming soon', 'projects.updated': 'Updated', 'projects.synced': 'Project details synced from GitHub on {date}.',
+      'exp.title': 'Experience',
+      'exp.sub': 'Remote work for teams in finance, transportation and healthcare.',
+      'exp.education': 'Education',
+      'exp.present': 'Present',
+      'certs.title': 'Certifications & badges',
+      'certs.sub': 'Select a badge for the details and a verification link.',
+      'certs.issued': 'Issued', 'certs.id': 'Credential ID', 'certs.verify': 'Verify credential', 'certs.close': 'Close', 'certs.skills': 'Skills',
+      'about.title': 'About',
+      'about.p1': 'I am a DevOps and Cloud Engineer with 5+ years of experience across AWS, Azure and GCP, mostly in regulated, high-availability environments: finance, transportation and healthcare. I design infrastructure as code, automate delivery pipelines and keep production observable.',
+      'about.p2': 'I work remotely with international teams from Yaoundé, and I am open to relocation.',
+      'about.teach.title': 'I teach what I build',
+      'about.teach.text': 'I created an internal DevOps training program for junior engineers that standardized CI/CD practices, and I explain infrastructure to developers and non-technical colleagues in plain language.',
+      'about.lang.title': 'Bilingual by default',
+      'about.lang.text': 'I work in English and French, so I can onboard, support and teach teams in either language, wherever they are.',
+      'contact.title': 'Contact',
+      'contact.text': 'I am open to remote DevOps and Cloud Engineering roles, and to relocation. Email is the quickest way to reach me.',
+      'contact.email': 'Email', 'contact.linkedin': 'LinkedIn', 'contact.github': 'GitHub',
+      'footer.rights': 'All rights reserved.',
+      'footer.built': 'Built with Tailwind CSS and GSAP. Hosted on GitHub Pages.',
+      'footer.replay': 'Replay intro'
+    },
+    fr: {
+      'meta.title': 'Joel Ebenka | Ingénieur DevOps & Cloud',
+      'meta.description': 'Joel Ebenka, ingénieur DevOps et Cloud à Yaoundé (Cameroun), en télétravail dans le monde entier sur AWS, Azure et GCP : Terraform, Kubernetes, CI/CD et automatisation.',
+      'skip.content': 'Aller au contenu',
+      'intro.skip': 'Passer l’intro',
+      'intro.status': 'Animation d’introduction en cours. Appuyez sur Échap ou sur le bouton Passer l’intro pour accéder au portfolio.',
+      'intro.pipeline': 'pipeline : validation-de-la-stack',
+      'intro.running': 'en cours',
+      'intro.passed': 'validé',
+      'nav.skills': 'Compétences', 'nav.projects': 'Projets', 'nav.experience': 'Expérience', 'nav.certifications': 'Certifications',
+      'nav.about': 'À propos', 'nav.contact': 'Contact', 'nav.menu': 'Menu', 'nav.lang': 'Langue',
+      'hero.status': 'Ouvert aux postes en télétravail',
+      'hero.role': 'Ingénieur DevOps & Cloud',
+      'hero.tagline': 'Je construis le cloud. Puis je l’enseigne.',
+      'hero.sub': 'J’automatise l’infrastructure, je livre des pipelines fiables sur AWS, Azure et GCP, et je forme les équipes à les exploiter.',
+      'hero.location': 'Yaoundé, Cameroun',
+      'hero.remote': 'En télétravail dans le monde entier',
+      'hero.cta.projects': 'Voir les projets', 'hero.cta.contact': 'Me contacter', 'hero.cta.cv': 'Télécharger le CV',
+      'stats.years': 'Ans d’expérience', 'stats.platforms': 'Plateformes cloud', 'stats.learners': 'Apprenants formés',
+      'skills.title': 'Compétences',
+      'skills.sub': 'Les outils que j’utilise pour concevoir, livrer et exploiter l’infrastructure.',
+      'skills.clouds': 'Clouds', 'skills.containers': 'Conteneurs & orchestration', 'skills.iac': 'IaC & gestion de configuration',
+      'skills.cicd': 'CI/CD', 'skills.systems': 'Systèmes & sécurité', 'skills.also': 'J’utilise aussi',
+      'projects.title': 'Projets',
+      'projects.sub': 'Infrastructure as code, pipelines et plateformes. Chaque carte renvoie vers le code source.',
+      'projects.filter': 'Filtrer les projets', 'projects.all': 'Tous', 'projects.view': 'Voir sur GitHub', 'projects.demo': 'Démo en ligne',
+      'projects.soon': 'Lien du dépôt bientôt disponible', 'projects.updated': 'Mis à jour', 'projects.synced': 'Détails des projets synchronisés depuis GitHub le {date}.',
+      'exp.title': 'Expérience',
+      'exp.sub': 'Télétravail pour des équipes de la finance, du transport et de la santé.',
+      'exp.education': 'Formation',
+      'exp.present': 'Aujourd’hui',
+      'certs.title': 'Certifications & badges',
+      'certs.sub': 'Sélectionnez un badge pour voir le détail et un lien de vérification.',
+      'certs.issued': 'Délivré', 'certs.id': 'Identifiant', 'certs.verify': 'Vérifier la certification', 'certs.close': 'Fermer', 'certs.skills': 'Compétences',
+      'about.title': 'À propos',
+      'about.p1': 'Je suis ingénieur DevOps et Cloud avec plus de 5 ans d’expérience sur AWS, Azure et GCP, surtout dans des environnements réglementés à haute disponibilité : finance, transport et santé. Je conçois l’infrastructure as code, j’automatise les pipelines de livraison et je garde la production observable.',
+      'about.p2': 'Je travaille à distance avec des équipes internationales depuis Yaoundé, et je suis ouvert à la relocalisation.',
+      'about.teach.title': 'J’enseigne ce que je construis',
+      'about.teach.text': 'J’ai créé un programme interne de formation DevOps pour les ingénieurs juniors, qui a standardisé les pratiques CI/CD, et j’explique l’infrastructure aux développeurs et aux collègues non techniques avec des mots simples.',
+      'about.lang.title': 'Bilingue par nature',
+      'about.lang.text': 'Je travaille en anglais et en français : je peux accueillir, accompagner et former des équipes dans l’une ou l’autre langue, où qu’elles soient.',
+      'contact.title': 'Contact',
+      'contact.text': 'Je suis ouvert aux postes DevOps et Cloud en télétravail, ainsi qu’à la relocalisation. L’e-mail est le moyen le plus rapide de me joindre.',
+      'contact.email': 'E-mail', 'contact.linkedin': 'LinkedIn', 'contact.github': 'GitHub',
+      'footer.rights': 'Tous droits réservés.',
+      'footer.built': 'Construit avec Tailwind CSS et GSAP. Hébergé sur GitHub Pages.',
+      'footer.replay': 'Revoir l’intro'
+    }
+  };
+  /* CONFIG:END */
+
+  /* ====================================================================
+     ENGINE (you do not need to edit below this line)
+     ==================================================================== */
+  (function () {
+    window.__portfolioBooted = true;
+    const root = document.documentElement;
+    const $ = (sel, ctx) => (ctx || document).querySelector(sel);
+    const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
+    const reducedMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const SVG_NS = 'http://www.w3.org/2000/svg';
+
+    /* ---------- Small DOM helpers (all text goes through textContent: no HTML injection) ---------- */
+    function h(tag, attrs, ...kids) {
+      const el = document.createElement(tag);
+      for (const [k, v] of Object.entries(attrs || {})) {
+        if (v === null || v === undefined || v === false) continue;
+        if (k === 'text') el.textContent = v;
+        else el.setAttribute(k, v === true ? '' : v);
+      }
+      kids.flat().forEach((kid) => { if (kid) el.append(kid); });
+      return el;
+    }
+    const ICONS = {
+      check:    ['M20 6 9 17l-5-5'],
+      shield:   ['M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z', 'M9.5 12l2 2 3.5-4'],
+      mail:     ['M4 6h16v12H4z', 'm4 7 8 6 8-6'],
+      arrow:    ['M5 12h14', 'm13 6 6 6-6 6'],
+      menu:     ['M4 7h16', 'M4 12h16', 'M4 17h16'],
+      close:    ['M6 6l12 12', 'M18 6 6 18']
+    };
+    function icon(name, cls) {
+      const svg = document.createElementNS(SVG_NS, 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('fill', 'none');
+      svg.setAttribute('stroke', 'currentColor');
+      svg.setAttribute('stroke-width', '2');
+      svg.setAttribute('stroke-linecap', 'round');
+      svg.setAttribute('stroke-linejoin', 'round');
+      svg.setAttribute('aria-hidden', 'true');
+      if (cls) svg.setAttribute('class', cls);
+      ICONS[name].forEach((d) => { const p = document.createElementNS(SVG_NS, 'path'); p.setAttribute('d', d); svg.append(p); });
+      return svg;
+    }
+    const safeFile = (s) => /^[A-Za-z0-9_.-]+$/.test(String(s || '')) ? String(s) : '';
+    function safeUrl(value) {                // only http(s) links are ever rendered
+      const v = String(value || '').trim();
+      if (!v) return '';
+      const full = /^[a-z][a-z0-9+.-]*:/i.test(v) ? v : 'https://' + v;
+      return /^https?:\/\//i.test(full) ? full : '';
+    }
+    function storeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function storeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+    /* ---------- Language ---------- */
+    let lang = (function () {
+      const q = new URLSearchParams(location.search).get('lang');
+      if (q === 'en' || q === 'fr') return q;
+      const s = storeGet('je-lang');
+      return s === 'fr' || s === 'en' ? s : 'en';
+    })();
+    const t = (key) => (I18N[lang] && I18N[lang][key]) || I18N.en[key] || key;
+    const locale = () => (lang === 'fr' ? 'fr-FR' : 'en-US');
+    function fmtDate(v, opts) {
+      if (!v) return '';
+      if (/^\d{4}$/.test(v)) return v;
+      const d = new Date(v.length === 7 ? v + '-01T00:00:00Z' : v);
+      return isNaN(d) ? '' : d.toLocaleDateString(locale(), Object.assign({ month: 'short', year: 'numeric', timeZone: 'UTC' }, opts));
+    }
+
+    /* ---------- Colors from CONFIG override the Tailwind palette variables ---------- */
+    (function applyColors() {
+      const c = CONFIG.COLORS || {};
+      if (c.background) root.style.setProperty('--color-zinc-950', c.background);
+      if (c.accent1) root.style.setProperty('--color-emerald-400', c.accent1);
+      if (c.accent2) root.style.setProperty('--color-cyan-400', c.accent2);
+      const meta = $('meta[name="theme-color"]'); if (meta && c.background) meta.setAttribute('content', c.background);
+    })();
+
+    /* ---------- Static text ---------- */
+    const NAV = ['skills', 'projects', 'experience', 'certifications', 'about', 'contact'];
+    function applyStatic() {
+      root.setAttribute('lang', lang);
+      document.title = t('meta.title');
+      const md = $('meta[name="description"]'); if (md) md.setAttribute('content', t('meta.description'));
+      $$('[data-i18n]').forEach((n) => { n.textContent = t(n.getAttribute('data-i18n')); });
+      $$('[data-i18n-label]').forEach((n) => { n.setAttribute('aria-label', t(n.getAttribute('data-i18n-label'))); });
+      $$('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)));
+      $('#hero-title').textContent = CONFIG.NAME;
+      $('#year').textContent = '© ' + new Date().getFullYear();
+      // nav
+      [$('#nav-main'), $('#mobile-nav')].forEach((nav) => {
+        nav.replaceChildren(...NAV.map((k) => h('a', { href: '#' + k, class: nav.id === 'nav-main' ? 'navlink' : 'navlink block py-2', text: t('nav.' + k) })));
+      });
+      const arrow = $('#ico-arrow'); arrow.replaceChildren(icon('arrow'));
+      const mb = $('#menu-btn'); mb.replaceChildren(icon(mb.getAttribute('aria-expanded') === 'true' ? 'close' : 'menu', 'size-5'));
+      const cv = $('#cv-link'); cv.setAttribute('href', safeUrl(CONFIG.CV_FILE) || CONFIG.CV_FILE);
+    }
+
+    /* ---------- Skills ---------- */
+    function tile(item, withTick) {
+      const li = h('li', { class: 'tile' });
+      if (item.logo && safeFile(item.logo)) li.append(h('img', { src: 'assets/logos/' + safeFile(item.logo) + '.svg', alt: '', width: 20, height: 20, decoding: 'async' }));
+      else if (item.icon && ICONS[item.icon]) { const w = h('span', { class: 'ico' }); w.append(icon(item.icon)); li.append(w); }
+      li.append(h('span', { text: item.name }));
+      if (withTick) li.append(icon('check', 'tick'));
+      return li;
+    }
+    function renderSkills() {
+      const grid = $('#skills-grid');
+      const cards = CONFIG.SKILLS.map((cat) => h('div', { class: 'glass skillcard reveal' },
+        h('h3', { text: t('skills.' + cat.key) }),
+        h('ul', { class: 'tiles' }, cat.items.map((it) => tile(it, false)))));
+      cards.push(h('div', { class: 'glass skillcard reveal' },
+        h('h3', { text: t('skills.also') }),
+        h('ul', { class: 'tiles' }, CONFIG.ALSO.map((n) => h('li', { class: 'tile' }, h('span', { text: n }))))));
+      grid.replaceChildren(...cards);
+    }
+
+    /* ---------- Hero stats ---------- */
+    function renderHeroStats() {
+      $('#hero-stats').replaceChildren(...CONFIG.STATS.map((s) => h('div', {}, h('dt', { text: t(s.labelKey) }), h('dd', { text: s.value + s.suffix }))));
+    }
+
+    /* ---------- Projects (curated + GitHub sync) ---------- */
+    let synced = null;                       // sanitized contents of projects.json
+    let projFilter = 'All';
+    const repoKey = (href) => (String(href || '').split('/').filter(Boolean).pop() || '').replace(/\.git$/, '').toLowerCase();
+    const WORDS = { aws: 'AWS', eks: 'EKS', ec2: 'EC2', vpc: 'VPC', gcp: 'GCP', ci: 'CI', cd: 'CD', cicd: 'CI/CD', iac: 'IaC', api: 'API', ai: 'AI', ha: 'HA', k8s: 'K8s', devops: 'DevOps', devsecops: 'DevSecOps', finops: 'FinOps', gitops: 'GitOps', argocd: 'ArgoCD' };
+    const titleFrom = (repo) => repo.split(/[-_.\s]+/).filter(Boolean).map((w) => WORDS[w.toLowerCase()] || (w[0].toUpperCase() + w.slice(1))).join(' ');
+    function fromTopics(topics, language) {
+      const logos = [], cats = [];
+      topics.forEach((tp) => {
+        const m = CONFIG.SYNC.TOPIC_MAP[tp]; if (!m) return;
+        if (m.logo && !logos.includes(m.logo)) logos.push(m.logo);
+        if (m.cat && !cats.includes(m.cat)) cats.push(m.cat);
+      });
+      if (!logos.length && CONFIG.SYNC.LANGUAGE_LOGOS[language]) logos.push(CONFIG.SYNC.LANGUAGE_LOGOS[language]);
+      return { logos, cats };
+    }
+    function sanitizeSync(data) {
+      if (!data || !Array.isArray(data.repos)) return null;
+      const str = (v, max) => String(v == null ? '' : v).slice(0, max || 400);
+      const repos = data.repos.slice(0, 100).map((r) => ({
+        name: str(r.name, 100), description: str(r.description, 300),
+        url: /^https:\/\/github\.com\//.test(String(r.url)) ? str(r.url, 300) : '',
+        homepage: safeUrl(r.homepage), language: str(r.language, 40),
+        stars: Number.isFinite(r.stars) ? Math.max(0, Math.floor(r.stars)) : 0,
+        topics: Array.isArray(r.topics) ? r.topics.slice(0, 30).map((x) => str(x, 50).toLowerCase()) : [],
+        pushedAt: isNaN(new Date(r.pushedAt)) ? '' : str(r.pushedAt, 40)
+      })).filter((r) => r.name && r.url);
+      return { generatedAt: isNaN(new Date(data.generatedAt)) ? '' : str(data.generatedAt, 40), repos };
+    }
+    function buildProjects() {
+      const byName = new Map(((synced && synced.repos) || []).map((r) => [r.name.toLowerCase(), r]));
+      const matched = new Set();
+      const curated = CONFIG.PROJECTS.map((p) => {
+        const key = repoKey(p.link); const r = key ? byName.get(key) : null; if (r) matched.add(key);
+        const d = r ? fromTopics(r.topics, r.language) : { logos: [], cats: [] };
+        return { title: p.title, text: (p.description && (p.description[lang] || p.description.en)) || (r && r.description) || '',
+          logos: p.logos.length ? p.logos : d.logos, cats: p.cats.length ? p.cats : d.cats, href: safeUrl(p.link),
+          demo: r ? r.homepage : '', language: r ? r.language : '', stars: r ? r.stars : 0, updated: r ? fmtDate(r.pushedAt) : '' };
+      });
+      const added = ((synced && synced.repos) || []).filter((r) => !matched.has(r.name.toLowerCase())).map((r) => {
+        const d = fromTopics(r.topics, r.language);
+        return { title: titleFrom(r.name), text: r.description || '', logos: d.logos, cats: d.cats, href: r.url,
+          demo: r.homepage, language: r.language, stars: r.stars, updated: fmtDate(r.pushedAt) };
+      });
+      return curated.concat(added);
+    }
+    function renderProjects() {
+      const list = buildProjects();
+      const present = new Set(list.flatMap((p) => p.cats));
+      const order = CONFIG.SYNC.CATEGORY_ORDER;
+      const cats = order.filter((c) => present.has(c)).concat([...present].filter((c) => !order.includes(c)).sort());
+      if (projFilter !== 'All' && !cats.includes(projFilter)) projFilter = 'All';
+      const filters = $('#proj-filters');
+      filters.replaceChildren(...['All'].concat(cats).map((c) => h('button', {
+        type: 'button', class: 'chip', 'aria-pressed': String(c === projFilter), text: c === 'All' ? t('projects.all') : c,
+        'data-cat': c })));
+      $$('.chip', filters).forEach((b) => b.addEventListener('click', () => { projFilter = b.getAttribute('data-cat'); renderProjects(); }));
+      const shown = list.filter((p) => projFilter === 'All' || p.cats.includes(projFilter));
+      $('#proj-grid').replaceChildren(...shown.map((p) => {
+        const facts = [];
+        if (p.language) facts.push(h('span', { text: p.language }));
+        if (p.updated) facts.push(h('span', { text: t('projects.updated') + ' ' + p.updated }));
+        if (p.stars > 0) facts.push(h('span', { text: '★ ' + p.stars }));
+        let links;
+        if (p.href) {
+          const gh = h('a', { class: 'btn btn-primary', href: p.href, target: '_blank', rel: 'noopener noreferrer' }, h('span', { text: t('projects.view') }), icon('arrow'));
+          links = h('div', { class: 'plinks' }, gh, p.demo && h('a', { class: 'btn btn-ghost', href: p.demo, target: '_blank', rel: 'noopener noreferrer' }, h('span', { text: t('projects.demo') }), icon('arrow')));
+        } else links = h('p', { class: 'soon', text: t('projects.soon') });
+        return h('article', { class: 'glass pcard' },
+          h('div', { class: 'plogos' }, p.logos.filter(safeFile).map((l) => h('img', { src: 'assets/logos/' + safeFile(l) + '.svg', alt: l, width: 30, height: 30, loading: 'lazy', decoding: 'async' }))),
+          h('h3', { text: p.title }), h('p', { text: p.text }), facts.length && h('p', { class: 'pfacts' }, facts), links);
+      }));
+      const note = $('#sync-note');
+      if (synced && synced.generatedAt && synced.repos.length) {
+        note.textContent = t('projects.synced').replace('{date}', fmtDate(synced.generatedAt, { day: 'numeric', month: 'short' })); note.hidden = false;
+      } else note.hidden = true;
+    }
+    async function loadSynced() {
+      try {
+        const res = await fetch(CONFIG.SYNC.FILE, { cache: 'no-cache' });
+        if (!res.ok) return;
+        const clean = sanitizeSync(await res.json());
+        if (clean) { synced = clean; renderProjects(); }
+      } catch (e) { /* offline or file missing: the CONFIG projects stay as they are */ }
+    }
+
+    /* ---------- Experience and education ---------- */
+    function span(job) {
+      const end = job.end ? fmtDate(job.end) : t('exp.present');
+      return fmtDate(job.start) + ' – ' + end;
+    }
+    function renderExperience() {
+      $('#exp-list').replaceChildren(...CONFIG.EXPERIENCE.map((job) => h('li', { class: 'glass job reveal' },
+        h('h3', { text: job.role[lang] || job.role.en }), h('p', { class: 'co', text: job.company }),
+        h('p', { class: 'meta', text: span(job) + '. ' + (job.place[lang] || job.place.en) }),
+        h('ul', {}, (job.bullets[lang] || job.bullets.en).map((b) => h('li', { text: b }))))));
+      $('#edu-list').replaceChildren(...CONFIG.EDUCATION.map((e) => h('li', {},
+        h('strong', { text: e.name[lang] || e.name.en }), h('span', { text: e.school }), h('span', { text: span(e) }))));
+    }
+
+    /* ---------- Certifications (cards + modal) ---------- */
+    const dlg = (function () {
+      const d = h('dialog', { class: 'cdialog', 'aria-labelledby': 'cert-title' });
+      document.body.append(d);
+      d.addEventListener('click', (e) => { if (e.target === d) d.close(); });
+      return d;
+    })();
+    let lastTrigger = null;
+    dlg.addEventListener('close', () => { if (lastTrigger) lastTrigger.focus(); });
+    const certImg = (c) => c.badge && safeFile(c.badge) ? 'assets/badges/' + safeFile(c.badge) : 'assets/logos/' + safeFile(c.logo) + '.svg';
+    function mark(c) { return h('span', { class: 'cmark' + (c.badge ? '' : ' logo') }, h('img', { src: certImg(c), alt: '', width: 64, height: 64, loading: 'lazy', decoding: 'async' })); }
+    function openCert(c, trigger) {
+      lastTrigger = trigger;
+      const close = h('button', { type: 'button', class: 'xbtn', 'aria-label': t('certs.close') }); close.append(icon('close'));
+      close.addEventListener('click', () => dlg.close());
+      const rows = [];
+      if (c.issued) rows.push(h('div', {}, h('dt', { text: t('certs.issued') }), h('dd', { text: fmtDate(c.issued, { month: 'long' }) })));
+      if (c.credentialId) rows.push(h('div', {}, h('dt', { text: t('certs.id') }), h('dd', { class: 'font-mono text-sm', text: c.credentialId })));
+      const url = safeUrl(c.url);
+      dlg.replaceChildren(h('div', { class: 'dlg' }, close, mark(c),
+        h('h3', { id: 'cert-title', text: c.name }), h('p', { class: 'by', text: c.issuer }),
+        rows.length && h('dl', {}, rows),
+        c.description && h('p', { class: 'desc', text: c.description[lang] || c.description.en }),
+        c.skills && c.skills.length && h('ul', { class: 'tiles', 'aria-label': t('certs.skills') }, c.skills.map((s) => h('li', { class: 'tile' }, h('span', { text: s })))),
+        url && h('a', { class: 'btn btn-primary', href: url, target: '_blank', rel: 'noopener noreferrer' }, h('span', { text: t('certs.verify') }), icon('arrow'))));
+      dlg.showModal();
+    }
+    function renderCerts() {
+      $('#cert-grid').replaceChildren(...CONFIG.CERTIFICATIONS.map((c) => {
+        const b = h('button', { type: 'button', class: 'ccard', 'aria-haspopup': 'dialog' }, mark(c), h('strong', { text: c.name }), h('span', { class: 'issuer', text: c.issuer }));
+        b.addEventListener('click', () => openCert(c, b));
+        return b;
+      }));
+      if (dlg.open) dlg.close();
+    }
+
+    /* ---------- Contact ---------- */
+    function renderContact() {
+      const mailto = 'mailto:' + CONFIG.EMAIL;
+      const mk = (href, label, markNode, ext) => h('a', { class: 'glass', href, target: ext ? '_blank' : null, rel: ext ? 'noopener noreferrer' : null, 'aria-label': label },
+        h('span', { class: 'mark' }, markNode), h('span', { text: label }));
+      $('#social').replaceChildren(
+        mk(safeUrl(CONFIG.GITHUB), t('contact.github'), h('img', { src: 'assets/logos/github.svg', alt: '', width: 26, height: 26 }), true),
+        mk(mailto, t('contact.email'), icon('mail'), false),
+        mk(safeUrl(CONFIG.LINKEDIN), t('contact.linkedin'), h('img', { src: 'assets/logos/linkedin.svg', alt: '', width: 26, height: 26 }), true));
+      const em = $('#email-text'); em.setAttribute('href', mailto); em.textContent = CONFIG.EMAIL;
+    }
+
+    function renderAll() {
+      applyStatic(); renderHeroStats(); renderSkills(); renderProjects(); renderExperience(); renderCerts(); renderContact();
+      $('#replay').hidden = reducedMq.matches || !window.gsap;
+      observeReveals();
+    }
+
+    /* ---------- Scroll reveals ---------- */
+    let io = null, revealsOn = false;
+    function observeReveals() {
+      if (!revealsOn) return;
+      const items = $$('.reveal:not(.in)');
+      if (reducedMq.matches || !('IntersectionObserver' in window)) { items.forEach((n) => n.classList.add('in')); return; }
+      if (!io) io = new IntersectionObserver((entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      items.forEach((n) => io.observe(n));
+    }
+
+    /* ---------- Language toggle, menu ---------- */
+    $$('.lang button').forEach((b) => b.addEventListener('click', () => {
+      const next = b.getAttribute('data-lang'); if (next === lang) return;
+      lang = next; storeSet('je-lang', lang); renderAll();
+      if (root.getAttribute('data-intro') === 'play') buildIntroDom();
+    }));
+    const menuBtn = $('#menu-btn'), mobileNav = $('#mobile-nav');
+    function setMenu(open) {
+      menuBtn.setAttribute('aria-expanded', String(open)); mobileNav.hidden = !open;
+      menuBtn.replaceChildren(icon(open ? 'close' : 'menu', 'size-5'));
+    }
+    menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
+    mobileNav.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !mobileNav.hidden) { setMenu(false); menuBtn.focus(); } });
+
+    /* ====================================================================
+       INTRO: one GSAP timeline, transform and opacity only (counters change text).
+       ==================================================================== */
+    let tl = null;
+    const markSeen = () => { try { sessionStorage.setItem('je-intro-seen', '1'); } catch (e) {} };
+
+    function buildIntroDom() {
+      // scene 1
+      $('#cmd-text').replaceChildren(...Array.from(CONFIG.INTRO.command).map((c) => h('span', { class: 'ch', text: c })));
+      $('#loglist').replaceChildren(...CONFIG.INTRO.logs.map((l) => h('li', { class: 'logline ' + (l.tone || 'plain'), text: l.text })));
+      // scene 2
+      const name = $('#id-name'); name.setAttribute('aria-label', CONFIG.NAME);
+      name.replaceChildren(...Array.from(CONFIG.NAME).map((c) => h('span', { class: 'letter', 'aria-hidden': 'true', text: c === ' ' ? ' ' : c })));
+      $('#id-role').textContent = t('hero.role'); $('#id-tag').textContent = t('hero.tagline');
+      // scene 3
+      $('#pipeline').replaceChildren(...CONFIG.SKILLS.map((cat, i) => h('li', { class: 'stage' },
+        h('span', { class: 'node' }, h('span', { class: 'node-num', text: String(i + 1) }), h('span', { class: 'node-ok' }, icon('check'))),
+        h('span', { class: 'conn', 'aria-hidden': 'true' }, h('span', { class: 'fill' })),
+        h('div', { class: 'scard' }, h('h3', { text: t('skills.' + cat.key) }), h('ul', { class: 'tiles' }, cat.items.map((it) => tile(it, true)))))));
+      $('#stats-row').replaceChildren(...CONFIG.STATS.map((s) => h('div', { class: 'stat' },
+        h('p', { class: 'num' }, h('span', { class: 'count', 'data-to': String(s.value), text: '0' }), h('span', { text: s.suffix })),
+        h('p', { class: 'lab', text: t(s.labelKey) }))));
+    }
+    const INTRO_TARGETS = '.scene,#term,#caret,.ch,#loglist,.logline,#id-glow,.letter,#id-role,#id-tagwrap,#id-underline,#pl-head,#pl-run,#pl-ok,.stage,#pipeline .tile,#pipeline .tick,.node-num,.node-ok,.fill,#stats-row .stat,.hero-item,#intro,#site';
+
+    function buildTimeline() {
+      const horizontal = window.matchMedia('(min-width: 768px)').matches;
+      const timeline = gsap.timeline({ defaults: { ease: 'power2.out' }, onComplete: cleanupIntro });
+
+      /* Scene 1 (0 - 3 s): terminal boot */
+      const view = $('#logview'), list = $('#loglist');
+      const shift = Math.max(0, list.scrollHeight - view.clientHeight);
+      const chars = $$('#cmd-text .ch'), lines = $$('.logline');
+      timeline.set('#sc1', { autoAlpha: 1 }, 0)
+        .fromTo('#term', { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.4 }, 0)
+        .to(chars, { autoAlpha: 1, duration: 0.01, stagger: 0.03 }, 0.4);
+      const logStart = 0.4 + chars.length * 0.03 + 0.15;           // after the command is typed
+      const logStep = Math.min(0.13, (2.75 - logStart - 0.2) / lines.length);
+      lines.forEach((l, i) => {
+        const last = i === lines.length - 1;
+        timeline.fromTo(l, last ? { autoAlpha: 0, scale: 0.96, y: 6 } : { autoAlpha: 0, y: 6 },
+          last ? { autoAlpha: 1, scale: 1, y: 0, duration: 0.3, ease: 'back.out(2)' } : { autoAlpha: 1, y: 0, duration: 0.18 }, logStart + i * logStep);
+      });
+      timeline.to(list, { y: -shift, duration: logStep * lines.length, ease: 'none' }, logStart)
+        .to('#sc1', { autoAlpha: 0, y: -10, duration: 0.4 }, 2.8);
+
+      /* Scene 2 (3 - 6 s): identity */
+      const letters = $$('.letter');
+      timeline.set('#sc2', { autoAlpha: 1 }, 3.0)
+        .fromTo('#id-glow', { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 0.9, scale: 1.08, duration: 0.9, ease: 'sine.inOut' }, 3.05)
+        .to('#id-glow', { autoAlpha: 0.35, scale: 1, duration: 1.1, ease: 'sine.inOut' }, 3.95)
+        .fromTo(letters, { y: 34, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5, ease: 'back.out(1.7)', stagger: 0.055 }, 3.1)
+        .fromTo('#id-role', { y: 12, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5 }, 4.15)
+        .fromTo('#id-tagwrap', { y: 14, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 }, 4.75)
+        .to('#id-underline', { scaleX: 1, duration: 0.75, ease: 'power3.inOut' }, 5.1)
+        .to('#sc2', { autoAlpha: 0, y: -12, duration: 0.4 }, 5.7);
+
+      /* Scene 3 (6 - 12 s): the stack as a pipeline, then the stats */
+      timeline.set('#sc3', { autoAlpha: 1 }, 6.0)
+        .fromTo('#pl-head', { y: 10, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.35 }, 6.0);
+      const stages = $$('#pipeline .stage');
+      let lastPass = 0;
+      stages.forEach((st, i) => {
+        const t0 = 6.2 + i * 0.85;
+        const tiles = $$('.tile', st), ticks = $$('.tick', st);
+        const tPass = t0 + 0.5 + 0.12 * (ticks.length - 1) + 0.2;
+        timeline.fromTo(st, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.35 }, t0)
+          .fromTo(tiles, { scale: 0.6, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.38, ease: 'back.out(1.8)', stagger: 0.08 }, t0 + 0.12)
+          .fromTo(ticks, { scale: 0, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.25, ease: 'back.out(2.5)', stagger: 0.12 }, t0 + 0.5)
+          .to($('.node-ok', st), { autoAlpha: 1, duration: 0.2 }, tPass)
+          .to($('.node-num', st), { autoAlpha: 0, duration: 0.1 }, tPass)
+          .fromTo($('.fill', st), horizontal ? { scaleX: 0, scaleY: 1 } : { scaleX: 1, scaleY: 0 },
+            horizontal ? { scaleX: 1, duration: 0.45, ease: 'power1.inOut' } : { scaleY: 1, duration: 0.45, ease: 'power1.inOut' }, tPass);
+        lastPass = tPass;
+      });
+      timeline.to('#pl-run', { autoAlpha: 0, duration: 0.15 }, lastPass + 0.1)
+        .fromTo('#pl-ok', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, lastPass + 0.2);
+      const tStats = lastPass + 0.15;
+      timeline.fromTo('#stats-row .stat', { y: 12, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.35, stagger: 0.1 }, tStats);
+      $$('#stats-row .stat').forEach((stat, i) => {
+        const el = $('.count', stat), to = Number(el.getAttribute('data-to')), o = { v: 0 };
+        timeline.to(o, { v: to, duration: 1.0, ease: 'power2.out', onUpdate: () => { el.textContent = String(Math.round(o.v)); } }, tStats + 0.1 + i * 0.12);
+      });
+
+      /* Scene 4 (12 s+): transition to the landing page */
+      timeline.to('#sc3', { autoAlpha: 0, scale: 1.04, duration: 0.5, ease: 'power2.in' }, 12.0)
+        .fromTo('#site', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.45, ease: 'power1.out' }, 12.3)
+        .fromTo('.hero-item', { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.07 }, 12.35);
+      return timeline;
+    }
+
+    function startIntro() {
+      root.setAttribute('data-intro', 'play');
+      window.scrollTo(0, 0);
+      gsap.set(INTRO_TARGETS, { clearProps: 'all' });
+      buildIntroDom();
+      gsap.set('#site', { autoAlpha: 0 });
+      tl = buildTimeline();
+    }
+    function cleanupIntro() {
+      if (root.getAttribute('data-intro') === 'done') return;
+      root.setAttribute('data-intro', 'done');
+      gsap.set(INTRO_TARGETS, { clearProps: 'all' });
+      markSeen(); revealsOn = true; observeReveals();
+      const main = $('#main'); if (main) main.focus({ preventScroll: true });
+    }
+    function skipIntro() {
+      if (!tl || root.getAttribute('data-intro') !== 'play') return;
+      tl.kill(); tl = null;
+      gsap.to('#intro', { autoAlpha: 0, duration: 0.3, ease: 'power1.out' });
+      gsap.fromTo('#site', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, delay: 0.1, onComplete: cleanupIntro });
+    }
+    $('#skip').addEventListener('click', skipIntro);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') skipIntro(); });
+    $('#replay').addEventListener('click', () => {
+      if (reducedMq.matches || !window.gsap) return;
+      if (tl) { tl.kill(); tl = null; }
+      revealsOn = true;
+      startIntro();
+    });
+
+    /* ---------- Boot ---------- */
+    function whenReady(maxWait, fn) {
+      const go = () => requestAnimationFrame(() => requestAnimationFrame(fn));
+      if (document.fonts && document.fonts.ready) Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, maxWait))]).then(go); else go();
+    }
+    renderAll();
+    loadSynced();
+    const play = root.getAttribute('data-intro') === 'play' && !!window.gsap && !reducedMq.matches;
+    if (play) {
+      buildIntroDom();
+      gsap.set('#site', { autoAlpha: 0 });
+      whenReady(700, () => { document.body.classList.add('ready'); startIntro(); });
+    } else {
+      root.setAttribute('data-intro', 'skip');
+      revealsOn = true; observeReveals();
+      whenReady(1200, () => document.body.classList.add('ready'));
+    }
+  })();
+  </script>
+</body>
+</html>
