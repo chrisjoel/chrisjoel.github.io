@@ -30,7 +30,6 @@
 - `og:url`/canonical assume `https://chrisjoel.github.io/`.
 - KiloShare and the pediatric platform have no repository link; the EKS repo README is empty.
 - The workflow could not be run here; it only runs on GitHub.
-<<<<<<< HEAD
 
 ## Design pass and sync review (October 22)
 - **Why the portfolio did not sync:** none of the public repositories had the GitHub topic `portfolio`, so the sync had nothing to pick up. The `30-Day-Terraform-challenge-` repo is a fork, which the first version of the script skipped even when tagged.
@@ -62,5 +61,3 @@
 - Switch: Globe or Timeline, stored in localStorage. Default is Globe on desktop, Timeline on phones and for reduced motion.
 - Performance: drawing stops when the globe is off-screen or the tab is hidden (0 redraws measured). Draw time per frame was not measured separately.
 - To confirm: EST LaSalle and Orange Digital Center are listed only as "Cameroon" in the CV and are attached to Yaounde.
-=======
->>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
