@@ -9,12 +9,21 @@ A single-page portfolio with an animated terminal intro (about 13 seconds, skipp
 | Section | Content |
 | --- | --- |
 | Intro | `terraform apply` terminal, name reveal, the stack as a CI pipeline, stat counters. Skip button from second 0, Escape key, plays once per browser session, skipped with "reduce motion", "Replay intro" link in the footer |
+<<<<<<< HEAD
+| Hero + About | Name, role, tagline, buttons, stats, and an "about.md" card with bio, teaching and bilingual angle, quick facts |
+| Skills | 5 categories with logos (Clouds, Containers & Orchestration, IaC & Config Management, CI/CD, Systems & Security), tools also used, soft skills, and a search box |
+| Projects | Filterable cards with tags, an impact line, repo and live-demo links, shown as a 3D carousel (desktop default) or a grid, plus automatic sync of tagged GitHub repos |
+| Experience | Timeline with key results, three visible achievements per role (expand for all), stack tags, education |
+| Certifications | Four featured cards, "Show all" for the rest; resting the mouse on one pops up its details (issuer, date, ID, verify link); click, tap or Enter opens a dialog with issuer, date, credential ID and verification link |
+| Contact | GitHub, email and LinkedIn buttons, copy-email button, and a form that opens your email app with the message ready (no server involved), and a "How I can help" list |
+=======
 | Hero | Name, role, tagline, View projects / Contact / Download CV, stats |
 | Skills | 5 categories with logos: Clouds, Containers & Orchestration, IaC & Config Management, CI/CD, Systems & Security |
 | Projects | Filterable cards, each linking to its repository, plus automatic sync of GitHub repos tagged `portfolio` |
 | Experience | Three roles and education from the CV |
 | Certifications | Clickable cards that open a dialog with issuer, date, credential ID and verification link |
 | About, Contact | Teaching and bilingual angle; GitHub, email and LinkedIn icon buttons |
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
 
 ## Project structure
 
@@ -45,8 +54,15 @@ Open `index.html` and look for the `EDIT HERE` comments.
 - **Text, in both languages:** the `I18N` object (`en` and `fr`). Every key must exist in both.
 - **Email, LinkedIn, GitHub, colors, stats:** the top of `CONFIG`.
 - **Skills:** `CONFIG.SKILLS`. A `logo` is the file name in `assets/logos` without `.svg`.
+<<<<<<< HEAD
+- **"How I can help" list:** `CONFIG.HELP` and the `help.*` keys in `I18N`.
 - **Projects:** `CONFIG.PROJECTS`. Leave `link` empty to show "Repository link coming soon".
 - **Experience and education:** `CONFIG.EXPERIENCE` and `CONFIG.EDUCATION`.
+- **Experience globe:** `CONFIG.PLACES`. Each pin has `kind` (`work`, `edu` or `home`), `lat`/`lng`, `zoom`, a bilingual `name`, and `exp`/`edu` index lists pointing into `CONFIG.EXPERIENCE` / `CONFIG.EDUCATION`. Work pins mark the *client's* location (all roles were remote). The land dots are `CONFIG.GLOBE_DOTS` (about 5 KB, no library). A Globe/Timeline switch sits in the section header; the choice is remembered, phones and reduced-motion visitors start on the timeline.
+=======
+- **Projects:** `CONFIG.PROJECTS`. Leave `link` empty to show "Repository link coming soon".
+- **Experience and education:** `CONFIG.EXPERIENCE` and `CONFIG.EDUCATION`.
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
 - **Certifications:** `CONFIG.CERTIFICATIONS`. Put a badge image in `assets/badges/` and set `badge`.
 - **CV:** replace `assets/Joel-Ebenka-CV.pdf`. It is public, so keep your phone number and address out of it.
 
@@ -60,6 +76,32 @@ To preview locally, run `python3 -m http.server 8000` in this folder and open ht
 
 ## Automatic project sync
 
+<<<<<<< HEAD
+The sync is **topic-driven**: a repository appears on the site only if it carries the GitHub topic **`portfolio`** (or **`showcase`**).
+
+**Tag a repo:** open the repository on GitHub, click the gear next to **About**, type `portfolio` in **Topics**, then **Save changes**. Extra topics such as `terraform`, `aws`, `kubernetes`, `jenkins` become filter chips and logos (see `CONFIG.SYNC.TOPIC_MAP`).
+
+**Newest first:** projects are sorted by the last push date of their GitHub repo. A project with no repo (for example the pediatric platform) has no date, so it is listed last unless you add `date: 'YYYY-MM'` to its entry in `CONFIG.PROJECTS`.
+
+**Stack icons are detected automatically.** (The sync also reads each repo's README, and the page falls back to keywords in the name and description, then to the GitHub icon, so a card never has no icon.) For every included repo the sync reads its languages and file list and picks logos: Terraform (`.tf`), Docker (`Dockerfile`), Jenkins (`Jenkinsfile`), GitHub Actions (`.github/workflows`), Ansible, Kubernetes, Python, Node.js, React, Netlify and more, plus keywords in the repo name, description and topics (aws, gcp, k8s...). Curated cards that list their own `logos` keep them. To support a new technology, add its SVG to `assets/logos/` and a rule in `scripts/sync-projects.mjs`.
+
+**Linked repos stay fresh without a tag.** Repos linked from a card in `CONFIG.PROJECTS` get their date, language and stack from GitHub even when they have no `portfolio` topic. Only tagged repos create new cards.
+
+**What happens next**
+1. On every deploy, and every night at 02:17 UTC, `scripts/sync-projects.mjs` lists your public repos through the GitHub API and keeps the tagged ones (archived repos are skipped; forks are kept when tagged).
+2. It writes `projects.json` into the published site.
+3. The page merges it with `CONFIG.PROJECTS`: a curated card gets live facts (language, last update, stars, demo link), and a tagged repo with no curated card gets a new card automatically.
+
+**See it immediately:** after tagging, open the repository's **Actions** tab, choose "Build and deploy to GitHub Pages", then **Run workflow**. Otherwise it appears after the next nightly run.
+
+**If nothing changes, check:**
+- The topic is exactly `portfolio` (or `showcase`) and the repo is public.
+- The workflow file is on the default branch `master`; scheduled runs only run from there. GitHub also pauses scheduled workflows after 60 days without repository activity, so re-enable it in the Actions tab if that happens.
+- The latest run is green. Its "Sync projects" step prints how many repos were scanned and which were synced.
+- You are looking at the deployed site, not an old copy (hard refresh).
+
+If GitHub cannot be reached, the site shows the cards in `CONFIG.PROJECTS`.
+=======
 Add the GitHub topic **`portfolio`** to a public repository (repository page, the gear next to "About", Topics). Every deploy and a nightly run at 02:17 UTC will:
 
 1. Read all your repos with that topic (archived repos and forks are skipped).
@@ -67,6 +109,7 @@ Add the GitHub topic **`portfolio`** to a public repository (repository page, th
 3. Add a new card for tagged repos that are not in `CONFIG.PROJECTS`. Other topics (`terraform`, `aws`, `kubernetes`, ...) become filter chips and logos, see `CONFIG.SYNC.TOPIC_MAP`.
 
 If GitHub cannot be reached, the site simply shows the cards in `CONFIG.PROJECTS`.
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
 
 ## Deploy to GitHub Pages
 

@@ -29,6 +29,10 @@ if (CONFIG && I18N) {
   CONFIG.CERTIFICATIONS.forEach((c) => { c.logo && logos.push(c.logo); https(c.url, 'cert ' + c.id); c.badge && need('assets/badges/' + c.badge, 'cert ' + c.id); });
   Object.values(CONFIG.SYNC.TOPIC_MAP).forEach((v) => v.logo && logos.push(v.logo));
   Object.values(CONFIG.SYNC.LANGUAGE_LOGOS).forEach((l) => logos.push(l));
+<<<<<<< HEAD
+  Object.keys(CONFIG.SYNC.STACK_CATS || {}).forEach((l) => logos.push(l));
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
   [...new Set(logos)].forEach((l) => need(`assets/logos/${l}.svg`, 'logo'));
 
   const en = Object.keys(I18N.en), fr = Object.keys(I18N.fr);
@@ -36,6 +40,25 @@ if (CONFIG && I18N) {
   fr.filter((k) => !en.includes(k)).forEach((k) => fail('EN missing key: ' + k));
   const keys = new Set();
   CONFIG.SKILLS.forEach((c) => keys.add('skills.' + c.key));
+<<<<<<< HEAD
+  (CONFIG.SOFT || []).forEach((k) => keys.add('soft.' + k));
+  (CONFIG.HELP || []).forEach((k) => { keys.add('help.' + k + '.t'); keys.add('help.' + k + '.d'); });
+  CONFIG.STATS.forEach((s) => keys.add(s.labelKey));
+  [...html.matchAll(/data-i18n(?:-label|-ph)?="([^"]+)"/g)].forEach((x) => keys.add(x[1]));
+  keys.forEach((k) => { if (!(k in I18N.en)) fail('used but undefined i18n key: ' + k); });
+  const bi = (o, w) => { if (!o || !o.en || !o.fr) fail('missing en/fr text: ' + w); };
+  CONFIG.PROJECTS.forEach((p) => { bi(p.description, 'project ' + p.title); bi(p.impact, 'impact ' + p.title); https(p.demo, 'demo ' + p.title); });
+  CONFIG.EXPERIENCE.forEach((j) => { bi(j.role, j.company); bi(j.place, j.company); bi(j.bullets, j.company);
+    if (j.bullets.en?.length !== j.bullets.fr?.length) fail('bullet count differs EN/FR: ' + j.company); });
+  CONFIG.EXPERIENCE.forEach((j) => { if (j.kpis) bi(j.kpis, 'kpis ' + j.company); if (j.kpis && j.kpis.en?.length !== j.kpis.fr?.length) fail('kpi count differs EN/FR: ' + j.company); });
+  CONFIG.EDUCATION.forEach((e) => bi(e.name, 'education'));
+}
+
+// Every logo the sync can detect must exist as a file
+const script = readFileSync('scripts/sync-projects.mjs', 'utf8');
+for (const m of script.matchAll(/^\s*\['([a-z0-9]+)',/gm)) if (!existsSync(`assets/logos/${m[1]}.svg`)) fail('sync detects a logo with no file: ' + m[1]);
+
+=======
   CONFIG.STATS.forEach((s) => keys.add(s.labelKey));
   [...html.matchAll(/data-i18n(?:-label)?="([^"]+)"/g)].forEach((x) => keys.add(x[1]));
   keys.forEach((k) => { if (!(k in I18N.en)) fail('used but undefined i18n key: ' + k); });
@@ -46,6 +69,7 @@ if (CONFIG && I18N) {
   CONFIG.EDUCATION.forEach((e) => bi(e.name, 'education'));
 }
 
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
 // External scripts must be pinned and carry integrity + crossorigin
 for (const tag of html.match(/<script[^>]+src="https:[^"]+"[^>]*>/g) || []) {
   if (!/@\d+\.\d+\.\d+\//.test(tag)) fail('unpinned CDN version: ' + tag);

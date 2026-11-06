@@ -152,12 +152,21 @@
     .syncnote{margin:1.5rem 0 0;font-size:.8rem;color:#a1a1aa}
 
     /* ---------- Experience ---------- */
+<<<<<<< HEAD
+    .jobs{list-style:none;margin:0;display:grid;gap:1.25rem}
+    .job{padding:1.4rem}
+    .job h3{margin:0;font:700 1.05rem/1.35 var(--mono);color:#fafafa}
+    .job .co{margin:.15rem 0 0;color:var(--em);font:600 .9rem var(--sans)}
+    .job .meta{margin:.15rem 0 .9rem;color:#a1a1aa;font:500 .8rem/1.5 var(--mono)}
+    .job .bul{margin:0;padding-left:1.1rem;display:grid;gap:.4rem;color:#d4d4d8;font-size:.92rem;line-height:1.6;list-style:disc}
+=======
     .jobs{list-style:none;margin:0;padding:0;display:grid;gap:1.25rem}
     .job{padding:1.4rem}
     .job h3{margin:0;font:700 1.05rem/1.35 var(--mono);color:#fafafa}
     .job .co{margin:.15rem 0 0;color:var(--em);font:600 .9rem var(--sans)}
     .job .meta{margin:.15rem 0 .8rem;color:#a1a1aa;font:500 .8rem/1.5 var(--mono)}
     .job ul{margin:0;padding-left:1.1rem;display:grid;gap:.4rem;color:#d4d4d8;font-size:.92rem;line-height:1.6}
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
     .job li::marker{color:var(--em)}
     .edu{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
     .edu strong{display:block;color:#fafafa;font:600 .92rem/1.4 var(--sans)}
@@ -206,6 +215,201 @@
     .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
     .js .reveal.in{opacity:1;transform:none}
 
+<<<<<<< HEAD
+
+    /* ---------- Added in the design pass ---------- */
+    [hidden]{display:none!important}
+    #progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--em),var(--cy));pointer-events:none}
+    .navlink[aria-current="true"]{color:#fff;border-color:var(--em)}
+    .tile{transition:transform .2s ease,border-color .2s ease,background-color .2s ease}
+    .skillcard .tile:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--em) 60%,transparent);background:rgba(255,255,255,.09)}
+    .soft{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
+    .soft li{padding:.45rem .8rem;border-radius:9999px;border:1px dashed rgba(255,255,255,.22);color:#e4e4e7;font:500 .82rem/1.2 var(--sans)}
+    .about-card{padding:0;overflow:hidden}
+    .about-bar{display:flex;align-items:center;gap:.4rem;padding:.7rem 1rem;border-bottom:1px solid rgba(255,255,255,.09)}
+    .about-bar i{width:.6rem;height:.6rem;border-radius:9999px;background:#3f3f46}
+    .about-bar span{margin-left:.5rem;font:500 .75rem var(--mono);color:#a1a1aa}
+    .about-body{padding:1.4rem}
+    .minis{display:grid;gap:1rem;margin-top:1.2rem}
+    .mini h3{margin:0 0 .3rem;font:600 .82rem/1.3 var(--mono);color:var(--em)}
+    .mini p{margin:0;font-size:.88rem;line-height:1.6;color:#d4d4d8}
+    .facts{display:grid;gap:.6rem;margin:1.2rem 0 0;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.09)}
+    .facts>div{display:grid;grid-template-columns:6.5rem 1fr;gap:.75rem;font-size:.85rem}
+    .facts dt{font:500 .78rem/1.5 var(--mono);color:var(--cy)}
+    .facts dd{margin:0;color:#e4e4e7}
+    .ptags{display:flex;flex-wrap:wrap;gap:.3rem;margin:0 0 .25rem;padding:0;list-style:none}
+    .ptags li{font:500 .68rem/1 var(--mono);padding:.28rem .5rem;border-radius:9999px;background:rgba(255,255,255,.06);color:#d4d4d8}
+    .pcard .impact{color:#e4e4e7;font-weight:500;font-size:.88rem}
+    .pcard .impact::before{content:"\2192\00a0";color:var(--em)}
+    .jobs{position:relative;padding-left:1.6rem}
+    .jobs::before{content:"";position:absolute;left:calc(.425rem - 1px);top:.8rem;bottom:.8rem;width:2px;background:linear-gradient(to bottom,var(--em),rgba(255,255,255,.08))}
+    .job{position:relative}
+    .job::before{content:"";position:absolute;left:-1.6rem;top:1.6rem;width:.85rem;height:.85rem;border-radius:9999px;background:var(--bg);border:2px solid var(--em);box-shadow:0 0 12px color-mix(in srgb,var(--em) 50%,transparent)}
+    .job .dates{margin:0 0 .4rem;font:500 .75rem/1.2 var(--mono);color:var(--cy)}
+    .kpis,.stack{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 .9rem;padding:0}
+    .kpi{padding:.3rem .65rem;border-radius:9999px;font:600 .75rem/1.2 var(--mono);color:var(--em);background:color-mix(in srgb,var(--em) 12%,transparent);border:1px solid color-mix(in srgb,var(--em) 30%,transparent)}
+    .stack{margin:.9rem 0 0}
+    .stack li{font:500 .72rem/1 var(--mono);color:#a1a1aa;padding:.3rem .55rem;border-radius:.5rem;border:1px solid rgba(255,255,255,.1)}
+    .more{margin-top:.6rem;background:none;border:0;padding:.25rem 0;color:var(--em);font:600 .82rem var(--sans);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+    .cform{display:grid;gap:.9rem;padding:1.4rem;align-content:start}
+    .cform label{display:grid;gap:.35rem;font:500 .8rem var(--mono);color:#a1a1aa}
+    .cform input,.cform textarea{width:100%;box-sizing:border-box;border-radius:.65rem;border:1px solid rgba(255,255,255,.18);background:rgba(9,9,11,.6);color:#fafafa;padding:.7rem .85rem;font:400 .95rem var(--sans)}
+    .cform input:focus-visible,.cform textarea:focus-visible{outline:2px solid var(--em);outline-offset:1px;border-color:var(--em)}
+    .cform textarea{min-height:8rem;resize:vertical}
+    .cform .hint{margin:0;font-size:.78rem;color:#a1a1aa}
+    @media (min-width:1024px){.edu-wrap{position:sticky;top:5rem}}
+    @media (prefers-reduced-motion:reduce){#progress{display:none}.tile,.skillcard .tile:hover{transition:none;transform:none}}
+
+
+    /* ---------- Carousel, skills search, help list ---------- */
+    .seg{display:inline-flex;border:1px solid rgba(255,255,255,.14);border-radius:9999px;padding:2px;background:rgba(255,255,255,.04)}
+    .seg button{font:600 .78rem/1 var(--sans);padding:.5rem .85rem;border-radius:9999px;border:0;background:transparent;color:#d4d4d8;cursor:pointer}
+    .seg button[aria-pressed="true"]{background:var(--em);color:#09090b}
+    .carousel{position:relative;padding:.5rem 0 0}
+    .car-stage{display:grid;perspective:1300px;overflow:hidden;padding:1rem 0}
+    .car-stage>.pcard{grid-area:1/1;width:min(100%,24rem);justify-self:center;transition:transform .55s cubic-bezier(.22,.8,.3,1),opacity .55s ease;transform-origin:50% 60%}
+    .car-stage>.pcard:hover{box-shadow:none}
+    .car-stage>.pcard.is-active:hover{transform:translateZ(0) scale(1)}
+    .car-stage>.pcard:not(.is-active){cursor:pointer}
+    .car-stage>.pcard.is-off{visibility:hidden;opacity:0;pointer-events:none}
+    .car-stage>.pcard{position:relative}
+    .car-stage>.pcard::after{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--bg);opacity:var(--dim,0);pointer-events:none;transition:opacity .55s ease}
+    .car-ctl{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:.75rem}
+    .car-btn{display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:9999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:#f4f4f5;cursor:pointer;transition:background-color .2s ease,border-color .2s ease}
+    .car-btn:hover{background:rgba(255,255,255,.12);border-color:var(--em)}
+    .car-btn svg{width:1.1rem;height:1.1rem}
+    .car-dots{display:flex;gap:.2rem;align-items:center}
+    .car-dot{display:grid;place-items:center;width:1.5rem;height:1.5rem;border:0;background:none;cursor:pointer;padding:0}
+    .car-dot::after{content:"";width:.5rem;height:.5rem;border-radius:9999px;background:rgba(255,255,255,.28);transition:background-color .2s ease,transform .2s ease}
+    .car-dot[aria-current="true"]::after{background:var(--em);transform:scale(1.35)}
+    .carousel{touch-action:pan-y}
+    @media (max-width:767px){.car-stage>.pcard.is-side{visibility:hidden;opacity:0;pointer-events:none}}
+    .sq{width:min(100%,18rem);box-sizing:border-box;border-radius:9999px;border:1px solid rgba(255,255,255,.18);background:rgba(9,9,11,.6);color:#fafafa;padding:.6rem 1rem;font:400 .9rem var(--sans)}
+    .sq:focus-visible{outline:2px solid var(--em);outline-offset:1px;border-color:var(--em)}
+    .help{list-style:none;margin:.75rem 0 1.25rem;padding:0;display:grid;gap:.6rem}
+    .help li{padding:.7rem .9rem;border-radius:.8rem;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.03)}
+    .help strong{display:block;color:#fafafa;font:600 .88rem/1.4 var(--sans)}
+    .help span{display:block;color:#a1a1aa;font-size:.82rem;line-height:1.5}
+    @media (prefers-reduced-motion:reduce){.car-stage>.pcard,.car-stage>.pcard::after{transition:none}.car-btn,.car-dot::after{transition:none}}
+
+
+    /* ---------- Skill and certification motion (transform and opacity only) ---------- */
+    @keyframes pop{from{opacity:0;transform:translateY(8px) scale(.82)}to{opacity:1;transform:none}}
+    @keyframes rise{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
+    .js .skillcard:not(.in) .tile{opacity:0}
+    .skillcard.in .tile{animation:pop .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--i,0) * 55ms + 120ms)}
+    .js .certs-panel:not(.in) .ccard{opacity:0}
+    .certs-panel.in .ccard{animation:rise .6s cubic-bezier(.22,.8,.3,1) both;animation-delay:calc(var(--i,0) * 90ms + 100ms)}
+    .ccard{position:relative;overflow:hidden}
+    .ccard::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.14) 50%,transparent 65%);transform:translateX(-120%);transition:transform .7s ease;pointer-events:none}
+    .ccard:hover::before,.ccard:focus-visible::before{transform:translateX(120%)}
+    .ccard .cmark{transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+    .ccard:hover .cmark{transform:scale(1.1) rotate(-4deg)}
+    .skillcard{transition:transform .25s ease,border-color .25s ease}
+    .skillcard:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--em) 40%,transparent)}
+    dialog.cdialog[open]{animation:dlgin .28s cubic-bezier(.22,.8,.3,1)}
+    dialog.cdialog[open]::backdrop{animation:fade .28s ease}
+    @keyframes dlgin{from{opacity:0;transform:translateY(14px) scale(.96)}}
+    @keyframes fade{from{opacity:0}}
+    .car-stage{cursor:grab;-webkit-user-select:none;user-select:none}
+    .car-stage.dragging{cursor:grabbing}
+    .car-stage.dragging>.pcard,.car-stage.dragging>.pcard::after{transition:none!important}
+    .car-stage a{-webkit-user-drag:none}
+    @media (prefers-reduced-motion:reduce){
+      .js .skillcard:not(.in) .tile,.js .certs-panel:not(.in) .ccard{opacity:1}
+      .skillcard.in .tile,.certs-panel.in .ccard,dialog.cdialog[open],dialog.cdialog[open]::backdrop{animation:none}
+      .ccard::before{display:none}.ccard:hover .cmark,.skillcard:hover{transform:none}.skillcard,.ccard .cmark{transition:none}
+    }
+
+
+    /* ---------- Modern motion pass (compositor-friendly, all off for reduced motion) ---------- */
+    .glow-a{animation:drift 26s ease-in-out infinite alternate}
+    .glow-b{animation:drift 32s ease-in-out -9s infinite alternate-reverse}
+    @keyframes drift{to{transform:translate3d(6vw,4vh,0) scale(1.12)}}
+    .reveal h2::after{content:"";display:block;width:3rem;height:3px;margin-top:.7rem;border-radius:3px;background:linear-gradient(90deg,var(--em),var(--cy));transform-origin:left;transition:transform .9s cubic-bezier(.22,.8,.3,1) .2s}
+    .js .reveal:not(.in) h2::after{transform:scaleX(0)}
+    .skillcard,.job,.pcard,.about-card,.cform,.help li{position:relative;isolation:isolate}
+    .skillcard::before,.job::before,.pcard::before,.about-card::before,.cform::before,.help li::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s ease;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--em) 15%,transparent),transparent 65%)}
+    .skillcard:hover::before,.job:hover::before,.pcard:hover::before,.about-card:hover::before,.cform:hover::before,.help li:hover::before{opacity:1}
+    .job::before{inset:0;left:0;top:0;width:auto;height:auto;border:0;box-shadow:none;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--em) 15%,transparent),transparent 65%)}
+    .job::after{content:"";position:absolute;left:-1.6rem;top:1.6rem;width:.85rem;height:.85rem;border-radius:9999px;background:var(--bg);border:2px solid var(--em);box-shadow:0 0 12px color-mix(in srgb,var(--em) 50%,transparent);transition:transform .5s cubic-bezier(.34,1.56,.64,1) .3s}
+    .js .job:not(.in)::after{transform:scale(0)}
+    .js .jobs::before{transform:scaleY(0);transform-origin:top;transition:transform 1.6s cubic-bezier(.22,.8,.3,1)}
+    .js .jobs.in::before{transform:scaleY(1)}
+    .btn-primary{position:relative;overflow:hidden;isolation:isolate}
+    .btn-primary::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-130%);transition:transform .7s ease}
+    .btn-primary:hover::after{transform:translateX(130%)}
+    .pgrid .pcard{animation:rise .6s cubic-bezier(.22,.8,.3,1) both;animation-delay:calc(var(--i,0) * 70ms)}
+    .navlink{position:relative;border-bottom-color:transparent!important}
+    .navlink::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--em);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+    .navlink:hover::after,.navlink[aria-current="true"]::after{transform:scaleX(1)}
+    .hero-name-glow{background:linear-gradient(100deg,#fafafa 30%,var(--em) 55%,var(--cy) 75%,#fafafa 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sheen 9s ease-in-out infinite alternate}
+    @keyframes sheen{from{background-position:0% 0}to{background-position:100% 0}}
+    /* certificate hover card */
+    .cert-pop{position:fixed;z-index:70;transform-origin:var(--ox,50%) 100%;opacity:0;transform:translateY(8px) scale(.94);transition:opacity .2s ease,transform .25s cubic-bezier(.22,.8,.3,1);pointer-events:auto}
+    .cert-pop.below{transform-origin:var(--ox,50%) 0;transform:translateY(-8px) scale(.94)}
+    .cert-pop.show{opacity:1;transform:none}
+    .pop-in{padding:1.1rem 1.2rem 1.2rem;border-radius:1.1rem;border:1px solid rgba(255,255,255,.16);background:rgba(17,17,20,.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 24px 60px -16px rgba(0,0,0,.85),0 0 0 1px color-mix(in srgb,var(--em) 18%,transparent);color:#e4e4e7}
+    .pop-in .cmark{width:3.2rem;height:3.2rem}
+    .pop-in .pop-title{margin:.7rem 0 .1rem;font:700 1rem/1.35 var(--mono);color:#fafafa}
+    .pop-in .by{margin:0;color:#a1a1aa;font-size:.85rem}
+    .pop-in dl{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.9rem 0}
+    .pop-in dt{font:500 .7rem/1.2 var(--mono);color:#a1a1aa}
+    .pop-in dd{margin:.15rem 0 0;font-weight:600;font-size:.85rem;word-break:break-all}
+    .pop-in .desc{margin:0 0 .8rem;font-size:.85rem;line-height:1.55;color:#d4d4d8}
+    .pop-in .tiles{margin-bottom:.9rem}
+    .pop-in .btn{padding:.55rem .9rem;font-size:.82rem}
+    @media (prefers-reduced-motion:reduce){
+      .glow-a,.glow-b,.hero-name-glow{animation:none}
+      .hero-name-glow{-webkit-text-fill-color:currentColor;background:none}
+      .reveal h2::after,.job::after,.js .jobs::before,.navlink::after,.btn-primary::after,.cert-pop{transition:none}
+      .js .reveal:not(.in) h2::after,.js .job:not(.in)::after{transform:none}
+      .js .jobs::before{transform:none}
+      .pgrid .pcard{animation:none}
+    }
+
+
+    /* ---------- Experience globe ---------- */
+    .gx{display:grid;gap:1.5rem;overflow-x:clip}
+    @media (max-width:767px){.gx-pin b{display:none}}
+    @media (min-width:1024px){.gx{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:start}}
+    .gx-wrap{position:relative;width:min(100%,34rem);aspect-ratio:1;margin:0 auto;touch-action:pan-y;cursor:grab}
+    .gx-wrap.dragging{cursor:grabbing}
+    #gx-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+    .gx-pins{position:absolute;inset:0;pointer-events:none}
+    .gx-pin{position:absolute;left:0;top:0;width:1.7rem;height:1.7rem;margin:-.85rem 0 0 -.85rem;display:grid;place-items:center;border:0;background:none;padding:0;cursor:pointer;pointer-events:auto;will-change:transform}
+    .gx-pin i{display:block;width:.7rem;height:.7rem;border-radius:9999px;background:var(--c);box-shadow:0 0 0 2px rgba(9,9,11,.85),0 0 14px var(--c);transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+    .gx-pin:hover i,.gx-pin.on i{transform:scale(1.55)}
+    .gx-pin b{position:absolute;left:50%;bottom:calc(100% - .1rem);transform:translateX(-50%);white-space:nowrap;padding:.25rem .55rem;border-radius:.5rem;background:rgba(9,9,11,.88);border:1px solid rgba(255,255,255,.16);font:500 .7rem/1 var(--mono);color:#fafafa;opacity:0;transition:opacity .2s ease;pointer-events:none}
+    .gx-pin.on b,.gx-pin:hover b{opacity:1}
+    .k-home{--c:#fafafa}.k-work{--c:var(--em)}.k-edu{--c:var(--cy)}
+    .gx-hint{margin:.5rem 0 0;text-align:center;font:500 .75rem var(--mono);color:#a1a1aa}
+    .gx-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1rem}
+    .gx-chips .chip{display:inline-flex;align-items:center;gap:.5rem}
+    .gx-chips .chip i{width:.55rem;height:.55rem;border-radius:9999px;background:var(--c);flex:none}
+    .gx-chips .chip[aria-pressed="true"] i{box-shadow:0 0 0 2px #09090b}
+    .gx-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1.1rem;list-style:none;margin:.9rem 0 0;padding:0;font:500 .72rem var(--mono);color:#a1a1aa}
+    .gx-legend li{display:flex;align-items:center;gap:.4rem}
+    .gx-legend i{width:.55rem;height:.55rem;border-radius:9999px;background:var(--c)}
+    .gx-panel{padding:1.4rem;min-height:22rem}
+    .gx-panel:focus-visible{outline:2px solid var(--em)}
+    .gx-in{animation:rise .45s cubic-bezier(.22,.8,.3,1) both}
+    .gx-tag{display:inline-flex;align-items:center;gap:.5rem;font:600 .72rem/1 var(--mono);color:var(--c);padding:.35rem .65rem;border-radius:9999px;border:1px solid color-mix(in srgb,var(--c) 40%,transparent);background:color-mix(in srgb,var(--c) 10%,transparent)}
+    .gx-tag i{width:.5rem;height:.5rem;border-radius:9999px;background:var(--c)}
+    .gx-panel h3{margin:.8rem 0 .1rem;font:700 1.2rem/1.3 var(--mono);color:#fafafa}
+    .gx-panel .gx-sub{margin:0 0 1rem;color:#a1a1aa;font-size:.88rem}
+    .gx-item{padding:1rem 0;border-top:1px solid rgba(255,255,255,.09)}
+    .gx-item:first-of-type{border-top:0;padding-top:.2rem}
+    .gx-item h4{margin:0;font:700 1rem/1.35 var(--mono);color:#fafafa}
+    .gx-item .co{margin:.1rem 0 0;color:var(--em);font:600 .88rem var(--sans)}
+    .gx-item .dates{margin:.15rem 0 .7rem;font:500 .75rem var(--mono);color:var(--cy)}
+    .gx-item ul.bul{margin:0 0 .8rem;padding-left:1.1rem;display:grid;gap:.4rem;color:#d4d4d8;font-size:.9rem;line-height:1.6;list-style:disc}
+    .gx-item li::marker{color:var(--em)}
+    @media (min-width:1024px){.gx-panel{max-height:44rem;overflow:auto}}
+    @media (prefers-reduced-motion:reduce){.gx-in{animation:none}.gx-pin i,.gx-pin b{transition:none}.gx-pin{will-change:auto}}
+
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
     /* ---------- Intro ---------- */
     #intro{position:fixed;inset:0;z-index:50;display:none;overflow:hidden}
     html[data-intro="play"] #intro{display:block}
@@ -304,6 +508,10 @@
 </head>
 
 <body class="bg-zinc-950 font-sans text-zinc-300 antialiased">
+<<<<<<< HEAD
+  <div id="progress" aria-hidden="true"></div>
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
 
   <!-- Ambient layers: faint grid, scanlines, soft glows -->
   <div class="ambient" aria-hidden="true">
@@ -370,6 +578,43 @@
 
     <main id="main" tabindex="-1">
 
+<<<<<<< HEAD
+      <!-- HERO + ABOUT (edit I18N 'hero.*' and 'about.*') -->
+      <section id="top" class="relative" aria-labelledby="hero-title">
+        <div class="mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-20 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-14">
+          <div>
+            <p class="hero-item pill"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.status">Open to remote roles</span></p>
+            <h1 id="hero-title" class="hero-item hero-name-glow mt-6 font-mono text-4xl font-bold tracking-tight text-zinc-50 sm:text-6xl"></h1>
+            <p class="hero-item mt-4 font-mono text-lg text-emerald-400 sm:text-2xl" data-i18n="hero.role"></p>
+            <p class="hero-item mt-6 max-w-3xl text-balance text-2xl font-semibold leading-tight text-zinc-100 sm:text-3xl xl:text-4xl" data-i18n="hero.tagline"></p>
+            <p class="hero-item mt-4 max-w-xl leading-relaxed text-zinc-400" data-i18n="hero.sub"></p>
+            <div class="hero-item mt-8 flex flex-wrap gap-3">
+              <a class="btn btn-primary" href="#projects"><span data-i18n="hero.cta.projects"></span><span id="ico-arrow"></span></a>
+              <a class="btn btn-ghost" href="#contact" data-i18n="hero.cta.contact"></a>
+              <a class="btn btn-ghost" id="cv-link" href="assets/Joel-Ebenka-CV.pdf" download><span data-i18n="hero.cta.cv"></span></a>
+            </div>
+            <dl class="hero-item stats" id="hero-stats"></dl>
+          </div>
+
+          <aside id="about" class="hero-item glass about-card scroll-mt-20" aria-labelledby="about-title">
+            <div class="about-bar" aria-hidden="true"><i></i><i></i><i></i><span>about.md</span></div>
+            <div class="about-body">
+              <h2 id="about-title" class="font-mono text-xl font-bold text-zinc-50" data-i18n="about.title"></h2>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-300 sm:text-base" data-i18n="about.p1"></p>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-300 sm:text-base" data-i18n="about.p2"></p>
+              <div class="minis">
+                <div class="mini"><h3 data-i18n="about.teach.title"></h3><p data-i18n="about.teach.text"></p></div>
+                <div class="mini"><h3 data-i18n="about.lang.title"></h3><p data-i18n="about.lang.text"></p></div>
+              </div>
+              <dl class="facts">
+                <div><dt data-i18n="about.k.loc"></dt><dd data-i18n="about.v.loc"></dd></div>
+                <div><dt data-i18n="about.k.lang"></dt><dd data-i18n="about.v.lang"></dd></div>
+                <div><dt data-i18n="about.k.avail"></dt><dd data-i18n="about.v.avail"></dd></div>
+                <div><dt data-i18n="about.k.focus"></dt><dd data-i18n="about.v.focus"></dd></div>
+              </dl>
+            </div>
+          </aside>
+=======
       <!-- HERO -->
       <section id="top" class="relative" aria-labelledby="hero-title">
         <div class="mx-auto max-w-6xl px-4 pb-16 pt-14 sm:px-6 sm:pb-24 sm:pt-24">
@@ -385,6 +630,7 @@
             <a class="btn btn-ghost" id="cv-link" href="assets/Joel-Ebenka-CV.pdf" download><span data-i18n="hero.cta.cv"></span></a>
           </div>
           <dl class="hero-item stats" id="hero-stats"></dl>
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
         </div>
       </section>
 
@@ -395,6 +641,14 @@
             <h2 id="skills-title" class="font-mono text-2xl font-bold text-zinc-50 sm:text-3xl" data-i18n="skills.title"></h2>
             <p class="mt-2 text-zinc-400" data-i18n="skills.sub"></p>
           </div>
+<<<<<<< HEAD
+          <div class="reveal mb-5 flex flex-wrap items-center gap-3">
+            <label for="skill-q" class="sr-only" data-i18n="skills.search"></label>
+            <input id="skill-q" type="search" class="sq" autocomplete="off" spellcheck="false" maxlength="40" data-i18n-ph="skills.search.ph">
+            <p id="skill-status" class="text-sm text-zinc-400" role="status" aria-live="polite"></p>
+          </div>
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
           <div id="skills-grid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
         </div>
       </section>
@@ -406,7 +660,26 @@
             <h2 id="projects-title" class="font-mono text-2xl font-bold text-zinc-50 sm:text-3xl" data-i18n="projects.title"></h2>
             <p class="mt-2 text-zinc-400" data-i18n="projects.sub"></p>
           </div>
+<<<<<<< HEAD
+          <div class="reveal mb-6 flex flex-wrap items-center justify-between gap-3">
+            <div id="proj-filters" class="flex flex-wrap gap-2" role="group" data-i18n-label="projects.filter" aria-label="Filter projects"></div>
+            <div id="proj-view" class="seg" role="group" data-i18n-label="projects.view.label" aria-label="Projects view">
+              <button type="button" data-view="carousel" aria-pressed="false" data-i18n="projects.view.carousel"></button>
+              <button type="button" data-view="grid" aria-pressed="true" data-i18n="projects.view.grid"></button>
+            </div>
+          </div>
+          <div id="proj-carousel" class="carousel" role="region" aria-roledescription="carousel" data-i18n-label="car.region" aria-label="Projects carousel" hidden>
+            <div id="car-stage" class="car-stage"></div>
+            <div class="car-ctl">
+              <button type="button" id="car-prev" class="car-btn" data-i18n-label="car.prev" aria-label="Previous project"></button>
+              <div id="car-dots" class="car-dots"></div>
+              <button type="button" id="car-next" class="car-btn" data-i18n-label="car.next" aria-label="Next project"></button>
+            </div>
+            <p id="car-live" class="sr-only" role="status" aria-live="polite"></p>
+          </div>
+=======
           <div id="proj-filters" class="reveal mb-6 flex flex-wrap gap-2" role="group" data-i18n-label="projects.filter" aria-label="Filter projects"></div>
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
           <div id="proj-grid" class="pgrid"></div>
           <p id="sync-note" class="syncnote" hidden></p>
         </div>
@@ -415,6 +688,41 @@
       <!-- EXPERIENCE (edit CONFIG.EXPERIENCE and CONFIG.EDUCATION) -->
       <section id="experience" class="scroll-mt-16 py-14 sm:py-20" aria-labelledby="exp-title">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
+<<<<<<< HEAD
+          <div class="reveal mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div class="max-w-2xl">
+              <h2 id="exp-title" class="font-mono text-2xl font-bold text-zinc-50 sm:text-3xl" data-i18n="exp.title"></h2>
+              <p class="mt-2 text-zinc-400" data-i18n="exp.sub"></p>
+            </div>
+            <div id="exp-view" class="seg" role="group" data-i18n-label="exp.view.label" aria-label="Experience view">
+              <button type="button" data-view="globe" aria-pressed="false" data-i18n="exp.view.globe"></button>
+              <button type="button" data-view="list" aria-pressed="true" data-i18n="exp.view.list"></button>
+            </div>
+          </div>
+
+          <!-- Globe view -->
+          <div id="exp-globe" class="gx" hidden>
+            <div class="gx-stage">
+              <div id="gx-wrap" class="gx-wrap">
+                <canvas id="gx-canvas" aria-hidden="true"></canvas>
+                <div id="gx-pins" class="gx-pins" aria-hidden="true"></div>
+              </div>
+              <p class="gx-hint" data-i18n="globe.hint"></p>
+              <div id="gx-chips" class="gx-chips" role="group" data-i18n-label="globe.places" aria-label="Places"></div>
+              <ul class="gx-legend" aria-hidden="true">
+                <li><i class="k-home"></i><span data-i18n="globe.k.home"></span></li>
+                <li><i class="k-work"></i><span data-i18n="globe.k.work"></span></li>
+                <li><i class="k-edu"></i><span data-i18n="globe.k.edu"></span></li>
+              </ul>
+            </div>
+            <div id="gx-panel" class="glass gx-panel" role="region" aria-live="polite" data-i18n-label="globe.details" aria-label="Details" tabindex="-1"></div>
+          </div>
+
+          <!-- Timeline view -->
+          <div id="exp-timeline" class="grid gap-8 lg:grid-cols-[1fr_20rem]">
+            <ol id="exp-list" class="jobs"></ol>
+            <aside class="reveal glass edu-wrap h-fit p-5" aria-labelledby="edu-title">
+=======
           <div class="reveal mb-8 max-w-2xl">
             <h2 id="exp-title" class="font-mono text-2xl font-bold text-zinc-50 sm:text-3xl" data-i18n="exp.title"></h2>
             <p class="mt-2 text-zinc-400" data-i18n="exp.sub"></p>
@@ -422,6 +730,7 @@
           <div class="grid gap-8 lg:grid-cols-[1fr_20rem]">
             <ol id="exp-list" class="jobs"></ol>
             <aside class="reveal glass h-fit p-5" aria-labelledby="edu-title">
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
               <h3 id="edu-title" class="mb-4 font-mono text-sm font-semibold text-cyan-400" data-i18n="exp.education"></h3>
               <ul id="edu-list" class="edu"></ul>
             </aside>
@@ -437,6 +746,36 @@
             <p class="mt-2 text-zinc-400" data-i18n="certs.sub"></p>
           </div>
           <div class="certs-panel reveal"><div id="cert-grid" class="cgrid"></div></div>
+<<<<<<< HEAD
+          <div class="mt-5 text-center"><button id="cert-more" type="button" class="btn btn-ghost" aria-expanded="false" aria-controls="cert-grid" hidden></button></div>
+        </div>
+      </section>
+
+      <!-- CONTACT (edit CONFIG.EMAIL / LINKEDIN / GITHUB and I18N 'contact.*') -->
+      <section id="contact" class="scroll-mt-16 py-14 sm:py-20" aria-labelledby="contact-title">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal grid gap-8 lg:grid-cols-2 lg:gap-12">
+            <div>
+              <h2 id="contact-title" class="font-mono text-2xl font-bold text-zinc-50 sm:text-3xl" data-i18n="contact.title"></h2>
+              <p class="mt-3 max-w-xl leading-relaxed text-zinc-300" data-i18n="contact.text"></p>
+              <div class="social" id="social"></div>
+              <h3 class="mt-2 font-mono text-sm font-semibold text-cyan-400" data-i18n="help.title"></h3>
+              <ul id="help-list" class="help"></ul>
+              <p class="flex flex-wrap items-center gap-3 text-sm text-zinc-400">
+                <a id="email-text" class="text-emerald-400 underline underline-offset-4"></a>
+                <button type="button" id="copy-email" class="btn btn-ghost" style="padding:.45rem .8rem;font-size:.8rem"><span data-i18n="contact.copy"></span></button>
+                <span id="copy-status" class="sr-only" role="status" aria-live="polite"></span>
+              </p>
+            </div>
+            <form id="contact-form" class="glass cform" aria-labelledby="form-title">
+              <h3 id="form-title" class="font-mono text-base font-bold text-zinc-50" data-i18n="contact.form.title"></h3>
+              <label for="f-name"><span data-i18n="contact.form.name"></span><input id="f-name" name="name" type="text" autocomplete="name" required maxlength="100"></label>
+              <label for="f-email"><span data-i18n="contact.form.email"></span><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="120"></label>
+              <label for="f-msg"><span data-i18n="contact.form.msg"></span><textarea id="f-msg" name="message" required maxlength="2000"></textarea></label>
+              <button type="submit" class="btn btn-primary w-fit"><span data-i18n="contact.form.send"></span><span class="ico-arrow-slot"></span></button>
+              <p class="hint" data-i18n="contact.form.hint"></p>
+            </form>
+=======
         </div>
       </section>
 
@@ -467,6 +806,7 @@
             <p class="mt-3 leading-relaxed text-zinc-300" data-i18n="contact.text"></p>
             <div class="social" id="social"></div>
             <p class="text-sm text-zinc-400"><span data-i18n="contact.email"></span>: <a id="email-text" class="text-emerald-400 underline underline-offset-4"></a></p>
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
           </div>
         </div>
       </section>
@@ -495,6 +835,11 @@
     </div>
   </noscript>
 
+<<<<<<< HEAD
+  <div id="cert-pop" class="cert-pop" aria-hidden="true" hidden></div>
+
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
   <!-- GSAP 3, pinned and integrity-checked -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"
           integrity="sha384-XmJ9SoHtVOHoQUcKvFAzVXwdkKo1Ie3bhmSoIAkcdsHGaIrVJIkmozyq0FJeb/Ly"
@@ -534,6 +879,13 @@
       { key: 'cicd',       items: [{ name: 'Jenkins', logo: 'jenkins' }, { name: 'GitHub Actions', logo: 'githubactions' }] },
       { key: 'systems',    items: [{ name: 'Linux', logo: 'linux' }, { name: 'IAM', icon: 'shield' }] }
     ],
+<<<<<<< HEAD
+    // Soft skills: keys into I18N 'soft.<key>'
+    SOFT: ['teaching', 'docs', 'incident', 'bilingual', 'remote'],
+    // What you can help with: keys into I18N 'help.<key>.t' (title) and 'help.<key>.d' (description)
+    HELP: ['iac', 'cicd', 'cloud', 'train'],
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
     ALSO: ['Python', 'Bash', 'Java', 'SQL', 'Git', 'Maven', 'SonarQube', 'Artifactory', 'Grafana', 'Prometheus', 'New Relic', 'Nginx'],
 
     // ---- Intro terminal (scene 1). tone: plain | dim | ok | info | done ----
@@ -554,6 +906,49 @@
       ]
     },
 
+<<<<<<< HEAD
+    // ---- Projects, shown newest first. 'date' (YYYY-MM) is only a fallback: the GitHub sync reads each linked repo's last push date, which wins. A project with no repo and no date is listed last: add a date if you want it placed. logos: files in assets/logos; cats: filter chips. A card whose link points to a GitHub
+    //      repo tagged with the SYNC topic also shows live facts (language, last update, stars, demo link). ----
+    PROJECTS: [
+      { title: 'Highly available web app on AWS', logos: ['terraform', 'amazonwebservices'], cats: ['Terraform', 'AWS'],
+        link: 'https://github.com/chrisjoel/HA_Webapp_terraform', demo: '', date: '2025-02',
+        description: { en: 'Terraform for a load-balanced, auto-scaling EC2 web fleet with security groups.',
+                       fr: 'Terraform pour une flotte web EC2 avec répartition de charge, auto-scaling et groupes de sécurité.' },
+        impact: { en: 'No single point of failure: traffic is spread across instances that scale with load.',
+                  fr: 'Plus de point de défaillance unique : le trafic est réparti sur des instances qui s’adaptent à la charge.' } },
+      { title: 'Jenkins server on AWS', logos: ['terraform', 'jenkins', 'bash', 'amazonwebservices'], cats: ['Terraform', 'AWS', 'CI/CD'],
+        link: 'https://github.com/chrisjoel/jenkins_terraform_ec2_install', demo: '',
+        description: { en: 'Terraform provisions an EC2 instance and a shell script installs Jenkins automatically.',
+                       fr: 'Terraform provisionne une instance EC2 et un script shell installe Jenkins automatiquement.' },
+        impact: { en: 'A CI server built from code, repeatable with one command instead of a manual install.',
+                  fr: 'Un serveur CI construit depuis le code, reproductible en une commande au lieu d’une installation manuelle.' } },
+      { title: 'EKS infrastructure with Terraform', logos: ['terraform', 'kubernetes', 'amazonwebservices'], cats: ['Terraform', 'AWS', 'Kubernetes'],
+        link: 'https://github.com/chrisjoel/full-devops-terraform-eks-infra', demo: '',
+        description: { en: 'Infrastructure as code for an Amazon EKS Kubernetes environment.',
+                       fr: 'Infrastructure as code pour un environnement Kubernetes sur Amazon EKS.' },
+        impact: { en: 'A reproducible Kubernetes platform that can be created and destroyed from code.',
+                  fr: 'Une plateforme Kubernetes reproductible, créée et détruite à partir du code.' } },
+      { title: '30-Day Terraform Challenge', logos: ['terraform'], cats: ['Terraform'],
+        link: 'https://github.com/chrisjoel/30-Day-Terraform-challenge-', demo: '', date: '2024-09',
+        description: { en: 'Hands-on exercises from the 30-day challenge run by the HashiCorp User Group Yaoundé.',
+                       fr: 'Exercices pratiques du défi de 30 jours organisé par le HashiCorp User Group Yaoundé.' },
+        impact: { en: 'Thirty days of structured, hands-on Terraform practice.',
+                  fr: 'Trente jours de pratique structurée de Terraform.' } },
+      { title: 'KiloShare', logos: [], cats: ['Full-stack'],
+        link: 'https://github.com/chrisjoel/Kiloshare', demo: 'https://kilosharedeploy.netlify.app/', date: '2026-10',
+        description: { en: 'Marketplace linking travellers with spare luggage allowance to people sending parcels between Cameroon and Russia.',
+                       fr: 'Place de marché qui relie les voyageurs disposant de bagages libres aux personnes qui envoient des colis entre le Cameroun et la Russie.' },
+        impact: { en: 'A product taken from idea to a live deployment.',
+                  fr: 'Un produit mené de l’idée à un déploiement en ligne.' } },
+      { title: 'Pediatric health records platform', logos: [], cats: ['Healthcare'], link: '', demo: '',
+        description: { en: 'Offline-first microservices record system for pediatric care in Yaoundé.',
+                       fr: 'Système de dossiers pédiatriques en microservices, conçu pour fonctionner hors ligne, pour Yaoundé.' },
+        impact: { en: 'Designed so records stay usable when the connection drops.',
+                  fr: 'Conçu pour que les dossiers restent utilisables quand la connexion tombe.' } }
+    ],
+
+    // ---- GitHub sync. The deploy workflow writes projects.json from repos tagged 'portfolio' (or 'showcase'), see README ----
+=======
     // ---- Projects. logos: files in assets/logos; cats: filter chips. A card whose link points to a GitHub
     //      repo tagged with the SYNC topic also shows live facts (language, last update, stars, demo link). ----
     PROJECTS: [
@@ -582,6 +977,7 @@
     ],
 
     // ---- GitHub sync. The deploy workflow writes projects.json from repos tagged TOPIC (see README) ----
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
     SYNC: {
       FILE: 'projects.json',
       TOPIC_MAP: {                       // GitHub topic -> filter chip and logo (for cards added automatically)
@@ -597,16 +993,43 @@
         nginx: { logo: 'nginx' }, sonarqube: { cat: 'DevSecOps', logo: 'sonarqube' },
         devsecops: { cat: 'DevSecOps' }, security: { cat: 'DevSecOps' }, finops: { cat: 'FinOps' },
         azure: { cat: 'Azure', logo: 'azure' }, gcp: { cat: 'GCP', logo: 'googlecloud' },
+<<<<<<< HEAD
+        'google-cloud': { cat: 'GCP', logo: 'googlecloud' }, linux: { logo: 'linux' },
+        javascript: { cat: 'Full-stack', logo: 'javascript' }, typescript: { cat: 'Full-stack', logo: 'typescript' }, nodejs: { cat: 'Full-stack', logo: 'nodejs' },
+        react: { cat: 'Full-stack', logo: 'react' }, nextjs: { cat: 'Full-stack', logo: 'nextjs' }, netlify: { logo: 'netlify' }
+      },
+      // Keywords in a repo's name, description or topics -> logo. Used when the sync did not detect a stack.
+      KEYWORDS: [
+        ['terraform', 'terraform'], ['(^|[^a-z0-9])(aws|ec2|eks|s3|lambda|dynamodb|cloudfront|ecr|rds)([^a-z0-9]|$)', 'amazonwebservices'],
+        ['(^|[^a-z0-9])(gcp|gcloud|gke|google[ -_]?cloud)([^a-z0-9]|$)', 'googlecloud'], ['azure', 'azure'],
+        ['(^|[^a-z0-9])(k8s|kubernetes|helm|kubectl)([^a-z0-9]|$)', 'kubernetes'], ['docker', 'docker'], ['ansible', 'ansible'],
+        ['jenkins', 'jenkins'], ['(github[ -_]?actions?|gitaction)', 'githubactions'], ['nginx', 'nginx'], ['prometheus', 'prometheus'], ['grafana', 'grafana'],
+        ['(^|[^a-z0-9])maven([^a-z0-9]|$)', 'maven'], ['flask', 'flask'], ['python', 'python'], ['(^|[^a-z0-9])(bash|shell)([^a-z0-9]|$)', 'bash'],
+        ['next\\.?js', 'nextjs'], ['react', 'react'], ['typescript', 'typescript'], ['node\\.?js', 'nodejs'], ['(^|[^a-z0-9])(javascript|js)([^a-z0-9]|$)', 'javascript'],
+        ['mongo', 'mongodb'], ['postgres', 'postgresql'], ['mysql', 'mysql'], ['redis', 'redis'], ['netlify', 'netlify'], ['linux', 'linux']
+      ],
+      LANGUAGE_LOGOS: { HCL: 'terraform', Python: 'python', Java: 'java', Shell: 'bash', Dockerfile: 'docker', JavaScript: 'javascript', TypeScript: 'typescript', HTML: 'html5', CSS: 'css3', Go: 'go' },
+      // Detected stack logo -> filter chip, for cards added automatically (the sync detects the stack from repo files)
+      STACK_CATS: { terraform: 'Terraform', amazonwebservices: 'AWS', googlecloud: 'GCP', azure: 'Azure', kubernetes: 'Kubernetes',
+                    jenkins: 'CI/CD', githubactions: 'CI/CD', docker: 'Containers', ansible: 'Automation', grafana: 'Monitoring', prometheus: 'Monitoring', sonarqube: 'DevSecOps' },
+      CATEGORY_ORDER: ['Terraform', 'AWS', 'Kubernetes', 'CI/CD', 'Containers', 'Automation', 'Monitoring', 'GitOps', 'DevSecOps', 'FinOps', 'Azure', 'GCP', 'Full-stack', 'Healthcare']
+=======
         'google-cloud': { cat: 'GCP', logo: 'googlecloud' }, linux: { logo: 'linux' }
       },
       LANGUAGE_LOGOS: { HCL: 'terraform', Python: 'python', Java: 'java', Shell: 'bash', Dockerfile: 'docker' },
       CATEGORY_ORDER: ['Terraform', 'AWS', 'Kubernetes', 'CI/CD', 'Containers', 'Automation', 'Monitoring', 'GitOps', 'DevSecOps', 'FinOps', 'Azure', 'GCP']
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
     },
 
     // ---- Experience (dates as YYYY-MM; the page formats them per language) ----
     EXPERIENCE: [
       { role: { en: 'Cloud Support & DevOps Engineer', fr: 'Ingénieur Cloud Support & DevOps' },
         company: 'MBOA Digital (Propellerhead)', start: '2025-03', end: '2026-03',
+<<<<<<< HEAD
+        kpis: { en: ['−60% P1/P2 response time', '−40% escalations', '+30% uptime'], fr: ['−60 % temps de réponse P1/P2', '−40 % d’escalades', '+30 % de disponibilité'] },
+        stack: ['Azure', 'New Relic', 'OpsGenie', 'Azure AD B2C', 'SQL', 'Artifactory'],
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
         place: { en: 'Yaoundé, Cameroon. Remote client in New Zealand', fr: 'Yaoundé, Cameroun. Client à distance en Nouvelle-Zélande' },
         bullets: {
           en: ['Set up and maintained production monitoring with New Relic, PaperTrail and OpsGenie, cutting P1/P2 incident response time by 60%.',
@@ -621,6 +1044,11 @@
                'Disponibilité améliorée de 30 % grâce à une gestion proactive de l’infrastructure cloud et à des alertes automatisées.'] } },
       { role: { en: 'DevOps Engineer', fr: 'Ingénieur DevOps' },
         company: 'DR Financial Services', start: '2022-05', end: '2024-03',
+<<<<<<< HEAD
+        kpis: { en: ['End-to-end CI/CD', 'Serverless on AWS', 'Automated patching'], fr: ['CI/CD de bout en bout', 'Serverless sur AWS', 'Patching automatisé'] },
+        stack: ['Jenkins', 'AWS', 'Ansible', 'Docker', 'Grafana', 'Prometheus'],
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
         place: { en: 'Houston, Texas, USA. Fully remote', fr: 'Houston, Texas, États-Unis. Télétravail complet' },
         bullets: {
           en: ['Designed and operated end-to-end CI/CD pipelines on Jenkins (AWS EC2) with Maven, SonarQube and Git, fully automating build, test and deployment.',
@@ -635,6 +1063,11 @@
                'Automatisation de la mise à jour de plusieurs serveurs avec des playbooks Ansible : configurations standardisées et moins d’interventions manuelles.'] } },
       { role: { en: 'DevOps & Cloud Support Engineer', fr: 'Ingénieur DevOps & Cloud Support' },
         company: 'Data Service Group', start: '2020-04', end: '2022-02',
+<<<<<<< HEAD
+        kpis: { en: ['−30% infrastructure incidents', 'Terraform-managed AWS', 'Ansible LAMP automation'], fr: ['−30 % d’incidents d’infrastructure', 'AWS géré avec Terraform', 'Automatisation LAMP avec Ansible'] },
+        stack: ['Terraform', 'AWS', 'Ansible', 'Jenkins', 'Docker', 'SonarCloud'],
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
         place: { en: 'Delaware, USA. Fully remote', fr: 'Delaware, États-Unis. Télétravail complet' },
         bullets: {
           en: ['Architected complete AWS infrastructure for client web applications (VPC, EC2, ELB, RDS, S3, CloudWatch, IAM, EFS), fully provisioned with Terraform and cutting infrastructure incidents by 30%.',
@@ -648,6 +1081,20 @@
                'Construction d’images Docker dans des pipelines Jenkins et déploiement vers AWS ECR.',
                'Sécurisation de l’hébergement de sites statiques avec S3, CloudFront et Route 53 pour une disponibilité mondiale et un routage DNS résilient.'] } }
     ],
+<<<<<<< HEAD
+    // ---- Globe pins. exp/edu are positions in EXPERIENCE/EDUCATION below. kind: home | work | edu.
+    //      work pins mark where the CLIENT or EMPLOYER is (all three jobs were remote). zoom: how close the globe gets. ----
+    PLACES: [
+      { key: 'nz',      kind: 'work', lat: -40.9, lng: 174.9,  zoom: 1.25, name: { en: 'New Zealand', fr: 'Nouvelle-Zélande' }, exp: [0], edu: [] },
+      { key: 'houston', kind: 'work', lat: 29.76, lng: -95.37, zoom: 1.6,  name: { en: 'Houston, Texas, USA', fr: 'Houston, Texas, États-Unis' }, exp: [1], edu: [] },
+      { key: 'delaware',kind: 'work', lat: 39.0,  lng: -75.5,  zoom: 1.6,  name: { en: 'Delaware, USA', fr: 'Delaware, États-Unis' }, exp: [2], edu: [] },
+      { key: 'douala',  kind: 'edu',  lat: 4.05,  lng: 9.77,   zoom: 3.2,  name: { en: 'Douala, Cameroon', fr: 'Douala, Cameroun' }, exp: [], edu: [1] },
+      { key: 'yaounde', kind: 'home', lat: 3.85,  lng: 11.5,   zoom: 3.2,  name: { en: 'Yaoundé, Cameroon', fr: 'Yaoundé, Cameroun' }, exp: [], edu: [0, 2] }
+    ],
+    // Land dots for the globe (about 1,700 points, base64 pairs of latitude/longitude bytes). Do not edit.
+    GLOBE_DOTS: 'EBEQGRAhECoQMhA6EEMQZBBsEHUQfRCFEI4QlhCeEKcQrxC3EMAQyBDQENkQ4RMcEyITKRMwEzcTPhNFE0wTbhN1E3wTgxOKE5ATlxOeE6UTrBOzE7oTwRPHE84T1RPcE+MXNRdMF28XdRd7F4EXhxeNF5MXmBeeF6QXqhewF7YXvBfBF8cXzRfTF9kX3xflGk0ahRqPGpQamhqfGqQarhqzGrgavRrCGsgazRrSGtca3BrhHpsenx6xHrYeuh6/HsQeyB7NHtEe1iFOL0szRjNJNkg2SzpHOkk9ST1LQUhBSkFMQdpER0RKRExETkTsRO9HSUdLR05HUEdSR9VH10faR9xLSUtLS01LT0tRS1NLhUuIS8ZLyEvKS9NL1UvXS9lL205JTktOTU5PTlFOU05VToZOiE6KToxOx07JTstOzU7PTtFO007VTtdO2U7bTt1SSVJLUk1ST1JRUlNSVVJXUoRShlKIUopSjFLFUsdSyVLLUs1Sz1LRUtNS1VLXUtlS21LdVUlVS1VNVU9VUVVTVVVVV1WDVYVVh1WJVYtVjVXFVcdVyVXKVcxVzlXQVdJV1FXWVdhV2lXcVd5ZSllMWU1ZT1lRWVNZVVlXWVlZglmEWYZZiFmKWYxZjlmQWZVZl1nEWcZZyFnKWcxZzlnQWdJZ1FnVWddZ2VnbXEpcTFxOXFBcUlxTXFVcV1xZXFtcXVyCXIRchlyHXIlci1yNXI9cllyYXMZcyFzKXMxczlzQXNJc01zVXNdc2VzbXOZgSWBLYE1gTmBQYFJgVGBWYFhgWWBbYF1ggmCDYIVgh2CJYItgjGCOYJBglmCXYMtgzGDOYNBg0mDUYNVg12DZY0hjSmNMY01jT2NRY1NjVWNWY1hjWmNcY15jgmODY4Vjh2OJY4tjjGOOY5BjkmOXY5ljy2PNY89j0WPTY9hnRWdHZ0lnS2dMZ05nUGdSZ1RnVWdXZ1lnW2ddZ15ngmeEZ4Vnh2eJZ4tnjWeOZ5BnkmeZZ9Bn0mfXakVqRmpIakpqTGpOak9qUWpTalVqVmpYalpqXGpdal9qgmqEaoZqiGqJaotqjWqPapFqkmrcbkRuRm5IbkluS25Nbk9uUG5SblRuVm5XblluW25dbl5uYG6BboNuhW6Hbohuim6Mbo5uj26RbsJuxG7Vbtdu2XFCcURxRnFHcUlxS3FNcU5xUHFScVRxVXFXcVlxW3FccV5xYHGBcYNxhHGGcYhxiXGLcY1xj3GQcb5xyHHKcdRx1nHYcd11RHVFdUd1SXVLdUx1TnVQdVJ1U3VVdVd1WHVadX91gHWCdYR1hnWHdYl1i3WNdY51kHWSdb11wnXEdch1yXXUddV4RHhFeEd4SXhLeEx4TnhQeFF4U3hVeH94gHiCeIR4hXiHeIl4i3iMeI54kHiSeJN4u3i9eMJ4xHjGe0V7R3tJe0t7THtOe1B7UntTe1V7f3uAe4J7hHuGe4d7iXuLe417jnuQe5J7k3uVe7p7vXvCe8R7xn9Gf0d/SX9Lf01/Tn9Qf1J/VH9zf3V/dn98f31/f3+Bf4N/hH+Gf4h/iX+Lf41/j3+Qf5J/lH+Wf5d/uH+8f8aCQoJEgkaCSIJJgkuCTYJPglCCcIJygnOCdYJ3gnmCeoJ8gn6CgIKBgoOChYKHgoiCioKMgo6Cj4KRgpOClYKWgpiCrYLLhj+GRoZKhkyGToZPhm+GcYZzhnSGdoZ4hnqGe4Z9hn+GgYaChoSGhoaIhomGi4aNho+GkYaShpSGloaYhpmGq4athr6Gy4k+iUCJbolwiXKJdIl1iXeJeYl7iX2JfomAiYKJhImFiYeJiYmLiY2JjomQiZKJlImViauJrYm9ib6JwI07jT2NP41ujXCNcY1zjXWNd415jXqNfI1+jYCNgo2DjYWNh42JjYuNjI2OjZCNko2VjZeNmY2bjauNrY25jbuNvY2/kDWQN5A5kDqQPJBHkEmQbZBvkHGQc5B1kHeQeJB6kHyQfpCAkIKQg5CFkIeQiZCLkIyQjpCQkJSQlpCXkJmQm5CdkKqQrJCtkK+QuJC6kLyQvpDJlDKUNJQ2lD2URZRtlG+UcZRzlHWUd5R5lHqUfJR+lICUgpSElIaUh5SJlIuUjZSPlJGUkpSUlJaUmJSalJyUnpSplKuUrJSulLCUspS2lLiUuZS7lL2Uv5cxlzOXNZc3l26Xb5dxl3OXdZd3l3mXe5d9l3+XgJeCl4SXhpeIl4qXjJeOl5CXk5eVl5eXmZebl52Xn5eml6iXqpesl66XsJeyl7OXtZe3l7mXu5e9l7+XwZfDl8SXyJswmzKbNJs2m0KbcJtym3Sbdpt4m3mbe5t9m3+bgZuDm4Wbh5uJm4ubjZuPm5Gbk5uUm5abmJugm6KbpJumm6ibqpusm66br5uxm7ObtZu3m7mbu5u9m7+bwZvDm8Wbx54vnjGeM541njeeQZ5znnSedp54nnqefJ5+noCegp6EnoaeiJ6Knoyejp6QnpKelJ6WnpienJ6enqCeop6knqaeqJ6qnqyerp6wnrKetJ62nrieup68nr6ev57BnsOexZ7HoiuiLaIvojGiM6I1ojeiOaI7oj2iP6JBonGidKJ2oniieqJ8on6igKKCooaiiKKKooyikKKSopSilqKYopqinKKeoqCioqKkoqaiqKKqoqyirqKworKitKK2oriiuqK8or6iwaLDosWix6LJpSqlLKUupTClMqU0pTalOKU6pTylP6VBpUOldaV3pXmle6V9pZClkqWUpZalmKWapZyln6WhpaOlpaWnpamlq6Wtpa+lsaWzpbWluKW6pbylvqXApcKlxKXGpcil0aXTqSmpK6ktqS+pMqk0qTapOKk6qTypPqlBqUOpRal0qXmpe6l9qX+pjKmOqZCpkqmVqZepmambqZ2pn6miqaSppqmoqaqprKmuqbGps6m1qbepuam7qb6pwKnCqcSpxqnIqc2p06nVrCasKKwqrC2sL6wxrDOsNqw4rDqsPKw+rEGsQ6xFrHKsdKx2rIasiqyNrI+skayTrJWsmKycrJ6soayjrKWsp6yqrKysrqywrLKstay3rLmsu6y+rMCswqzErMeszazWryevKq8sry6vMa8zrzWvOK86rzyvP69Br0OvRq9Ir3Svdq95r4Kvhq+Jr5CvlK+Xr56voK+ir6Wvp6+pr6yvrq+wr7Kvta+3r7mvvK++r8Cvw6/Fr8evyq/Mr86zJ7MpsyyzLrMwszOzNbM4szqzPLM/s0GzRLNGs0mzebN7s4Czg7OFs4ezirOTs5azm7Ods6CzorOks6ezqbOss66zsLOzs7WzuLO6s72zv7PBs8SzxrPJs8uzzrPQs9Kz17Ymtim2K7YutjC2M7Y1tji2OrY9tj+2QrZEtke2SbZMtne2erZ8tn+2gbaEtoa2ibaLto62kLaTtpW2mLadtqC2oraltqe2qrastq+2sba0tra2uba7tr62wLbDtsa2yLbLts220LbStte6KLorui26MLozujW6OLo7uj26QLpDukW6SLpLulO6eLp7un26gLqDuoW6iLqLuo26kLqSupW6mLqaup26oLqiuqW6qLqquq26sLqyurW6uLq6ur26wLrCusW6yLrKus260LrSutW62L0lvSe9Kr0tvTC9M701vTi9O70+vUG9RL1GvUm9TL1PvVK9dr18vX+9gr2EvYe9ir2NvZC9kr2VvZi9m72evaC9o72mvam9rL2vvbG9tL23vbq9vb2/vcK9xb3Ivcu9zr3QvdO91r3hwSTBJ8EqwS3BMMEzwTbBOcE8wT/BRcFIwUvBTsFRwYTBh8GKwY3BkMGTwZbBmcGcwZ/BosGlwajBq8GuwbHBtMG3wbrBvcHAwcLBxcHIwcvBzsHRweDB48QgxCPEJsQqxC3EMMQzxDbEOsRGxErETcR2xIDEhsSKxI3EkMSTxJbEmsSdxKDEo8SmxKrErcSwxLPEtsS6xL3EwMTDxMbEysTNxNDE08TjyA7IEcgcyB/IIsgmyCnILcgwyDTIN8hFyEjIfMh/yIPIjciRyJTImMibyJ/IosilyKnIrMiwyLPIt8i6yL7IwcjEyMjIy8jPyNLI1sjZyN3I48jnywvLD8sTyxbLGsseyyLLJcspyy3LMcs0yzjLS8tay3/Lg8uHy4rLjsuSy5bLmcudy6HLpcuoy6zLsMu0y7fLu8u/y8PLxsvKy87L0svVy9nL3cvgy+TL6Mvsy+/PAM8EzwzPEM8VzxnPHc8hzyXPKc8tzzHPNc85zz7PRs9Kz1bPWs9rz2/Pg8+Lz5TPmM+cz6DPpM+oz6zPsM+0z7nPvc/Bz8XPyc/Nz9HP1c/Zz93P4s/mz+rP7tIA0g7SEtIX0hvSINIk0inSLdIy0jfSO9JA0knSVtJb0mDShNKI0o3SktKW0pvSn9Kk0qjSrdKx0rbSutK/0sTSyNLN0tHS1tLa0t/S49Lo0u3WD9YU1i7WM9Y41kPWSNZX1lzWYdZm1orWrtaz1rjWvdbC1sjWzdbS1tfW3Nbh2SnZL9lA2VjZXtlk2arZsNm22bzZwdnH2c3dMN0+3VPdWd1g3Wfdnt263cHd1eBD4EvgU+Bc4GTjQONV42Djag==',
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
     EDUCATION: [
       { name: { en: 'Master’s in Network & Information Security', fr: 'Master en réseaux et sécurité de l’information' }, school: 'EST LaSalle, Cameroon', start: '2020-10', end: '2022-11' },
       { name: { en: 'Cloud Architect Apprenticeship, Google Cloud track', fr: 'Apprentissage Cloud Architect, parcours Google Cloud' }, school: 'JFN Institute of Technology, Douala', start: '2024-07', end: '2024-12' },
@@ -689,7 +1136,37 @@
       'intro.running': 'running',
       'intro.passed': 'passed',
       'nav.skills': 'Skills', 'nav.projects': 'Projects', 'nav.experience': 'Experience', 'nav.certifications': 'Certifications',
+<<<<<<< HEAD
+      'nav.contact': 'Contact', 'nav.menu': 'Menu', 'nav.lang': 'Language',
+      'nav.about': 'About',
+      'about.k.loc': 'Based in', 'about.v.loc': 'Yaoundé, Cameroon',
+      'about.k.lang': 'Languages', 'about.v.lang': 'English, French',
+      'about.k.avail': 'Availability', 'about.v.avail': 'Remote worldwide, open to relocation',
+      'about.k.focus': 'Focus', 'about.v.focus': 'AWS, Azure, GCP, IaC, CI/CD',
+      'skills.soft': 'Soft skills',
+      'soft.teaching': 'Teaching & mentoring', 'soft.docs': 'Clear documentation', 'soft.incident': 'Incident response',
+      'soft.bilingual': 'Bilingual communication (EN/FR)', 'soft.remote': 'Remote collaboration',
+      'exp.more': 'Show details', 'exp.less': 'Hide details',
+      'certs.all': 'Show all {n} credentials', 'certs.fewer': 'Show fewer',
+      'contact.form.title': 'Send a message', 'contact.form.name': 'Your name', 'contact.form.email': 'Your email', 'contact.form.msg': 'Message',
+      'contact.form.send': 'Write the email', 'contact.form.hint': 'This opens your email app with the message ready to send.',
+      'contact.copy': 'Copy email', 'contact.copied': 'Copied',
+      'projects.view.label': 'Projects view', 'projects.view.carousel': 'Carousel', 'projects.view.grid': 'Grid',
+      'car.region': 'Projects carousel', 'car.prev': 'Previous project', 'car.next': 'Next project', 'car.goto': 'Go to project {n}', 'car.live': 'Project {i} of {n}: {title}',
+      'skills.search': 'Search skills', 'skills.search.ph': 'Search skills, e.g. Terraform', 'skills.none': 'No skill matches your search.', 'skills.count': '{n} matching skill(s)',
+      'help.title': 'How I can help',
+      'help.iac.t': 'Infrastructure as code', 'help.iac.d': 'Terraform and Ansible for repeatable, reviewed environments.',
+      'help.cicd.t': 'CI/CD pipelines', 'help.cicd.d': 'Jenkins and GitHub Actions from commit to deployment.',
+      'help.cloud.t': 'Cloud and reliability', 'help.cloud.d': 'AWS, Azure and GCP with monitoring and incident response.',
+      'help.train.t': 'Training your team', 'help.train.d': 'DevOps onboarding in English or French.',
+      'exp.view.label': 'Experience view', 'exp.view.globe': 'Globe', 'exp.view.list': 'Timeline',
+      'globe.hint': 'Drag to rotate. Select a pin or a place for details.', 'globe.places': 'Places', 'globe.details': 'Details',
+      'globe.k.home': 'Home base', 'globe.k.work': 'Client location (remote work)', 'globe.k.edu': 'Education',
+      'globe.tag.home': 'Home base', 'globe.tag.work': 'Client location', 'globe.tag.edu': 'Education',
+      'globe.home.text': 'This is where I work from. All three roles below were remote, for teams in other countries.',
+=======
       'nav.about': 'About', 'nav.contact': 'Contact', 'nav.menu': 'Menu', 'nav.lang': 'Language',
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       'hero.status': 'Open to remote roles',
       'hero.role': 'DevOps & Cloud Engineer',
       'hero.tagline': 'I build the cloud. Then I teach it.',
@@ -709,7 +1186,11 @@
       'exp.title': 'Experience',
       'exp.sub': 'Remote work for teams in finance, transportation and healthcare.',
       'exp.education': 'Education',
+<<<<<<< HEAD
+      'exp.present': 'Present', 'exp.remote': 'Remote',
+=======
       'exp.present': 'Present',
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       'certs.title': 'Certifications & badges',
       'certs.sub': 'Select a badge for the details and a verification link.',
       'certs.issued': 'Issued', 'certs.id': 'Credential ID', 'certs.verify': 'Verify credential', 'certs.close': 'Close', 'certs.skills': 'Skills',
@@ -737,7 +1218,37 @@
       'intro.running': 'en cours',
       'intro.passed': 'validé',
       'nav.skills': 'Compétences', 'nav.projects': 'Projets', 'nav.experience': 'Expérience', 'nav.certifications': 'Certifications',
+<<<<<<< HEAD
+      'nav.contact': 'Contact', 'nav.menu': 'Menu', 'nav.lang': 'Langue',
+      'nav.about': 'À propos',
+      'about.k.loc': 'Basé à', 'about.v.loc': 'Yaoundé, Cameroun',
+      'about.k.lang': 'Langues', 'about.v.lang': 'Anglais, français',
+      'about.k.avail': 'Disponibilité', 'about.v.avail': 'Télétravail mondial, ouvert à la relocalisation',
+      'about.k.focus': 'Domaines', 'about.v.focus': 'AWS, Azure, GCP, IaC, CI/CD',
+      'skills.soft': 'Compétences humaines',
+      'soft.teaching': 'Pédagogie et mentorat', 'soft.docs': 'Documentation claire', 'soft.incident': 'Gestion des incidents',
+      'soft.bilingual': 'Communication bilingue (FR/EN)', 'soft.remote': 'Collaboration à distance',
+      'exp.more': 'Voir le détail', 'exp.less': 'Masquer le détail',
+      'certs.all': 'Voir les {n} certifications', 'certs.fewer': 'Voir moins',
+      'contact.form.title': 'Envoyer un message', 'contact.form.name': 'Votre nom', 'contact.form.email': 'Votre e-mail', 'contact.form.msg': 'Message',
+      'contact.form.send': 'Écrire l’e-mail', 'contact.form.hint': 'Ceci ouvre votre application e-mail avec le message prêt à envoyer.',
+      'contact.copy': 'Copier l’e-mail', 'contact.copied': 'Copié',
+      'projects.view.label': 'Affichage des projets', 'projects.view.carousel': 'Carrousel', 'projects.view.grid': 'Grille',
+      'car.region': 'Carrousel de projets', 'car.prev': 'Projet précédent', 'car.next': 'Projet suivant', 'car.goto': 'Aller au projet {n}', 'car.live': 'Projet {i} sur {n} : {title}',
+      'skills.search': 'Rechercher une compétence', 'skills.search.ph': 'Rechercher, par ex. Terraform', 'skills.none': 'Aucune compétence ne correspond.', 'skills.count': '{n} compétence(s) trouvée(s)',
+      'help.title': 'Comment je peux aider',
+      'help.iac.t': 'Infrastructure as code', 'help.iac.d': 'Terraform et Ansible pour des environnements reproductibles et relus.',
+      'help.cicd.t': 'Pipelines CI/CD', 'help.cicd.d': 'Jenkins et GitHub Actions, du commit au déploiement.',
+      'help.cloud.t': 'Cloud et fiabilité', 'help.cloud.d': 'AWS, Azure et GCP avec supervision et gestion des incidents.',
+      'help.train.t': 'Former votre équipe', 'help.train.d': 'Intégration DevOps en français ou en anglais.',
+      'exp.view.label': 'Affichage de l’expérience', 'exp.view.globe': 'Globe', 'exp.view.list': 'Chronologie',
+      'globe.hint': 'Faites glisser pour tourner. Choisissez un repère ou un lieu pour le détail.', 'globe.places': 'Lieux', 'globe.details': 'Détails',
+      'globe.k.home': 'Base', 'globe.k.work': 'Lieu du client (télétravail)', 'globe.k.edu': 'Formation',
+      'globe.tag.home': 'Base', 'globe.tag.work': 'Lieu du client', 'globe.tag.edu': 'Formation',
+      'globe.home.text': 'C’est d’ici que je travaille. Les trois postes ci-dessous étaient en télétravail, pour des équipes d’autres pays.',
+=======
       'nav.about': 'À propos', 'nav.contact': 'Contact', 'nav.menu': 'Menu', 'nav.lang': 'Langue',
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       'hero.status': 'Ouvert aux postes en télétravail',
       'hero.role': 'Ingénieur DevOps & Cloud',
       'hero.tagline': 'Je construis le cloud. Puis je l’enseigne.',
@@ -757,7 +1268,11 @@
       'exp.title': 'Expérience',
       'exp.sub': 'Télétravail pour des équipes de la finance, du transport et de la santé.',
       'exp.education': 'Formation',
+<<<<<<< HEAD
+      'exp.present': 'Aujourd’hui', 'exp.remote': 'Télétravail',
+=======
       'exp.present': 'Aujourd’hui',
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       'certs.title': 'Certifications & badges',
       'certs.sub': 'Sélectionnez un badge pour voir le détail et un lien de vérification.',
       'certs.issued': 'Délivré', 'certs.id': 'Identifiant', 'certs.verify': 'Vérifier la certification', 'certs.close': 'Fermer', 'certs.skills': 'Compétences',
@@ -805,6 +1320,10 @@
       shield:   ['M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z', 'M9.5 12l2 2 3.5-4'],
       mail:     ['M4 6h16v12H4z', 'm4 7 8 6 8-6'],
       arrow:    ['M5 12h14', 'm13 6 6 6-6 6'],
+<<<<<<< HEAD
+      prev:     ['M19 12H5', 'm11 6-6 6 6 6'],
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       menu:     ['M4 7h16', 'M4 12h16', 'M4 17h16'],
       close:    ['M6 6l12 12', 'M18 6 6 18']
     };
@@ -857,13 +1376,22 @@
     })();
 
     /* ---------- Static text ---------- */
+<<<<<<< HEAD
+    const NAV = ['about', 'skills', 'projects', 'experience', 'certifications', 'contact'];
+=======
     const NAV = ['skills', 'projects', 'experience', 'certifications', 'about', 'contact'];
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
     function applyStatic() {
       root.setAttribute('lang', lang);
       document.title = t('meta.title');
       const md = $('meta[name="description"]'); if (md) md.setAttribute('content', t('meta.description'));
       $$('[data-i18n]').forEach((n) => { n.textContent = t(n.getAttribute('data-i18n')); });
       $$('[data-i18n-label]').forEach((n) => { n.setAttribute('aria-label', t(n.getAttribute('data-i18n-label'))); });
+<<<<<<< HEAD
+      $$('[data-i18n-ph]').forEach((n) => { n.setAttribute('placeholder', t(n.getAttribute('data-i18n-ph'))); });
+      $$('#car-prev,#car-next').forEach((b) => b.replaceChildren(icon(b.id === 'car-prev' ? 'prev' : 'arrow')));
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       $$('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)));
       $('#hero-title').textContent = CONFIG.NAME;
       $('#year').textContent = '© ' + new Date().getFullYear();
@@ -872,13 +1400,22 @@
         nav.replaceChildren(...NAV.map((k) => h('a', { href: '#' + k, class: nav.id === 'nav-main' ? 'navlink' : 'navlink block py-2', text: t('nav.' + k) })));
       });
       const arrow = $('#ico-arrow'); arrow.replaceChildren(icon('arrow'));
+<<<<<<< HEAD
+      $$('.ico-arrow-slot').forEach((n) => n.replaceChildren(icon('arrow')));
+      markActive();
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       const mb = $('#menu-btn'); mb.replaceChildren(icon(mb.getAttribute('aria-expanded') === 'true' ? 'close' : 'menu', 'size-5'));
       const cv = $('#cv-link'); cv.setAttribute('href', safeUrl(CONFIG.CV_FILE) || CONFIG.CV_FILE);
     }
 
     /* ---------- Skills ---------- */
     function tile(item, withTick) {
+<<<<<<< HEAD
+      const li = h('li', { class: 'tile' }); li.style.setProperty('--i', String(tile.n = (tile.n || 0) + 1));
+=======
       const li = h('li', { class: 'tile' });
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       if (item.logo && safeFile(item.logo)) li.append(h('img', { src: 'assets/logos/' + safeFile(item.logo) + '.svg', alt: '', width: 20, height: 20, decoding: 'async' }));
       else if (item.icon && ICONS[item.icon]) { const w = h('span', { class: 'ico' }); w.append(icon(item.icon)); li.append(w); }
       li.append(h('span', { text: item.name }));
@@ -887,14 +1424,40 @@
     }
     function renderSkills() {
       const grid = $('#skills-grid');
+<<<<<<< HEAD
+      tile.n = 0;
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       const cards = CONFIG.SKILLS.map((cat) => h('div', { class: 'glass skillcard reveal' },
         h('h3', { text: t('skills.' + cat.key) }),
         h('ul', { class: 'tiles' }, cat.items.map((it) => tile(it, false)))));
       cards.push(h('div', { class: 'glass skillcard reveal' },
         h('h3', { text: t('skills.also') }),
+<<<<<<< HEAD
+        h('ul', { class: 'tiles' }, CONFIG.ALSO.map((n, i) => { const li = h('li', { class: 'tile' }, h('span', { text: n })); li.style.setProperty('--i', String(i)); return li; }))));
+      cards.push(h('div', { class: 'glass skillcard reveal sm:col-span-2 lg:col-span-3' },
+        h('h3', { text: t('skills.soft') }),
+        h('ul', { class: 'soft' }, CONFIG.SOFT.map((k) => h('li', { text: t('soft.' + k) })))));
+      grid.replaceChildren(...cards);
+      applySkillFilter();
+    }
+    function applySkillFilter() {
+      const q = ($('#skill-q').value || '').trim().toLowerCase();
+      const cards = $$('#skills-grid .skillcard');
+      let hits = 0;
+      cards.forEach((card) => {
+        let any = false;
+        $$('.tile, .soft li', card).forEach((el) => { const m = !q || el.textContent.toLowerCase().includes(q); el.hidden = !m; if (m) { any = true; if (q) hits++; } });
+        card.hidden = !any;
+      });
+      $('#skill-status').textContent = !q ? '' : hits ? t('skills.count').replace('{n}', hits) : t('skills.none');
+    }
+    $('#skill-q').addEventListener('input', applySkillFilter);
+=======
         h('ul', { class: 'tiles' }, CONFIG.ALSO.map((n) => h('li', { class: 'tile' }, h('span', { text: n }))))));
       grid.replaceChildren(...cards);
     }
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
 
     /* ---------- Hero stats ---------- */
     function renderHeroStats() {
@@ -926,15 +1489,161 @@
         homepage: safeUrl(r.homepage), language: str(r.language, 40),
         stars: Number.isFinite(r.stars) ? Math.max(0, Math.floor(r.stars)) : 0,
         topics: Array.isArray(r.topics) ? r.topics.slice(0, 30).map((x) => str(x, 50).toLowerCase()) : [],
+<<<<<<< HEAD
+        pushedAt: isNaN(new Date(r.pushedAt)) ? '' : str(r.pushedAt, 40),
+        tagged: r.tagged !== false,
+        stack: Array.isArray(r.stack) ? r.stack.slice(0, 8).map((x) => str(x, 30)).filter((x) => /^[a-z0-9]+$/.test(x)) : []
+      })).filter((r) => r.name && r.url);
+      return { generatedAt: isNaN(new Date(data.generatedAt)) ? '' : str(data.generatedAt, 40), repos };
+    }
+    const uniq = (a) => [...new Set(a)];
+    const KEYWORD_RES = CONFIG.SYNC.KEYWORDS.map(([re, logo]) => [new RegExp(re, 'i'), logo]);
+    function enrich(r) {
+      // logos: stack detected by the sync, then topics, then keywords in the name/description, then the language
+      const d = fromTopics(r.topics, r.language);
+      const text = (r.name + ' ' + r.description + ' ' + r.topics.join(' ')).toLowerCase();
+      const kw = KEYWORD_RES.filter(([re]) => re.test(text)).map(([, logo]) => logo);
+      let logos = uniq(r.stack.concat(d.logos, kw));
+      if (!logos.length) logos = ['github'];                       // a card is never left without an icon
+      logos = logos.slice(0, 5);
+      const cats = uniq(d.cats.concat(logos.map((x) => CONFIG.SYNC.STACK_CATS[x]).filter(Boolean)));
+      return { logos, cats };
+    }
+    const dateKey = (v) => (v ? String(v).slice(0, 10) : '');
+=======
         pushedAt: isNaN(new Date(r.pushedAt)) ? '' : str(r.pushedAt, 40)
       })).filter((r) => r.name && r.url);
       return { generatedAt: isNaN(new Date(data.generatedAt)) ? '' : str(data.generatedAt, 40), repos };
     }
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
     function buildProjects() {
       const byName = new Map(((synced && synced.repos) || []).map((r) => [r.name.toLowerCase(), r]));
       const matched = new Set();
       const curated = CONFIG.PROJECTS.map((p) => {
         const key = repoKey(p.link); const r = key ? byName.get(key) : null; if (r) matched.add(key);
+<<<<<<< HEAD
+        const d = r ? enrich(r) : { logos: [], cats: [] };
+        return { sort: dateKey(r && r.pushedAt) || p.date || '', title: p.title, impact: (p.impact && (p.impact[lang] || p.impact.en)) || '', text: (p.description && (p.description[lang] || p.description.en)) || (r && r.description) || '',
+          logos: p.logos.length ? p.logos : d.logos, cats: p.cats.length ? p.cats : d.cats, href: safeUrl(p.link),
+          demo: safeUrl(p.demo) || (r ? r.homepage : ''), language: r ? r.language : '', stars: r ? r.stars : 0, updated: r ? fmtDate(r.pushedAt) : '' };
+      });
+      const added = ((synced && synced.repos) || []).filter((r) => r.tagged && !matched.has(r.name.toLowerCase())).map((r) => {
+        const d = enrich(r);
+        return { sort: dateKey(r.pushedAt), title: titleFrom(r.name), impact: '', text: r.description || '', logos: d.logos, cats: d.cats, href: r.url,
+          demo: r.homepage, language: r.language, stars: r.stars, updated: fmtDate(r.pushedAt) };
+      });
+      // Newest first; projects with no date go last, in their configured order (the sort is stable)
+      return curated.concat(added).sort((a, b) => (a.sort ? 0 : 1) - (b.sort ? 0 : 1) || (a.sort < b.sort ? 1 : a.sort > b.sort ? -1 : 0));
+    }
+    function projectCard(p) {
+      const facts = [];
+      if (p.language) facts.push(h('span', { text: p.language }));
+      if (p.updated) facts.push(h('span', { text: t('projects.updated') + ' ' + p.updated }));
+      if (p.stars > 0) facts.push(h('span', { text: '★ ' + p.stars }));
+      let links;
+      if (p.href) {
+        const gh = h('a', { class: 'btn btn-primary', href: p.href, target: '_blank', rel: 'noopener noreferrer' }, h('span', { text: t('projects.view') }), icon('arrow'));
+        links = h('div', { class: 'plinks' }, gh, p.demo && h('a', { class: 'btn btn-ghost', href: p.demo, target: '_blank', rel: 'noopener noreferrer' }, h('span', { text: t('projects.demo') }), icon('arrow')));
+      } else links = h('p', { class: 'soon', text: t('projects.soon') });
+      return h('article', { class: 'glass pcard' },
+        h('div', { class: 'plogos' }, p.logos.filter(safeFile).map((l) => { const im = h('img', { src: 'assets/logos/' + safeFile(l) + '.svg', alt: l, width: 30, height: 30, loading: 'lazy', decoding: 'async' }); im.addEventListener('error', () => im.remove()); return im; })),
+        h('h3', { text: p.title }), p.cats.length > 0 && h('ul', { class: 'ptags', 'aria-hidden': 'true' }, p.cats.map((c) => h('li', { text: c }))),
+        h('p', { text: p.text }), p.impact && h('p', { class: 'impact', text: p.impact }),
+        facts.length && h('p', { class: 'pfacts' }, facts), links);
+    }
+
+    /* ---- Projects view: carousel (CSS 3D, transform and opacity only) or grid ---- */
+    let lastShown = [], carIdx = 0, announce = false;
+    const wideMq = window.matchMedia('(min-width: 768px)');
+    let view = (function () {
+      const v = storeGet('je-pview');
+      if (v === 'grid' || v === 'carousel') return v;
+      return (!reducedMq.matches && wideMq.matches) ? 'carousel' : 'grid';
+    })();
+    function applyView() {
+      const car = view === 'carousel' && lastShown.length > 1;
+      $('#proj-carousel').hidden = !car; $('#proj-grid').hidden = car;
+      $$('#proj-view button').forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-view') === (car ? 'carousel' : 'grid'))));
+      if (car) layoutCarousel();
+    }
+    function renderCarousel() {
+      carIdx = Math.min(carIdx, Math.max(0, lastShown.length - 1));
+      const stage = $('#car-stage');
+      stage.replaceChildren(...lastShown.map((p, i) => { const c = projectCard(p); c.setAttribute('data-i', String(i)); c.setAttribute('aria-roledescription', 'slide'); return c; }));
+      $('#car-dots').replaceChildren(...lastShown.map((p, i) => {
+        const d = h('button', { type: 'button', class: 'car-dot', 'aria-label': t('car.goto').replace('{n}', i + 1) });
+        d.addEventListener('click', () => goTo(i)); return d;
+      }));
+      $('#car-prev').hidden = $('#car-next').hidden = lastShown.length < 2;
+    }
+    let carFrac = 0;     // live drag offset in card steps (-1..1); 0 when idle
+    function layoutCarousel() {
+      const n = lastShown.length; if (!n) return;
+      const cards = $$('#car-stage > .pcard');
+      cards.forEach((c, i) => {
+        let d = i - carIdx; if (d > n / 2) d -= n; if (d < -n / 2) d += n;
+        const pos = d + carFrac, ad = Math.abs(pos), rd = Math.round(pos), ard = Math.abs(rd), active = d === 0;
+        c.classList.toggle('is-active', active); c.classList.toggle('is-side', ard === 1); c.classList.toggle('is-off', ard > 2);
+        c.style.zIndex = String(10 - Math.round(ad));
+        c.style.transform = ad < 0.001 ? 'translateZ(0) scale(1)' : 'translateX(' + (pos * 58).toFixed(2) + '%) translateZ(' + (-ad * 140).toFixed(1) + 'px) rotateY(' + (-pos * 26).toFixed(2) + 'deg) scale(' + (1 - ad * 0.06).toFixed(3) + ')';
+        c.style.setProperty('--dim', (ad < 1 ? ad * 0.5 : Math.min(0.78, 0.5 + (ad - 1) * 0.28)).toFixed(2));
+        c.setAttribute('aria-hidden', String(!active));
+        $$('a', c).forEach((a) => a.setAttribute('tabindex', active ? '0' : '-1'));
+        c.setAttribute('aria-label', (i + 1) + ' / ' + n);
+      });
+      $$('#car-dots .car-dot').forEach((b, i) => { if (i === carIdx) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); });
+      if (announce) $('#car-live').textContent = t('car.live').replace('{i}', carIdx + 1).replace('{n}', n).replace('{title}', lastShown[carIdx].title);
+    }
+    function goTo(i) { const n = lastShown.length; if (!n) return; carIdx = ((i % n) + n) % n; announce = true; layoutCarousel(); }
+    (function carouselEvents() {
+      const stage = $('#car-stage'), box = $('#proj-carousel');
+      $('#car-prev').addEventListener('click', () => goTo(carIdx - 1));
+      $('#car-next').addEventListener('click', () => goTo(carIdx + 1));
+      box.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(carIdx - 1); } else if (e.key === 'ArrowRight') { e.preventDefault(); goTo(carIdx + 1); }
+      });
+      // A click on a side card brings it to the front instead of following its links
+      let swiped = 0;
+      stage.addEventListener('click', (e) => {
+        if (Date.now() - swiped < 400) { e.preventDefault(); e.stopPropagation(); return; }   // the click that ends a drag
+        const card = e.target.closest('.pcard'); if (!card || card.classList.contains('is-active')) return;
+        e.preventDefault(); e.stopPropagation(); goTo(Number(card.getAttribute('data-i')));
+      }, true);
+      stage.addEventListener('dragstart', (e) => e.preventDefault());
+      // Drag with mouse, finger or pen: the cards follow the pointer, then snap to the nearest project
+      const STEP = 320;   // px of drag that equals one card
+      let down = null, dragging = false;
+      stage.addEventListener('pointerdown', (e) => {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        down = { x: e.clientX, y: e.clientY, id: e.pointerId }; dragging = false;
+      });
+      window.addEventListener('pointermove', (e) => {
+        if (!down || e.pointerId !== down.id) return;
+        const dx = e.clientX - down.x, dy = e.clientY - down.y;
+        if (!dragging) {
+          if (Math.abs(dx) < 6) return;
+          if (Math.abs(dy) > Math.abs(dx)) { down = null; return; }     // a vertical scroll, not a drag
+          dragging = true; stage.classList.add('dragging');
+          try { stage.setPointerCapture(e.pointerId); } catch (err) {}
+        }
+        carFrac = Math.max(-1, Math.min(1, dx / STEP)); layoutCarousel();
+      });
+      const end = (e) => {
+        if (!down || (e && e.pointerId !== down.id)) return;
+        const was = dragging, f = carFrac; down = null; dragging = false; carFrac = 0; stage.classList.remove('dragging');
+        if (was) { swiped = Date.now(); const step = f <= -0.18 ? 1 : f >= 0.18 ? -1 : 0; if (step) goTo(carIdx + step); else layoutCarousel(); }
+      };
+      window.addEventListener('pointerup', end); window.addEventListener('pointercancel', end);
+      // Trackpad or mouse-wheel sideways scroll
+      let wheelLock = 0;
+      box.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaX) < 24 || Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
+        e.preventDefault(); const now = Date.now(); if (now - wheelLock < 450) return; wheelLock = now; goTo(carIdx + (e.deltaX > 0 ? 1 : -1));
+      }, { passive: false });
+      $$('#proj-view button').forEach((b) => b.addEventListener('click', () => { view = b.getAttribute('data-view'); storeSet('je-pview', view); applyView(); }));
+    })();
+
+=======
         const d = r ? fromTopics(r.topics, r.language) : { logos: [], cats: [] };
         return { title: p.title, text: (p.description && (p.description[lang] || p.description.en)) || (r && r.description) || '',
           logos: p.logos.length ? p.logos : d.logos, cats: p.cats.length ? p.cats : d.cats, href: safeUrl(p.link),
@@ -947,16 +1656,29 @@
       });
       return curated.concat(added);
     }
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
     function renderProjects() {
       const list = buildProjects();
       const present = new Set(list.flatMap((p) => p.cats));
       const order = CONFIG.SYNC.CATEGORY_ORDER;
       const cats = order.filter((c) => present.has(c)).concat([...present].filter((c) => !order.includes(c)).sort());
       if (projFilter !== 'All' && !cats.includes(projFilter)) projFilter = 'All';
+<<<<<<< HEAD
+      if (!renderProjects.keep) carIdx = 0;
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       const filters = $('#proj-filters');
       filters.replaceChildren(...['All'].concat(cats).map((c) => h('button', {
         type: 'button', class: 'chip', 'aria-pressed': String(c === projFilter), text: c === 'All' ? t('projects.all') : c,
         'data-cat': c })));
+<<<<<<< HEAD
+      $$('.chip', filters).forEach((b) => b.addEventListener('click', () => { projFilter = b.getAttribute('data-cat'); carIdx = 0; announce = false; renderProjects.keep = true; renderProjects(); renderProjects.keep = false; }));
+      const shown = list.filter((p) => projFilter === 'All' || p.cats.includes(projFilter));
+      lastShown = shown;
+      $('#proj-grid').replaceChildren(...shown.map((p, i) => { const c = projectCard(p); c.style.setProperty('--i', String(i)); return c; }));
+      renderCarousel();
+      applyView();
+=======
       $$('.chip', filters).forEach((b) => b.addEventListener('click', () => { projFilter = b.getAttribute('data-cat'); renderProjects(); }));
       const shown = list.filter((p) => projFilter === 'All' || p.cats.includes(projFilter));
       $('#proj-grid').replaceChildren(...shown.map((p) => {
@@ -973,6 +1695,7 @@
           h('div', { class: 'plogos' }, p.logos.filter(safeFile).map((l) => h('img', { src: 'assets/logos/' + safeFile(l) + '.svg', alt: l, width: 30, height: 30, loading: 'lazy', decoding: 'async' }))),
           h('h3', { text: p.title }), h('p', { text: p.text }), facts.length && h('p', { class: 'pfacts' }, facts), links);
       }));
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       const note = $('#sync-note');
       if (synced && synced.generatedAt && synced.repos.length) {
         note.textContent = t('projects.synced').replace('{date}', fmtDate(synced.generatedAt, { day: 'numeric', month: 'short' })); note.hidden = false;
@@ -992,15 +1715,224 @@
       const end = job.end ? fmtDate(job.end) : t('exp.present');
       return fmtDate(job.start) + ' – ' + end;
     }
+<<<<<<< HEAD
+    const SHOWN_BULLETS = 0;   // details are collapsed: the highlight chips tell the story, one click shows every bullet
+    function renderExperience() {
+      $('#exp-list').replaceChildren(...CONFIG.EXPERIENCE.map((job, idx) => {
+        const bullets = job.bullets[lang] || job.bullets.en;
+        const kpis = job.kpis && (job.kpis[lang] || job.kpis.en);
+        const id = 'job-more-' + idx;
+        const items = bullets.map((b, i) => h('li', { text: b, hidden: i >= SHOWN_BULLETS ? true : null, 'data-extra': i >= SHOWN_BULLETS ? '1' : null }));
+        const extra = bullets.length - SHOWN_BULLETS;
+        let btn = null;
+        if (extra > 0) {
+          btn = h('button', { type: 'button', class: 'more', 'aria-expanded': 'false', 'aria-controls': id, text: t('exp.more') });
+          btn.addEventListener('click', () => {
+            const open = btn.getAttribute('aria-expanded') !== 'true';
+            btn.setAttribute('aria-expanded', String(open));
+            $$('[data-extra]', btn.parentElement).forEach((li) => { li.hidden = !open; });
+            btn.textContent = open ? t('exp.less') : t('exp.more');
+          });
+        }
+        return h('li', { class: 'glass job reveal' },
+          h('p', { class: 'dates', text: span(job) }),
+          h('h3', { text: job.role[lang] || job.role.en }), h('p', { class: 'co', text: job.company }),
+          h('p', { class: 'meta', text: job.place[lang] || job.place.en }),
+          kpis && h('ul', { class: 'kpis', 'aria-label': 'Highlights' }, kpis.map((k) => h('li', { class: 'kpi', text: k }))),
+          h('ul', { class: 'bul', id }, items), btn,
+          job.stack && h('ul', { class: 'stack', 'aria-label': 'Stack' }, job.stack.map((x) => h('li', { text: x }))));
+      }));
+=======
     function renderExperience() {
       $('#exp-list').replaceChildren(...CONFIG.EXPERIENCE.map((job) => h('li', { class: 'glass job reveal' },
         h('h3', { text: job.role[lang] || job.role.en }), h('p', { class: 'co', text: job.company }),
         h('p', { class: 'meta', text: span(job) + '. ' + (job.place[lang] || job.place.en) }),
         h('ul', {}, (job.bullets[lang] || job.bullets.en).map((b) => h('li', { text: b }))))));
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       $('#edu-list').replaceChildren(...CONFIG.EDUCATION.map((e) => h('li', {},
         h('strong', { text: e.name[lang] || e.name.en }), h('span', { text: e.school }), h('span', { text: span(e) }))));
     }
 
+<<<<<<< HEAD
+
+    /* ====================================================================
+       EXPERIENCE GLOBE: custom 2D canvas (no library). Land is ~1,700 dots decoded from CONFIG.GLOBE_DOTS.
+       Draws only while visible; stops when idle. Pins are real buttons, the chips below are the accessible control.
+       ==================================================================== */
+    const GX = { place: null, lam: 12 * Math.PI / 180, phi: 8 * Math.PI / 180, zoom: 1, tl: 12 * Math.PI / 180, tp: 8 * Math.PI / 180, tz: 1,
+                 dots: null, running: false, visible: false, drag: null, auto: false, built: false, t0: 0, kick: false };
+    const RAD = Math.PI / 180;
+    const KCOL = { home: '#fafafa', work: 'var(--em)', edu: 'var(--cy)' };
+    const cssVar = (n, f) => (getComputedStyle(root).getPropertyValue(n).trim() || f);
+    function decodeDots() {
+      if (GX.dots) return GX.dots;
+      const bin = atob(CONFIG.GLOBE_DOTS), out = new Float32Array(bin.length / 2 * 3);
+      for (let i = 0, j = 0; i < bin.length; i += 2, j += 3) {
+        const lat = bin.charCodeAt(i) * 0.75 - 90, lng = bin.charCodeAt(i + 1) * 1.5 - 180;
+        out[j] = Math.cos(lat * RAD) * Math.sin(lng * RAD); out[j + 1] = Math.sin(lat * RAD); out[j + 2] = Math.cos(lat * RAD) * Math.cos(lng * RAD);
+      }
+      return (GX.dots = out);
+    }
+    function vec(lat, lng) { return [Math.cos(lat * RAD) * Math.sin(lng * RAD), Math.sin(lat * RAD), Math.cos(lat * RAD) * Math.cos(lng * RAD)]; }
+    function rot(v, lam, phi) {                  // bring longitude lam / latitude phi to the centre of the view
+      const c = Math.cos(lam), s = Math.sin(lam), x1 = v[0] * c - v[2] * s, z1 = v[0] * s + v[2] * c;
+      const cp = Math.cos(phi), sp = Math.sin(phi);
+      return [x1, v[1] * cp - z1 * sp, v[1] * sp + z1 * cp];
+    }
+    const placeName = (pl) => pl.name[lang] || pl.name.en;
+    const wrapPi = (a) => { while (a > Math.PI) a -= 2 * Math.PI; while (a < -Math.PI) a += 2 * Math.PI; return a; };
+
+    function sizeCanvas() {
+      const cv = $('#gx-canvas'), wrap = $('#gx-wrap'), dpr = Math.min(2, window.devicePixelRatio || 1), w = wrap.clientWidth;
+      if (!w) return false;
+      if (cv.width !== Math.round(w * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(w * dpr); }
+      GX.dpr = dpr; GX.w = w; return true;
+    }
+    function draw(now) {
+      const cv = $('#gx-canvas'); if (!sizeCanvas()) return;
+      const ctx = cv.getContext('2d'), w = GX.w, dpr = GX.dpr, R = w * 0.42 * GX.zoom, cx = w / 2, cy = w / 2;
+      const em = cssVar('--color-emerald-400', '#34d399'), cy2 = cssVar('--color-cyan-400', '#22d3ee');
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, w);
+      // sphere body and atmosphere
+      const base = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.35, R * 0.1, cx, cy, R);
+      base.addColorStop(0, 'rgba(34,48,52,.95)'); base.addColorStop(1, 'rgba(9,12,14,.96)');
+      ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.fillStyle = base; ctx.fill();
+      const rim = ctx.createRadialGradient(cx, cy, R * 0.92, cx, cy, R * 1.12);
+      rim.addColorStop(0, 'rgba(52,211,153,.0)'); rim.addColorStop(0.45, 'rgba(52,211,153,.20)'); rim.addColorStop(1, 'rgba(34,211,238,0)');
+      ctx.beginPath(); ctx.arc(cx, cy, R * 1.12, 0, 7); ctx.fillStyle = rim; ctx.fill();
+      ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.strokeStyle = 'rgba(52,211,153,.35)'; ctx.lineWidth = 1; ctx.stroke();
+      // land dots, lit from the upper left
+      const d = decodeDots(), r0 = Math.max(0.8, R * 0.0072);
+      for (let i = 0; i < d.length; i += 3) {
+        const c = Math.cos(GX.lam), s = Math.sin(GX.lam), x1 = d[i] * c - d[i + 2] * s, z1 = d[i] * s + d[i + 2] * c;
+        const cp = Math.cos(GX.phi), sp = Math.sin(GX.phi), y2 = d[i + 1] * cp - z1 * sp, z2 = d[i + 1] * sp + z1 * cp;
+        if (z2 <= 0.02) continue;
+        const lit = 0.35 + 0.65 * Math.max(0, (-x1 * 0.4 + y2 * 0.5 + z2 * 0.77));
+        ctx.fillStyle = 'rgba(167,243,208,' + (0.18 + 0.62 * lit).toFixed(2) + ')';
+        ctx.fillRect(cx + x1 * R - r0, cy - y2 * R - r0, r0 * 2, r0 * 2);
+      }
+      // arcs from the home base to every other place
+      const home = CONFIG.PLACES.find((p) => p.kind === 'home');
+      if (home) {
+        const a = vec(home.lat, home.lng);
+        CONFIG.PLACES.forEach((pl) => {
+          if (pl === home) return;
+          const b = vec(pl.lat, pl.lng), dot = Math.max(-1, Math.min(1, a[0] * b[0] + a[1] * b[1] + a[2] * b[2])), om = Math.acos(dot);
+          if (om < 0.05) return;
+          const sel = GX.place === pl.key, n = 56; let pen = false;
+          ctx.beginPath();
+          for (let k = 0; k <= n; k++) {
+            const t = k / n, s1 = Math.sin((1 - t) * om) / Math.sin(om), s2 = Math.sin(t * om) / Math.sin(om), lift = 1 + 0.22 * Math.sin(Math.PI * t) * Math.min(1, om / 1.2);
+            const p = [(a[0] * s1 + b[0] * s2) * lift, (a[1] * s1 + b[1] * s2) * lift, (a[2] * s1 + b[2] * s2) * lift], q = rot(p, GX.lam, GX.phi);
+            if (q[2] < 0.04) { pen = false; continue; }
+            const X = cx + q[0] * R, Y = cy - q[1] * R; if (!pen) { ctx.moveTo(X, Y); pen = true; } else ctx.lineTo(X, Y);
+          }
+          ctx.strokeStyle = sel ? em : 'rgba(52,211,153,.38)'; ctx.lineWidth = sel ? 2 : 1.2; ctx.stroke();
+        });
+      }
+      // pins (HTML buttons follow the projected points)
+      const t = (now || 0) / 1000;
+      CONFIG.PLACES.forEach((pl) => {
+        const q = rot(vec(pl.lat, pl.lng), GX.lam, GX.phi), el = GX.pins && GX.pins[pl.key]; if (!el) return;
+        const on = q[2] > 0.12;
+        el.style.transform = 'translate3d(' + (cx + q[0] * R).toFixed(1) + 'px,' + (cy - q[1] * R).toFixed(1) + 'px,0)';
+        el.style.opacity = on ? '1' : '0'; el.style.pointerEvents = on ? 'auto' : 'none';
+        if (on && GX.place === pl.key && !reducedMq.matches) {           // pulse ring on the selected pin
+          const ph = (t * 0.9) % 1, col = pl.kind === 'edu' ? cy2 : pl.kind === 'home' ? '#fafafa' : em;
+          ctx.beginPath(); ctx.arc(cx + q[0] * R, cy - q[1] * R, 6 + ph * 20, 0, 7); ctx.strokeStyle = col; ctx.globalAlpha = (1 - ph) * 0.8; ctx.lineWidth = 1.6; ctx.stroke(); ctx.globalAlpha = 1;
+        }
+      });
+    }
+    function frame(now) {
+      GX.running = false;
+      if (!GX.visible || document.hidden) return;
+      const k = 0.11; let moving = false;
+      if (!GX.drag) {
+        const dl = wrapPi(GX.tl - GX.lam), dp = GX.tp - GX.phi, dz = GX.tz - GX.zoom;
+        if (Math.abs(dl) > 0.0008 || Math.abs(dp) > 0.0008 || Math.abs(dz) > 0.002) { GX.lam += dl * k; GX.phi += dp * k; GX.zoom += dz * k; moving = true; }
+        else if (GX.auto && !reducedMq.matches) { GX.lam += 0.0016; GX.tl = GX.lam; moving = true; }
+      }
+      draw(now);
+      if (moving || (GX.place && !reducedMq.matches)) { GX.running = true; requestAnimationFrame(frame); }
+    }
+    function kickGlobe() { if (!GX.running && GX.visible && !document.hidden) { GX.running = true; requestAnimationFrame(frame); } }
+
+    function pinLabelKind(pl) { return t('globe.tag.' + pl.kind); }
+    function renderPanel(pl) {
+      const kids = [h('span', { class: 'gx-tag', style: '--c:' + KCOL[pl.kind] }, h('i'), h('span', { text: pinLabelKind(pl) })), h('h3', { text: placeName(pl) })];
+      if (pl.kind === 'home') kids.push(h('p', { class: 'gx-sub', text: t('globe.home.text') }));
+      else kids.push(h('p', { class: 'gx-sub', text: pl.kind === 'work' ? t('globe.tag.work') + ' · ' + t('exp.remote') : '' }));
+      pl.exp.forEach((i) => {
+        const job = CONFIG.EXPERIENCE[i], kp = job.kpis && (job.kpis[lang] || job.kpis.en);
+        kids.push(h('div', { class: 'gx-item' }, h('h4', { text: job.role[lang] || job.role.en }), h('p', { class: 'co', text: job.company }), h('p', { class: 'dates', text: span(job) + '. ' + (job.place[lang] || job.place.en) }),
+          kp && h('ul', { class: 'kpis' }, kp.map((x) => h('li', { class: 'kpi', text: x }))),
+          h('ul', { class: 'bul' }, (job.bullets[lang] || job.bullets.en).map((b) => h('li', { text: b }))),
+          job.stack && h('ul', { class: 'stack' }, job.stack.map((x) => h('li', { text: x })))));
+      });
+      pl.edu.forEach((i) => { const e = CONFIG.EDUCATION[i]; kids.push(h('div', { class: 'gx-item' }, h('h4', { text: e.name[lang] || e.name.en }), h('p', { class: 'co', text: e.school }), h('p', { class: 'dates', text: span(e) }))); });
+      const panel = $('#gx-panel');
+      panel.replaceChildren(h('div', { class: 'gx-in', style: '--c:' + KCOL[pl.kind] }, kids));
+      panel.scrollTop = 0;
+    }
+    function selectPlace(key, opts) {
+      const pl = CONFIG.PLACES.find((p) => p.key === key); if (!pl) return;
+      GX.place = key; GX.auto = false;
+      GX.tl = pl.lng * RAD; GX.tp = Math.max(-1.1, Math.min(1.1, pl.lat * RAD * 0.9)); GX.tz = pl.zoom || 1;
+      if (reducedMq.matches) { GX.lam = GX.tl; GX.phi = GX.tp; GX.zoom = GX.tz; }
+      $$('#gx-chips .chip').forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-key') === key)));
+      $$('.gx-pin').forEach((b) => b.classList.toggle('on', b.getAttribute('data-key') === key));
+      renderPanel(pl);
+      if (opts && opts.focus) $('#gx-panel').focus({ preventScroll: true });
+      kickGlobe(); if (reducedMq.matches) draw(0);
+    }
+    function buildGlobe() {
+      const chips = $('#gx-chips'), pins = $('#gx-pins');
+      GX.pins = {};
+      chips.replaceChildren(...CONFIG.PLACES.map((pl) => { const b = h('button', { type: 'button', class: 'chip', 'aria-pressed': 'false', 'data-key': pl.key, style: '--c:' + KCOL[pl.kind] }, h('i'), h('span', { text: placeName(pl) })); b.addEventListener('click', () => selectPlace(pl.key)); return b; }));
+      pins.replaceChildren(...CONFIG.PLACES.map((pl) => {
+        const b = h('button', { type: 'button', class: 'gx-pin', tabindex: '-1', 'data-key': pl.key, style: '--c:' + KCOL[pl.kind], 'aria-hidden': 'true' }, h('i'), h('b', { text: placeName(pl) }));
+        b.addEventListener('click', () => selectPlace(pl.key)); GX.pins[pl.key] = b; return b;
+      }));
+      GX.built = true;
+    }
+    function relabelGlobe() {                       // after a language change
+      if (!GX.built) return;
+      const sel = GX.place; buildGlobe(); if (sel) { GX.place = null; selectPlace(sel); } kickGlobe(); if (reducedMq.matches) draw(0);
+    }
+    (function globeEvents() {
+      const wrap = $('#gx-wrap');
+      wrap.addEventListener('pointerdown', (e) => { if (e.target.closest('.gx-pin') || (e.pointerType === 'mouse' && e.button !== 0)) return; GX.drag = { x: e.clientX, y: e.clientY, id: e.pointerId, moved: false }; });
+      window.addEventListener('pointermove', (e) => {
+        const d = GX.drag; if (!d || e.pointerId !== d.id) return;
+        const dx = e.clientX - d.x, dy = e.clientY - d.y;
+        if (!d.moved) { if (Math.abs(dx) < 4 && Math.abs(dy) < 4) return; if (e.pointerType !== 'mouse' && Math.abs(dy) > Math.abs(dx)) { GX.drag = null; return; } d.moved = true; wrap.classList.add('dragging'); GX.auto = false; try { wrap.setPointerCapture(e.pointerId); } catch (err) {} }
+        const k = 1.9 / (GX.w * GX.zoom);
+        GX.lam -= dx * k; GX.phi = Math.max(-1.2, Math.min(1.2, GX.phi + dy * k)); GX.tl = GX.lam; GX.tp = GX.phi; d.x = e.clientX; d.y = e.clientY;
+        if (reducedMq.matches) draw(0); else kickGlobe(); draw(performance.now());
+      });
+      const end = (e) => { if (GX.drag && (!e || e.pointerId === GX.drag.id)) { GX.drag = null; wrap.classList.remove('dragging'); kickGlobe(); } };
+      window.addEventListener('pointerup', end); window.addEventListener('pointercancel', end);
+      new ResizeObserver(() => { if (GX.visible) draw(performance.now()); }).observe(wrap);
+      new IntersectionObserver((en) => { GX.visible = en[0].isIntersecting; if (GX.visible) { if (!GX.kick) { GX.kick = true; startFlourish(); } kickGlobe(); } }, { threshold: 0.15 }).observe(wrap);
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) kickGlobe(); });
+    })();
+    function startFlourish() {                       // first time on screen: slow spin, then settle on the latest job
+      const first = CONFIG.PLACES.find((p) => p.kind === 'work');
+      if (reducedMq.matches) { selectPlace(first.key); return; }
+      GX.lam = 8 * RAD; GX.phi = 10 * RAD; GX.zoom = 0.92; GX.auto = true;
+      setTimeout(() => { if (!GX.place) selectPlace(first.key); }, 1500);
+    }
+    let expView = (function () { const v = storeGet('je-expview'); if (v === 'globe' || v === 'list') return v; return (!reducedMq.matches && window.matchMedia('(min-width: 768px)').matches) ? 'globe' : 'list'; })();
+    function applyExpView() {
+      const g = expView === 'globe';
+      $('#exp-globe').hidden = !g; $('#exp-timeline').hidden = g;
+      $$('#exp-view button').forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-view') === expView)));
+      if (g) { if (!GX.built) buildGlobe(); if (!GX.place && GX.kick) selectPlace(CONFIG.PLACES.find((p) => p.kind === 'work').key); requestAnimationFrame(() => { draw(performance.now()); kickGlobe(); }); }
+    }
+    $$('#exp-view button').forEach((b) => b.addEventListener('click', () => { expView = b.getAttribute('data-view'); storeSet('je-expview', expView); applyExpView(); }));
+
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
     /* ---------- Certifications (cards + modal) ---------- */
     const dlg = (function () {
       const d = h('dialog', { class: 'cdialog', 'aria-labelledby': 'cert-title' });
@@ -1012,14 +1944,86 @@
     dlg.addEventListener('close', () => { if (lastTrigger) lastTrigger.focus(); });
     const certImg = (c) => c.badge && safeFile(c.badge) ? 'assets/badges/' + safeFile(c.badge) : 'assets/logos/' + safeFile(c.logo) + '.svg';
     function mark(c) { return h('span', { class: 'cmark' + (c.badge ? '' : ' logo') }, h('img', { src: certImg(c), alt: '', width: 64, height: 64, loading: 'lazy', decoding: 'async' })); }
+<<<<<<< HEAD
+    function certBody(c, dialogMode) {
+=======
     function openCert(c, trigger) {
       lastTrigger = trigger;
       const close = h('button', { type: 'button', class: 'xbtn', 'aria-label': t('certs.close') }); close.append(icon('close'));
       close.addEventListener('click', () => dlg.close());
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       const rows = [];
       if (c.issued) rows.push(h('div', {}, h('dt', { text: t('certs.issued') }), h('dd', { text: fmtDate(c.issued, { month: 'long' }) })));
       if (c.credentialId) rows.push(h('div', {}, h('dt', { text: t('certs.id') }), h('dd', { class: 'font-mono text-sm', text: c.credentialId })));
       const url = safeUrl(c.url);
+<<<<<<< HEAD
+      return [mark(c),
+        h(dialogMode ? 'h3' : 'p', { id: dialogMode ? 'cert-title' : null, class: dialogMode ? null : 'pop-title', text: c.name }), h('p', { class: 'by', text: c.issuer }),
+        rows.length && h('dl', {}, rows),
+        c.description && h('p', { class: 'desc', text: c.description[lang] || c.description.en }),
+        c.skills && c.skills.length && h('ul', { class: 'tiles', 'aria-label': t('certs.skills') }, c.skills.map((s) => h('li', { class: 'tile' }, h('span', { text: s })))),
+        url && h('a', { class: 'btn btn-primary', href: url, target: '_blank', rel: 'noopener noreferrer', tabindex: dialogMode ? null : '-1' }, h('span', { text: t('certs.verify') }), icon('arrow'))];
+    }
+    function openCert(c, trigger) {
+      hidePop(true);
+      lastTrigger = trigger;
+      const close = h('button', { type: 'button', class: 'xbtn', 'aria-label': t('certs.close') }); close.append(icon('close'));
+      close.addEventListener('click', () => dlg.close());
+      dlg.replaceChildren(h('div', { class: 'dlg' }, close, certBody(c, true)));
+      dlg.showModal();
+    }
+
+    /* Hover card: appears when the mouse rests on a certificate (or the card has keyboard focus). It is a
+       visual duplicate of the dialog, so it is hidden from screen readers; click, tap or Enter opens the dialog. */
+    const pop = $('#cert-pop');
+    let popTimer = 0, popFor = null;
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+    function showPop(c, card) {
+      clearTimeout(popTimer); popFor = card;
+      pop.replaceChildren(h('div', { class: 'pop-in' }, certBody(c, false)));
+      pop.hidden = false; pop.classList.remove('show');
+      const r = card.getBoundingClientRect(), pw = Math.min(352, innerWidth - 16);
+      pop.style.width = pw + 'px';
+      const ph = pop.offsetHeight, gap = 12;
+      let top = r.top - ph - gap, below = false;
+      if (top < 8) { top = r.bottom + gap; below = true; }
+      if (top + ph > innerHeight - 8) top = Math.max(8, innerHeight - ph - 8);
+      const left = Math.max(8, Math.min(innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
+      pop.style.left = left + 'px'; pop.style.top = top + 'px';
+      pop.style.setProperty('--ox', (r.left + r.width / 2 - left) + 'px'); pop.classList.toggle('below', below);
+      requestAnimationFrame(() => pop.classList.add('show'));
+    }
+    function hidePop(now) {
+      clearTimeout(popTimer);
+      const done = () => { pop.classList.remove('show'); pop.hidden = true; popFor = null; };
+      if (now) done(); else popTimer = setTimeout(done, 140);
+    }
+    pop.addEventListener('pointerenter', () => clearTimeout(popTimer));
+    pop.addEventListener('pointerleave', () => hidePop());
+    addEventListener('scroll', () => { if (!pop.hidden) hidePop(true); }, { passive: true });
+    addEventListener('resize', () => hidePop(true));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !pop.hidden) hidePop(true); });
+    const CERTS_SHOWN = 4;
+    let certsOpen = false;
+    function renderCerts() {
+      $('#cert-grid').replaceChildren(...CONFIG.CERTIFICATIONS.map((c, i) => {
+        const b = h('button', { type: 'button', class: 'ccard', 'aria-haspopup': 'dialog', style: '--i:' + (i % CERTS_SHOWN), hidden: !certsOpen && i >= CERTS_SHOWN ? true : null }, mark(c), h('strong', { text: c.name }), h('span', { class: 'issuer', text: c.issuer }));
+        b.addEventListener('click', () => openCert(c, b));
+        b.addEventListener('pointerenter', (e) => { if (e.pointerType !== 'mouse' || !canHover.matches) return; clearTimeout(popTimer); popTimer = setTimeout(() => showPop(c, b), 90); });
+        b.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hidePop(); });
+        b.addEventListener('focus', () => { if (b.matches(':focus-visible')) showPop(c, b); });
+        b.addEventListener('blur', () => { if (popFor === b) hidePop(); });
+        return b;
+      }));
+      const more = $('#cert-more'), total = CONFIG.CERTIFICATIONS.length;
+      more.hidden = total <= CERTS_SHOWN;
+      more.setAttribute('aria-expanded', String(certsOpen));
+      more.textContent = certsOpen ? t('certs.fewer') : t('certs.all').replace('{n}', total);
+      if (dlg.open) dlg.close();
+      hidePop(true);
+    }
+    $('#cert-more').addEventListener('click', () => { certsOpen = !certsOpen; renderCerts(); });
+=======
       dlg.replaceChildren(h('div', { class: 'dlg' }, close, mark(c),
         h('h3', { id: 'cert-title', text: c.name }), h('p', { class: 'by', text: c.issuer }),
         rows.length && h('dl', {}, rows),
@@ -1036,6 +2040,7 @@
       }));
       if (dlg.open) dlg.close();
     }
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
 
     /* ---------- Contact ---------- */
     function renderContact() {
@@ -1047,10 +2052,36 @@
         mk(mailto, t('contact.email'), icon('mail'), false),
         mk(safeUrl(CONFIG.LINKEDIN), t('contact.linkedin'), h('img', { src: 'assets/logos/linkedin.svg', alt: '', width: 26, height: 26 }), true));
       const em = $('#email-text'); em.setAttribute('href', mailto); em.textContent = CONFIG.EMAIL;
+<<<<<<< HEAD
+      $('#help-list').replaceChildren(...CONFIG.HELP.map((k) => h('li', {}, h('strong', { text: t('help.' + k + '.t') }), h('span', { text: t('help.' + k + '.d') }))));
+    }
+    $('#copy-email').addEventListener('click', async () => {
+      const status = $('#copy-status'), label = $('#copy-email span');
+      try {
+        await Promise.race([navigator.clipboard.writeText(CONFIG.EMAIL), new Promise((_, rej) => setTimeout(rej, 800))]);
+      } catch (e) {
+        const ta = h('textarea', { 'aria-hidden': 'true', style: 'position:fixed;opacity:0' }); ta.value = CONFIG.EMAIL; document.body.append(ta); ta.select();
+        try { document.execCommand('copy'); } catch (e2) {} ta.remove();
+      }
+      label.textContent = t('contact.copied'); status.textContent = t('contact.copied');
+      setTimeout(() => { label.textContent = t('contact.copy'); status.textContent = ''; }, 2000);
+    });
+    $('#contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = e.currentTarget, name = f.name.value.trim().slice(0, 100), from = f.email.value.trim().slice(0, 120), msg = f.message.value.trim().slice(0, 2000);
+      const subject = (lang === 'fr' ? 'Contact depuis le portfolio : ' : 'Portfolio contact: ') + name;
+      const body = msg + '\n\n' + name + ' <' + from + '>';
+      location.href = 'mailto:' + CONFIG.EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+
+    function renderAll() {
+      applyStatic(); renderHeroStats(); renderSkills(); renderProjects(); renderExperience(); renderCerts(); renderContact(); applyExpView(); relabelGlobe();
+=======
     }
 
     function renderAll() {
       applyStatic(); renderHeroStats(); renderSkills(); renderProjects(); renderExperience(); renderCerts(); renderContact();
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       $('#replay').hidden = reducedMq.matches || !window.gsap;
       observeReveals();
     }
@@ -1059,12 +2090,57 @@
     let io = null, revealsOn = false;
     function observeReveals() {
       if (!revealsOn) return;
+<<<<<<< HEAD
+      const items = $$('.reveal:not(.in), .jobs:not(.in)');
+=======
       const items = $$('.reveal:not(.in)');
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
       if (reducedMq.matches || !('IntersectionObserver' in window)) { items.forEach((n) => n.classList.add('in')); return; }
       if (!io) io = new IntersectionObserver((entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
       items.forEach((n) => io.observe(n));
     }
 
+<<<<<<< HEAD
+    /* ---------- Cursor spotlight on cards (sets two CSS variables on the hovered card) ---------- */
+    (function spotlight() {
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      let raf = 0, ev = null;
+      document.addEventListener('pointermove', (e) => {
+        if (e.pointerType !== 'mouse') return; ev = e;
+        if (!raf) raf = requestAnimationFrame(() => {
+          raf = 0; const el = ev.target.closest && ev.target.closest('.skillcard,.job,.pcard,.about-card,.cform,.help li');
+          if (!el) return; const r = el.getBoundingClientRect();
+          el.style.setProperty('--mx', (ev.clientX - r.left) + 'px'); el.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+        });
+      }, { passive: true });
+    })();
+
+    /* ---------- Active nav link and scroll progress ---------- */
+    let currentSection = '';
+    function markActive() {
+      $$('#nav-main a, #mobile-nav a').forEach((a) => {
+        if (a.getAttribute('href') === '#' + currentSection) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+      });
+    }
+    (function trackSections() {
+      if (!('IntersectionObserver' in window)) return;
+      const ids = ['about', 'skills', 'projects', 'experience', 'certifications', 'contact'];
+      const seen = new Map();
+      const so = new IntersectionObserver((entries) => {
+        entries.forEach((e) => seen.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0));
+        let best = '', max = 0; seen.forEach((v, k) => { if (v > max) { max = v; best = k; } });
+        if (best !== currentSection) { currentSection = best; markActive(); }
+      }, { rootMargin: '-30% 0px -55% 0px', threshold: [0, 0.01, 0.1, 0.5, 1] });
+      ids.forEach((id) => { const n = document.getElementById(id); if (n) so.observe(n); });
+    })();
+    (function progress() {
+      const bar = $('#progress'); let tick = false;
+      const upd = () => { tick = false; const max = document.documentElement.scrollHeight - innerHeight; bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, scrollY / max) : 0) + ')'; };
+      addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
+    })();
+
+=======
+>>>>>>> 78bce761e031bd394fe9d5b6cab53c944fc0fa23
     /* ---------- Language toggle, menu ---------- */
     $$('.lang button').forEach((b) => b.addEventListener('click', () => {
       const next = b.getAttribute('data-lang'); if (next === lang) return;
